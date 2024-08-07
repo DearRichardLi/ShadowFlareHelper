@@ -4,7 +4,8 @@
 
 ShadowFlare Helper is an intergrated hack tool of the game Shadowflare, help you to experience the game in a brand new easy way.
 
-![Screenshot](/README/ScreenShot1.png)
+![Screenshot](/README/ScreenShot1.png)  
+![Screenshot](/README/ScreenShot2.png)
 
 ## How To Use
 Put `SFHelper` to your ShadowFLare Game Folder.  
@@ -20,17 +21,19 @@ ATTENTION: Re-Bind Game after you S/L Savefile.
 - Compatible with SF Resolution Hack 
 - Hide APP to Task Bar 
 - Modify as much data as possible
-
-
+- Timely monitor and update Game data 
+- Integrated [ShadowFlare WallHack](https://github.com/DearRichardLi/ShadowFlareWallHack) to this APP 
 
 
 
 ## Future Functions
-- Timely monitor and update Game data 
-- Integrate [ShadowFlare WallHack](https://github.com/DearRichardLi/ShadowFlareWallHack) to this APP 
+
 - Unlimited & Instantly Teleport to ANY place.
 - Player Status Modify
 - Quest/Magic/GiantWarehouse Modify
+- extend Swordman Atk Range
+- Be super rich in game
+- Customized Teleportation (To Any map, Any where)
 - more......
 
 
@@ -48,4 +51,22 @@ windres SFHelperResource.rc -o SFHelperResource.o
 
 gcc -o SFHelper SFHelperResource.o main.c libshlwapi.a libpsapi.a -mwindows -lcomctl32 
 ```
+
+## Update Log
+
+### v0.1.0
+- First publication  
+- Bind game and print log  
+- Read and modify Player name, LV, EXP, Prof., Companion LV, ...  
+- 3 Available App Language (CHT, CHN, ENG)  
+- Support 5 version of SF Game (Full 4 Episodes) (CHT, CHN, ENG, JPN, KOR)  
+- Auto detect PC locale and set APP Language  
+- Hide APP to taskbar  
+- Compitable with resulution hack. (Administrator privilege needed)  
+
+### v0.2.0
+- Refresh data: after switch on, timely update player status in APP.  
+- Keyboard Hook: after switch on, use Numpad/ Arror keys to move in game. (Integrated [ShadowFlare WallHack](https://github.com/DearRichardLi/ShadowFlareWallHack) )  
+- Customize Move Distance, Move Delay, Refresh Data Delay Time  
+- Display Player Position (Map ID, Map Name, X/Y Coordinate)  
 

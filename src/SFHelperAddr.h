@@ -64,7 +64,7 @@
 #define STATS_TAB_QUEST                         0x60
 #define STATS_TAB_HELP                          0x64
 #define STATS_TAB_ESC_MENU                      0x68
-#define STATS_TAB_OUTFIT_CUSTOMIZE              0x6C
+#define STATS_TAB_CUSTOMIZE_OUTFIT              0x6C
 #define STATS_TAB_MINIMAP                       0x70
 #define STATS_TAB_SPECIAL_ITEM                  0x74
 #define STATS_TAB_BLACKJACK                     0x78
@@ -152,7 +152,7 @@
 #define CA_COMPANION_EXP                       0x158
 #define CA_COMPANION_REVIVE_TIMER              0x15C
 #define CA_LANDMINE_POSSESS_LIMIT              0x160
-#define CA_EXTRA_LANDMINE_LIMIT                0x164
+#define CA_EXTRA_LANDMINE_POWER                0x164
 #define CA_EXTRA_MAGIC_LV                      0x168
 #define CA_CHANT_SPD                           0x16C
 
@@ -345,7 +345,8 @@
 #define CA_POWER_KILL_COUNTER                 0x1550
 #define CA_POWER_REMAINING_TIMER              0x1554
 #define CA_POWER_PASTED_TIME_TIMER            0x1558
-// ----UNKNOWN----                            0x155C - 0x159C
+// ----UNKNOWN----                            0x155C - 0x1598
+#define CA_INTERACTIVE_MAGIC_BALL             0x159C
 #define CA_COMPANION_IS_ACTIVE                0x15A0
 #endif // _SF_ADDR_CHARACTER_ATTRIBUTE_OFFSET
 

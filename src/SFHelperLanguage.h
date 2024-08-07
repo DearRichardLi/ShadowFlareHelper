@@ -55,25 +55,48 @@
 #define AWSTR_APP_PERMISSION_DENIED    52
 #define AWSTR_APP_STRING_OVERFLOW      53
 #define AWSTR_APP_HINT_RELOAD_SAVEFILE 54
+#define AWSTR_APP_KEYBOARD_HOOK_FAIL   55
+#define AWSTR_APP_CREATE_THREAD_FAIL   56
+#define AWSTR_APP_JOIN_THREAD_FAIL     57
+#define AWSTR_APP_HOOK_ON              58
+#define AWSTR_APP_HOOK_OFF             59
+#define AWSTR_APP_SF_CLOSED            60
+#define AWSTR_APP_SF_LOGOUT            61
+#define AWSTR_APP_SF_NOT_LOGIN         62
+#define AWSTR_APP_REFRESH_ON           63
+#define AWSTR_APP_REFRESH_OFF          64
 
     // 80 - 99 text on controls
 #define AWSTR_CTL_B_CHANGE_LANG        80
 #define AWSTR_CTL_B_OPENSF             81
 #define AWSTR_CTL_B_BIND_GAME          82
-#define AWSTR_CTL_S_GAMEMODE           83
-#define AWSTR_CTL_E_GAMEMODE_SINGLE    84
-#define AWSTR_CTL_E_GAMEMODE_ONLINE    85
-#define AWSTR_CTL_S_ONLINEROLE         86
-#define AWSTR_CTL_S_PLAYER_NAME        87
-#define AWSTR_CTL_B_APPLY              88
-#define AWSTR_CTL_S_LV                 89
-#define AWSTR_CTL_S_SEX                90
-#define AWSTR_CTL_S_EXP                91
-#define AWSTR_CTL_S_PROF               92
-#define AWSTR_CTL_S_PROF_TO_BE         93
-#define AWSTR_CTL_S_COMPANION_LV       94
-#define AWSTR_CTL_S_COMPANION_ID       95
-#define AWSTR_CTL_S_COMPANION_EXP      96
+#define AWSTR_CTL_B_REFRESH            83
+#define AWSTR_CTL_S_REFRESH_DELAY      84
+#define AWSTR_CTL_S_GAMEMODE           85
+#define AWSTR_CTL_E_GAMEMODE_SINGLE    86
+#define AWSTR_CTL_E_GAMEMODE_ONLINE    87
+#define AWSTR_CTL_S_ONLINEROLE         88
+#define AWSTR_CTL_S_PLAYER_NAME        89
+#define AWSTR_CTL_B_APPLY              90
+#define AWSTR_CTL_S_LV                 91
+#define AWSTR_CTL_S_SEX                92
+#define AWSTR_CTL_S_EXP                93
+#define AWSTR_CTL_S_PROF               94
+#define AWSTR_CTL_S_PROF_TO_BE         95
+#define AWSTR_CTL_S_COMPANION_LV       96
+#define AWSTR_CTL_S_COMPANION_ID       97
+#define AWSTR_CTL_S_COMPANION_EXP      98
+
+#define AWSTR_CTL_B_HOOK               99
+#define AWSTR_CTL_S_HOOK_STATUS       100
+#define AWSTR_CTL_E_HOOK_STATUS_ON    101
+#define AWSTR_CTL_E_HOOK_STATUS_OFF   102
+#define AWSTR_CTL_S_MAP_ID            103
+#define AWSTR_CTL_S_X                 104
+#define AWSTR_CTL_S_Y                 105
+#define AWSTR_CTL_S_MOVE_DISTANCE     106
+#define AWSTR_CTL_S_MOVE_DELAY        107
+
 
 
 #define APP_WSTR_SEX_COUNT      2

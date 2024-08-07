@@ -132,22 +132,31 @@ L"將\"SFHelper.exe\"檔案放入焰影神兵遊戲文件夾。\r\n\
 開啟遊戲並讀檔後，在下拉框中選擇遊戲版本。\r\n\
 點擊\"綁定遊戲\"。成功後即可開始修改。\r\n\
 \r\n\
-注意: 重啟遊戲或重新讀檔後，需要重新綁定遊戲。\r\n",
+注意: 重啟遊戲或重新讀檔後，需要重新綁定遊戲。\r\n\
+將間隔時間(單位: 毫秒)調至過低可能會導致CPU佔用率上升。\r\n",
 L"将\"SFHelper.exe\"放入焰影神兵游戏文件夹。\r\n\
 开启游戏并读档，在下拉框中选择游戏版本。\r\n\
 点击\"绑定游戏\"。成功后即可开始修改。\r\n\
 \r\n\
-注意: 重启游戏或重新读档后，需要重新绑定游戏。\r\n",
+注意: 重启游戏或重新读档后，需要重新绑定游戏。\r\n\
+将间隔时间(单位: 毫秒)调至过低可能会导致CPU占用率高。\r\n",
 L"Put \"SFHelper.exe\" to your ShadowFLare Game Folder.\r\n\
 Opening SF Game and Load your Savefile.\r\n\
 Choose SF Version from ComboBox and \"Bind Game\"\r\n\
 After Binding successfully, Hack functions unlock. \r\n\
 \r\n\
-ATTENTION: Re-Bind Game after you S/L Savefile.\r\n",
+ATTENTION: Re-Bind Game after you S/L Savefile.\r\n\
+Set a low delay (unit: MilliSeconds) may cause high CPU usage.\r\n",
     }, { // 32 AWSTR_APP_WALLHACK_HELP
-L"",
-L"",
-L"",
+L"點擊全局鉤子開關以開啟鍵盤移動, 再次點擊可關閉。\r\n\
+在遊戲內使用數字鍵盤/方向鍵進行移動。\r\n\
+將間隔時間(單位: 毫秒)調至過低可能會導致CPU佔用率上升。",
+L"点击全局钩子开关以开启键盘移动，再次点击可关闭。\r\n\
+在游戏内使用小键盘/方向键以移动。\r\n\
+将间隔时间(单位: 毫秒)调至过低可能会导致CPU占用率高。",
+L"Click On/Off Button to enable WallHack. Click again to disable.\r\n\
+Use Numpad/ Arrow key to move within game.\r\n\
+Set a low delay (unit: MilliSeconds) may cause high CPU usage.",
     }, { // 33 AWSTR_APP_LOG_TO_FILE_FAIL
 L"錯誤: 未能寫入日誌文件。",
 L"错误: 未能写入日志文件。",
@@ -237,46 +246,46 @@ L"Notice: String too long. Discard out-of-bound characters.",
 L"敬告: 重新讀檔以使性別/同伴ID修改生效。",
 L"敬告: 重新读档以使性别/同伴ID修改生效。",
 L"Tip: S/L Savefile to refresh your Sex/Comp.ID.",
-    }, { // 55 
-L"",
-L"",
-L"",
-    }, { // 56 
-L"",
-L"",
-L"",
-    }, { // 57 
-L"",
-L"",
-L"",
-    }, { // 58 
-L"",
-L"",
-L"",
-    }, { // 59 
-L"",
-L"",
-L"",
-    }, { // 60 
-L"",
-L"",
-L"",
-    }, { // 61 
-L"",
-L"",
-L"",
-    }, { // 62 
-L"",
-L"",
-L"",
-    }, { // 63 
-L"",
-L"",
-L"",
-    }, { // 64 
-L"",
-L"",
-L"",
+    }, { // 55 AWSTR_APP_KEYBOARD_HOOK_FAIL
+L"錯誤: 設置鍵盤鉤子失敗。",
+L"错误: 设置键盘钩子失败。",
+L"Err: Failed to set keyboard Hook.",
+    }, { // 56 AWSTR_APP_CREATE_THREAD_FAIL
+L"錯誤: 創建線程失敗。",
+L"错误: 创建线程失败。",
+L"Err: Failed to create thread.",
+    }, { // 57 AWSTR_APP_JOIN_THREAD_FAIL
+L"錯誤: 終止線程失敗。",
+L"错误: 终止线程失败。",
+L"Err: Failed to join thread.",
+    }, { // 58 AWSTR_APP_HOOK_ON
+L"設置鉤子成功。",
+L"设置钩子成功。",
+L"Hook On!",
+    }, { // 59 AWSTR_APP_HOOK_OFF
+L"解除鉤子成功。",
+L"解除钩子成功。",
+L"Hook Off!",
+    }, { // 60 AWSTR_APP_SF_CLOSED
+L"檢測到遊戲已關閉。",
+L"检测到游戏已关闭。",
+L"ShadowFlare is closed.",
+    }, { // 61 AWSTR_APP_SF_LOGOUT
+L"檢測到遊戲已登出存檔。",
+L"检测到游戏已登出存档。",
+L"ShadowFlare player logged out.",
+    }, { // 62 AWSTR_APP_SF_NOT_LOGIN
+L"檢測到遊戲還未讀檔。",
+L"检测到游戏还未读档。",
+L"ShadowFlare Savefile not logged in.",
+    }, { // 63 AWSTR_APP_REFRESH_ON
+L"數據同步已開啟。",
+L"数据同步已开启。",
+L"Refresh On!",
+    }, { // 64 AWSTR_APP_REFRESH_OFF
+L"數據同步已關閉。",
+L"数据同步已关闭。",
+L"Refresh Off!",
     }, { // 65 
 L"",
 L"",
@@ -349,106 +358,106 @@ L"Run Game",
 L"綁定遊戲",
 L"绑定游戏",
 L"Bind Game",
-    }, { // 83 AWSTR_CTL_S_GAMEMODE
+    }, { // 83 AWSTR_CTL_B_REFRESH
+L"數據刷新開關",
+L"数据刷新开关",
+L"Refresh Data On/Off",
+    }, { // 84 AWSTR_CTL_S_REFRESH_DELAY
+L"數據刷新間隔時間:",
+L"数据刷新间隔时间:",
+L"Refresh Delay Time:",
+    }, { // 85 AWSTR_CTL_S_GAMEMODE
 L"遊戲模式:",
 L"游戏模式:",
 L"Game Mode:",
-    }, { // 84 AWSTR_CTL_E_GAMEMODE_SINGLE
+    }, { // 86 AWSTR_CTL_E_GAMEMODE_SINGLE
 L"單人",
 L"单机",
 L"Single Game",
-    }, { // 85 AWSTR_CTL_E_GAMEMODE_ONLINE
+    }, { // 87 AWSTR_CTL_E_GAMEMODE_ONLINE
 L"聯網",
 L"联机",
 L"Online Game",
-    }, { // 86 AWSTR_CTL_S_ONLINEROLE
+    }, { // 88 AWSTR_CTL_S_ONLINEROLE
 L"網路職能:",
 L"联机职责:",
 L"Online Role:",
-    }, { // 87 AWSTR_CTL_S_PLAYER_NAME
+    }, { // 89 AWSTR_CTL_S_PLAYER_NAME
 L"角色名:",
 L"角色名:",
 L"Name:",
-    }, { // 88 AWSTR_CTL_B_APPLY
+    }, { // 90 AWSTR_CTL_B_APPLY
 L"確認",
 L"确认",
 L"Apply",
-    }, { // 89 AWSTR_CTL_S_LV
+    }, { // 91 AWSTR_CTL_S_LV
 L"LV:",
 L"LV:",
 L"LV:",
-    }, { // 90 AWSTR_CTL_S_SEX
+    }, { // 92 AWSTR_CTL_S_SEX
 L"性別:",
 L"性别:",
 L"Sex:",
-    }, { // 91 AWSTR_CTL_S_EXP
+    }, { // 93 AWSTR_CTL_S_EXP
 L"經驗:",
 L"经验:",
 L"Exp:",
-    }, { // 92 AWSTR_CTL_S_PROF
+    }, { // 94 AWSTR_CTL_S_PROF
 L"職業:",
 L"职业:",
 L"Prof:",
-    }, { // 93 AWSTR_CTL_S_PROF_TO_BE
+    }, { // 95 AWSTR_CTL_S_PROF_TO_BE
 L"將轉職為:",
 L"将转职为:",
 L"Prof To Be:",
-    }, { // 94 AWSTR_CTL_S_COMPANION_LV
+    }, { // 96 AWSTR_CTL_S_COMPANION_LV
 L"隊友等級:",
 L"队友等级:",
 L"Comp LV:",
-    }, { // 95 AWSTR_CTL_S_COMPANION_ID
+    }, { // 97 AWSTR_CTL_S_COMPANION_ID
 L"隊友ID:",
 L"队友ID:",
 L"Comp ID:",
-    }, { // 96 AWSTR_CTL_S_COMPANION_EXP
+    }, { // 98 AWSTR_CTL_S_COMPANION_EXP
 L"隊友經驗:",
 L"队友经验:",
 L"Comp Exp:",
-    }, { // 97 
-L"",
-L"",
-L"",
-    }, { // 98 
-L"",
-L"",
-L"",
-    }, { // 99 
-L"",
-L"",
-L"",
-    }, { // 100 
-L"",
-L"",
-L"",
-    }, { // 101 
-L"",
-L"",
-L"",
-    }, { // 102 
-L"",
-L"",
-L"",
-    }, { // 103 
-L"",
-L"",
-L"",
-    }, { // 104 
-L"",
-L"",
-L"",
-    }, { // 105 
-L"",
-L"",
-L"",
-    }, { // 106 
-L"",
-L"",
-L"",
-    }, { // 107 
-L"",
-L"",
-L"",
+    }, { // 99 AWSTR_CTL_B_HOOK
+L"全局鉤子開關",
+L"全局钩子开关",
+L"Global Hook On/Off",
+    }, { // 100 AWSTR_CTL_S_HOOK_STATUS
+L"鉤子狀態:",
+L"钩子状态:",
+L"Hook Status:",
+    }, { // 101 AWSTR_CTL_E_HOOK_STATUS_ON
+L"開",
+L"开",
+L"On",
+    }, { // 102 AWSTR_CTL_E_HOOK_STATUS_OFF
+L"關",
+L"关",
+L"Off",
+    }, { // 103 AWSTR_CTL_S_MAP_ID
+L"地圖ID:",
+L"地图ID:",
+L"Map ID:",
+    }, { // 104 AWSTR_CTL_S_X
+L"X:",
+L"X:",
+L"X:",
+    }, { // 105 AWSTR_CTL_S_Y
+L"Y:",
+L"Y:",
+L"Y:",
+    }, { // 106 AWSTR_CTL_S_MOVE_DISTANCE
+L"移動距離:",
+L"移动距离:",
+L"Move Dist.:",
+    }, { // 107 AWSTR_CTL_S_MOVE_DELAY
+L"移動間隔時間:",
+L"移动间隔时间:",
+L"Move Delay Time:",
     }, { // 108 
 L"",
 L"",

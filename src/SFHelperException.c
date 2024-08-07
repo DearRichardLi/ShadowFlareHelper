@@ -13,6 +13,8 @@ extern Hack_Statu_Info Hack_Status;
 extern SF_Window_Info SF_Window;
 extern LPCWSTR APP_WSTR[APP_WSTR_STRINGS_COUNT][AVAILABLE_LANGUAGE_COUNT];
 
+extern HWND hwnd;
+
 
 void ExceptionLog(){
     DWORD APP_WSTR_index = (Hack_Status.LastErrorCode >> 16) & 0xFF;
@@ -20,7 +22,7 @@ void ExceptionLog(){
     SYSTEMTIME st;
     GetLocalTime(&st);
   
-    FILE *file = fopen("SFHelper.log", "a"); 
+    FILE *file = fopen("__SFHelperError.log", "a"); 
     if (file == NULL) {
         MessageBoxW(NULL, 
                 APP_WSTR[AWSTR_APP_LOG_TO_FILE_FAIL][Hack_Status.App_Language], 
@@ -43,7 +45,7 @@ void ExceptionHandler(){
     // DWORD msgType        = (Hack_Status.LastErrorCode & 0x01000000) >> 6;
     WCHAR logBuffer[128] = {0};
     swprintf_s(logBuffer, sizeof(logBuffer), L"%d %d", APP_WSTR_index, msgType);
-    MessageBoxW(NULL, logBuffer, L"except wstr index", 0);
+    // MessageBoxW(hwnd, logBuffer, L"except wstr index", 0);
 
     switch((int)msgType){
     case SF_NORMAL: break;
@@ -51,7 +53,7 @@ void ExceptionHandler(){
     case SF_ERROR :
         ExceptionLog(Hack_Status.LastErrorCode, APP_WSTR_index);
     }
-    MessageBoxW(NULL, 
+    MessageBoxW(hwnd, 
             APP_WSTR[APP_WSTR_index][Hack_Status.App_Language], 
             L"Exception", msgType==SF_NORMAL? MB_OK: 
             msgType==SF_WARN? MB_ICONINFORMATION : MB_ICONERROR);
