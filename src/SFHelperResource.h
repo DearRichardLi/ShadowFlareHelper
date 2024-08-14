@@ -3,24 +3,25 @@
 
 #ifndef _SF_PROFESSION_CODE
 #define _SF_PROFESSION_CODE
-#define P_GUNNER      0x00
-#define P_THIFE       0x01
-#define P_NINJA       0x02
-#define P_SAVAGE      0x03
-#define P_ASSASSIN    0x04
-#define P_HUNTER      0x05
-#define P_SWORDMAN    0x06
-#define P_WARRIOR     0x07
-#define P_BLACKMAGE   0x08
-#define P_WITCH       0x09
-#define P_SPELLSWORD  0x0A
-#define P_KNIGHT      0x0B
-#define P_SAGE        0x0C
-#define P_MONK        0x0D
-#define P_SAMURAI     0x0E
-#define P_SAINTKNIGHT 0x0F
-#define P_MERCENARY   0x10
+#define P_C_GUNNER      0x00
+#define P_C_THIFE       0x01
+#define P_C_NINJA       0x02
+#define P_C_SAVAGE      0x03
+#define P_C_ASSASSIN    0x04
+#define P_C_HUNTER      0x05
+#define P_C_SWORDMAN    0x06
+#define P_C_WARRIOR     0x07
+#define P_C_BLACKMAGE   0x08
+#define P_C_WITCH       0x09
+#define P_C_SPELLSWORD  0x0A
+#define P_C_KNIGHT      0x0B
+#define P_C_SAGE        0x0C
+#define P_C_MONK        0x0D
+#define P_C_SAMURAI     0x0E
+#define P_C_SAINTKNIGHT 0x0F
+#define P_C_MERCENARY   0x10
 #endif // _SF_PROFESSION_CODE
+
 #ifndef _SF_SCENARIO
 #define _SF_SCENARIO
     // EP1
@@ -56,8 +57,8 @@
 
 #define S_FOREST_AREA_1                      2000000
 #define S_FOREST_AREA_2                      2000001
-#define S_KANFORE_MINING_TOWN                2010000
-#define S_MINE__FOREST                       2100000
+#define S_MINE__FOREST                       2010000
+#define S_KANFORE_MINING_TOWN                2100000
 #define S_FOREST_OF_FOUR_LEAVES              2100001
 #define S_FOREST_OF_CLAWS                    2100002
 #define S_FOREST_OF_SILENCE                  2100003
@@ -85,7 +86,7 @@
 #define S_FORT_OF_THE_POWER_SUPPLY           2230000
 #define S_CAVE_B1F__BUTTERFLY_HILL           2240000
 #define S_CAVE_B2F                           2240001
-#define S_CAVE_OF_VEZELEY                    2250000
+#define S_WESLEY_CAVE                        2250000
 #define S_CARAVAN                            2999999
 
 #define S_THE_WILDS_OF_DEATH_AND_DARKNESS             3000101
@@ -237,7 +238,22 @@
 #define S_TOWER_OF_ORDEAL_ANNEX_12F         99000035
 #define S_TOWER_OF_ORDEAL_ANNEX_13F         99000036
 #define S_TOWER_OF_ORDEAL_ANNEX_TOP_FLOOR   99000037
+#define TELEPORT_PRESET_COUNT                    104
 #endif // _SF_SCENARIO
+
+
+#ifndef _SF_TELEPORT_PRESET
+#define _SF_TELEPORT_PRESET
+typedef struct _Teleport_Preset_Info{
+    __int32 Map_ID;
+    __int32 Gate_ID;
+    __int32 X;
+    __int32 Y;
+} Teleport_Preset_Info;
+
+
+
+#endif // _SF_TELEPORT_PRESET
 
 
 #endif /* SFHelperResource.h */

@@ -5,9 +5,11 @@
 #define _SF_HELPER_FUNC
 
 
+
 void TimeLogger(HWND hwndEditLog, BOOL lineFeed);
 BOOL OpenSF(void);
 void OpenSFLogger(HWND hwndEditLog);
+BOOL ApplyGameVersion(HWND hwndParent);
 BOOL BindSF(void);
 void BindSFLogger(HWND hwndEditLog);
 BOOL ReadVal(void* addr, void* val, size_t nSize);
@@ -19,8 +21,11 @@ void GameStringToAPP(LPCH str, LPWSTR wstr, __int32 cchWideChar);
 void APPStringToGame(LPCH str, LPWSTR wstr, __int32 cchWideChar);
 BOOL GetAndDisplayPlayerName(HWND hwndParent);
 BOOL ApplyPlayerName(HWND hwndParent);
-LONG64 KeepNumWStrInRange(WCHAR* buf, size_t nSize, 
+LONG64 NumWStrInRange(WCHAR* buf, size_t nSize, 
         LONG64 lBound, LONG64 hBound, BOOL _Modify, 
+        __int32 _Radix);
+LONG64 KeepWndNumWStrInRange(HWND hwndParent, int hwndID, 
+        size_t nSize, LONG64 lBound, LONG64 hBound, BOOL _Modify, 
         __int32 _Radix);
 BOOL GetAndDisplayPlayerLV(HWND hwndParent);
 BOOL ApplyPlayerLV(HWND hwndParent);
@@ -59,8 +64,38 @@ void RefreshLogger(HWND hwndEditLog);
 BOOL DisplayHookStatus(HWND hwndParent);
 BOOL GetAndDisplayMapID(HWND hwndParent);
 BOOL GetAndDisplayMapName(HWND hwndParent);
+BOOL GetAndDisplayMapGateID(HWND hwndParent);
 BOOL DisplayMoveDistance(HWND hwndParent);
 BOOL DisplayMoveDelay(HWND hwndParent);
 BOOL DisplayRefreshDelay(HWND hwndParent);
+BOOL GetTabs(void);
+BOOL CloseAllTabs(void);
+BOOL PressCloseTabButton(void);
+BOOL SetXYDefault(HWND hwndParent);
+BOOL SetGateIDDefault(HWND hwndParent);
+BOOL ApplyTeleportPreset(HWND hwndParent);
+BOOL PresetContentChange(HWND hwndParent);
+BOOL ApplyTeleportMapID(HWND hwndParent);
+BOOL ApplyTeleport(HWND hwndParent);
+BOOL OpenWarehouseTab(void);
+BOOL OpenGaintWarehouseTab(void);
+BOOL OpenCustomOutfitTab(void);
+BOOL PauseGame(void);
+BOOL InfinitePower(void);
+BOOL CompanionRevive(void);
+BOOL ExtraLandMine(void);
+BOOL ExtraLandMinePower(void);
+BOOL BeRich(void);
+BOOL NoMonsterDisplay(void);
+BOOL MagicLVto30(void);
+BOOL CrazySpeed(void);
+BOOL GodMode(void);
+BOOL ExtendAtkRange(void);
+BOOL ReviveEneny(void);
+BOOL Suicide(void);
+BOOL GetAndDisplayMagicStatus(HWND hwndParent);
+BOOL UnlockMagic(HWND hwndParent, __int32 index);
+BOOL ApplyMagicLV(HWND hwndParent, __int32 index);
+BOOL ApplyMagicEXP(HWND hwndParent, __int32 index);
 
 #endif /* SFHelperFunc.h */

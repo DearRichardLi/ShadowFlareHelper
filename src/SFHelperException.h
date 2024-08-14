@@ -28,6 +28,8 @@
 #define ERR_SF_CLOSED                       0x113C000F
 #define ERR_SF_LOGOUT                       0x113D0010
 #define ERR_SF_NOT_LOGIN                    0x113E0011
+#define ERR_SF_CURSOR_NULL                  0x11420012
+#define ERR_SF_BE_RICH_NOT_MONEY            0x11430013
 
 void ExceptionLog();
 void ExceptionHandler();

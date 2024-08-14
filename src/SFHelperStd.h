@@ -11,14 +11,20 @@
 #define WM_GAME_CLOSED    (WM_USER + 4)
 
     // 10 tabs in current version
-#define APP_TAB_COUNT        10
+#define APP_TAB_COUNT           10
 
-#define SF_VERSION_COUNT      5
-#define SF_SEX_COUNT          2
-#define SF_PROF_COUNT         4
-#define SF_COMPANION_COUNT    6
-#define PLAYER_NAME_LEN      20
-#define MAP_NAME_LEN        256
+#define SF_VERSION_COUNT         5
+#define SF_SEX_COUNT             2
+#define SF_PROF_COUNT            4
+#define SF_COMPANION_COUNT       6
+#define SF_MAGIC_COUNT          22
+#define SF_TELEPORT_GATE_COUNT  51
+#define PLAYER_NAME_LEN         20
+#define MAP_NAME_LEN           256
+#define TELEPORT_PRESET_COUNT  104
+#define SCENARIO_COUNT         209
+
+#define DEFAULT_CHECK_GAME_CLOSED_WAIT_MILLISECONDS 10
 
     // available Version
 typedef struct _Version{
@@ -58,17 +64,46 @@ typedef struct _SF_Window_Info{
 
     // variable during using hook
 typedef struct _Hook_Move_Info{
-    DWORD X;
-    DWORD Y;
-    DWORD Move_Distance;
-    DWORD Move_Delay;
-    BOOL  Movable;
-    BOOL  isMiniMapOpen;
+    __int32 X;
+    __int32 Y;
+    DWORD   Move_Distance;
+    DWORD   Move_Delay;
 } Hook_Move_Info;
 #define DEFAULT_MOVE_DISTANCE          100
 #define DEFAULT_MOVE_DELAY_MILLISECOND  10
 
-#define DEFAULT_CHECK_GAME_CLOSED_WAIT_MILLISECONDS 10
-// #define DEFAULT_CPU_SLEEP_MILLISECOND 10
+typedef struct _SF_Tab_Info{ // 14 tabs
+    __int32 Tab_Status;
+    __int32 Tab_Item;
+    __int32 Tab_Magic;
+    __int32 Tab_Shop;
+    __int32 Tab_Warehouse;
+    __int32 Tab_G_Warehouse;
+    __int32 Tab_Teleport_Gates;
+    __int32 Tab_Quest;
+    __int32 Tab_Help;
+    __int32 Tab_Esc_Menu;
+    __int32 Tab_Customize_Outfit;
+    __int32 Tab_Minimap;
+    __int32 Tab_Special_Item;
+    __int32 Tab_Blackjack;
+} SF_Tab_Info;
 
+typedef struct _God_Mode{
+    __int32 Atk_Speed;
+    __int32 Walking_Speed;
+    __int32 HP_1;
+    __int32 HP_2;
+    __int32 MP_1;
+    __int32 MP_2;
+    __int32 Strength;
+    __int32 Atk;
+    __int32 Def;
+    __int32 Hit_Rate;
+    __int32 Evasion_Rate;
+    __int32 M_Atk;
+    __int32 M_Def;
+    __int32 M_Hit_Rate;
+    __int32 M_Evasion_Rate;
+} God_Mode;
 #endif /* SFHelperStd.h */

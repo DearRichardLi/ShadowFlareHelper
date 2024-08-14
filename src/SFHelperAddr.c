@@ -32,15 +32,15 @@ const ULONG_PTR Addr_Map_Gate_ID[SF_VERSION_COUNT] ={
     , ADDRENGKOR(0x8D6F8)  // KOR 
 };
 const ULONG_PTR Addr_Timer[SF_VERSION_COUNT] ={
-      ADDRENGCHT(0x8DA70)  // CHT 
-    , ADDRENGCHN(0x8DA70)  // CHS 
-    ,            0x8DA70   // ENG 
-    , ADDRENGJPN(0x8DA70)  // JPN 
-    , ADDRENGKOR(0x8DA70)  // KOR 
+      ADDRENGCHT(0x8D7A0)  // CHT 
+    , ADDRENGCHN(0x8D7A0)  // CHS 
+    ,            0x8D7A0   // ENG 
+    , ADDRENGJPN(0x8D7A0)  // JPN 
+    , ADDRENGKOR(0x8D7A0)  // KOR 
 };
 const ULONG_PTR Addr_Map_ID[SF_VERSION_COUNT] ={
-      ADDRENGCHT(0x8D7B4)  // CHT 
-    , ADDRENGCHN(0x8D7B4)  // CHS 
+      ADDRENGCHT(0x8D7B4+0x4)  // CHT 
+    , ADDRENGCHN(0x8D7B4+0x4)  // CHS 
     ,            0x8D7B4   // ENG 
     , ADDRENGJPN(0x8D7B4)  // JPN 
     , ADDRENGKOR(0x8D7B4)  // KOR 

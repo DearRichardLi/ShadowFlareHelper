@@ -31,10 +31,10 @@ L"(&H)elp",
 L"關於神兵助手 (&S)",
 L"关于神兵助手 (&S)",
 L"About (&S)FHelper",
-    }, { // 7 
-L"",
-L"",
-L"",
+    }, { // 7 AWSTR_MENU_ADDRESS
+L"開源項目地址 (&G)",
+L"开源项目地址 (&G)",
+L"(&G)itHub Address",
     }, { // 8 
 L"",
 L"",
@@ -63,26 +63,26 @@ L"Magic",
 L"任務",
 L"任务",
 L"Quest",
-    }, { // 15 AWSTR_TAB_STATUS_1
+    }, { // 15 AWSTR_TAB_G_WAREHOUSE
+L"大倉庫",
+L"大仓库",
+L"G_Warehouse",
+    }, { // 16 AWSTR_TAB_TELEPORT_GATE
+L"傳送門",
+L"传送门",
+L"Teleport Gate",
+    }, { // 17 AWSTR_TAB_STATUS_1
 L"屬性 1",
 L"属性 1",
 L"Status 1",
-    }, { // 16 AWSTR_TAB_STATUS_2
+    }, { // 18 AWSTR_TAB_STATUS_2
 L"屬性 2",
 L"属性 2",
 L"Status 2",
-    }, { // 17 AWSTR_TAB_STATUS_3
+    }, { // 19 AWSTR_TAB_STATUS_3
 L"屬性 3",
 L"属性 3",
 L"Status 3",
-    }, { // 18 AWSTR_TAB_STATUS_4
-L"屬性 4",
-L"属性 4",
-L"Status 4",
-    }, { // 19 AWSTR_TAB_STATUS_5
-L"屬性 5",
-L"属性 5",
-L"Status 5",
     }, { // 20 
 L"",
 L"",
@@ -286,18 +286,24 @@ L"Refresh On!",
 L"數據同步已關閉。",
 L"数据同步已关闭。",
 L"Refresh Off!",
-    }, { // 65 
-L"",
-L"",
-L"",
-    }, { // 66 
-L"",
-L"",
-L"",
-    }, { // 67 
-L"",
-L"",
-L"",
+    }, { // 65 AWSTR_APP_HINT_ASSIST
+L"沒關就是開了? 小開不算開!\r\n\
+部分功能會在裝備產生變動後自動失效，需重新激活。\r\n\
+敬請自由探索。\r\n",
+L"没关就是开了? 小开不算开!\r\n\
+部分功能会在装备产生变动后自动失效，需重新激活。\r\n\
+敬请自由探索。\r\n",
+L"Some functions need to be Re-actived \r\n\
+after changing your equiqment.\r\n\
+Have fun!\r\n",
+    }, { // 66 AWSTR_APP_CURSOR_NULL
+L"沒有手持任何物品。",
+L"没有手持任何物品。",
+L"No Item holding in Cursor.",
+    }, { // 67 AWSTR_APP_BE_RICH_NOT_MONEY
+L"手持的不是Gold。",
+L"手持的不是Gold。",
+L"Item holding in Cursor is not money.",
     }, { // 68 
 L"",
 L"",
@@ -342,10 +348,10 @@ L"",
 L"",
 L"",
 L"",
-    }, { // 79 
-L"",
-L"",
-L"",
+    }, { // 79 AWSTR_APP_SFHELPER_ADDRESS
+L"開源項目地址: https://github.com/DearRichardLi/ShadowFlareHelper",
+L"开源项目地址: https://github.com/DearRichardLi/ShadowFlareHelper",
+L"GitHub Address: https://github.com/DearRichardLi/ShadowFlareHelper",
     }, { // 80 AWSTR_CTL_B_CHANGE_LANG
 L"Change APP Language to Simplified Chinese (简体中文)",
 L"Change APP Language to English (英语)",
@@ -450,23 +456,219 @@ L"X:",
 L"Y:",
 L"Y:",
 L"Y:",
-    }, { // 106 AWSTR_CTL_S_MOVE_DISTANCE
-L"移動距離:",
-L"移动距离:",
-L"Move Dist.:",
-    }, { // 107 AWSTR_CTL_S_MOVE_DELAY
+    }, { // 106 AWSTR_CTL_S_MAP_GATE_ID
+L"門ID:",
+L"门ID:",
+L"Gate ID:",
+    }, { // 107 AWSTR_CTL_S_MOVE_DISTANCE
+L"單次移動距離:",
+L"单次移动距离:",
+L"Move Distance:",
+    }, { // 108 AWSTR_CTL_S_MOVE_DELAY
 L"移動間隔時間:",
 L"移动间隔时间:",
-L"Move Delay Time:",
-    }, { // 108 
+L"Move Delay:",
+    }, { // 109 AWSTR_CTL_S_TELEPORT
+L"任意門:",
+L"任意门:",
+L"Teleport:",
+    }, { // 110 AWSTR_CTL_S_TELEPORT_MAP_ID
+L"地圖ID:",
+L"地图ID:",
+L"Map ID:",
+    }, { // 111 AWSTR_CTL_G_GATEORXY
+L"傳送模式選擇",
+L"传送模式选择",
+L"Teleport Mode Choice",
+    }, { // 112 AWSTR_CTL_B_R_GATE
+L"門ID模式",
+L"门ID模式",
+L"Gate ID Mode",
+    }, { // 113 AWSTR_CTL_B_R_XY
+L"坐標模式",
+L"坐标模式",
+L"X/Y Mode",
+    }, { // 114 AWSTR_CTL_S_TELEPORT_GATE_ID
+L"門ID:",
+L"门ID:",
+L"Gate ID:",
+    }, { // 115 AWSTR_CTL_S_TELEPORT_GATE_WARN
+L"門ID填錯會導致遊戲閃退!",
+L"门ID填错会导致游戏闪退!",
+L"Wrong ID Cause Game CRASH!",
+    }, { // 116 AWSTR_CTL_S_TELEPORT_X
+L"X:",
+L"X:",
+L"X:",
+    }, { // 117 AWSTR_CTL_S_TELEPORT_Y
+L"Y:",
+L"Y:",
+L"Y:",
+    }, { // 118 AWSTR_CTL_B_TELEPORT
+L"一鍵傳送!",
+L"一键传送!",
+L"Teleport me!",
+    }, { // 119 AWSTR_CTL_B_OPEN_WAREHOUSE
+L"打開倉庫頁",
+L"打开仓库页",
+L"Open Warehouse Tab",
+    }, { // 120 AWSTR_CTL_B_OPEN_G_WAREHOUSE
+L"打開大倉庫頁",
+L"打开大仓库页",
+L"Open G Warehouse Tab",
+    }, { // 121 AWSTR_CTL_B_OPEN_CUSTOM_OUTFIT
+L"打開自定義裝備配色頁",
+L"打开自定义装备配色页",
+L"Open Custom Outfit Tab",
+    }, { // 122 AWSTR_CTL_B_PAUSE_GAME
+L"暫停遊戲",
+L"暂停游戏",
+L"PAUSE GAME",
+    }, { // 123 AWSTR_CTL_B_INFINITE_POWER
+L"無限暴走 [P]",
+L"无限暴走 [P]",
+L"Infinite [P]ower",
+    }, { // 124 AWSTR_CTL_B_COMP_REVIVE
+L"同伴立刻復活",
+L"同伴立刻复活",
+L"Companion Revive",
+    }, { // 125 AWSTR_CTL_B_EX_LANDMINE
+L"額外地雷個數",
+L"额外地雷个数",
+L"Extra Landmine Limit",
+    }, { // 126 AWSTR_CTL_B_EX_LANDMINE_POWER
+L"額外地雷威力",
+L"额外地雷威力",
+L"Extra Landmine Power",
+    }, { // 127 AWSTR_CTL_B_BE_RICH
+L"變有錢 (需要手持Gold)",
+L"变有钱 (需要手持Gold)",
+L"Be RICH (Cursor Hold Gold)",
+    }, { // 128 AWSTR_CTL_B_NO_MONSTER
+L"關閉敵人顯示與AI",
+L"关闭敌人显示与AI",
+L"Close Enemy Display and AI",
+    }, { // 129 AWSTR_CTL_B_MAGIC_TO_30
+L"魔法一鍵30級 (非永久)",
+L"魔法一键30级 (非永久)",
+L"Magic LV30 (Not permanent)",
+    }, { // 130 AWSTR_CTL_B_CRAZY_SPEED
+L"瘋狂移速",
+L"疯狂移速",
+L"Crazy Walking Speed",
+    }, { // 131 AWSTR_CTL_B_GOD_MODE
+L"屬性無敵",
+L"属性无敌",
+L"invincible Status",
+    }, { // 132 AWSTR_CTL_B_EXTEND_ATK_RANGE
+L"攻擊距離拉滿",
+L"攻击距离拉满",
+L"Extend Swordman Atk Range",
+    }, { // 133 AWSTR_CTL_B_REVIVE_ENEMY
+L"復活所有敵人 (先任意切換個地圖再點按鈕)",
+L"复活所有敌人 (先任意切换个地图再点按钮)",
+L"Revive Enemy (Switch to any map, then click)",
+    }, { // 134 AWSTR_CTL_B_SUICIDE
+L"原 地 自 殺",
+L"原 地 自 尽",
+L"S-U-I-C-I-D-E",
+    }, { // 135 AWSTR_CTL_S_MAGIC_NAME
+L"魔法名稱",
+L"魔法名称",
+L"Magic Name",
+    }, { // 136 AWSTR_CTL_S_MAGIC_LV
+L"LV",
+L"LV",
+L"LV",
+    }, { // 137 AWSTR_CTL_S_MAGIC_EXP
+L"EXP",
+L"EXP",
+L"EXP",
+    }, { // 138 AWSTR_CTL_G_TAB_1
+L"第1頁",
+L"第1页",
+L"Tab 1",
+    }, { // 139 AWSTR_CTL_G_TAB_2
+L"第2頁",
+L"第2页",
+L"Tab 2",
+    }, { // 140 AWSTR_CTL_G_TAB_3
+L"第3頁",
+L"第3页",
+L"Tab 3",
+    }, { // 141 AWSTR_CTL_G_TAB_4
+L"第4頁",
+L"第4页",
+L"Tab 4",
+    }, { // 142 
 L"",
 L"",
 L"",
-    }, { // 109 
+    }, { // 143 
 L"",
 L"",
 L"",
-    }, { // 110 
+    }, { // 144 
+L"",
+L"",
+L"",
+    }, { // 145 
+L"",
+L"",
+L"",
+    }, { // 146 
+L"",
+L"",
+L"",
+    }, { // 147 
+L"",
+L"",
+L"",
+    }, { // 148 
+L"",
+L"",
+L"",
+    }, { // 149 
+L"",
+L"",
+L"",
+    }, { // 150 
+L"",
+L"",
+L"",
+    }, { // 151 
+L"",
+L"",
+L"",
+    }, { // 152 
+L"",
+L"",
+L"",
+    }, { // 153 
+L"",
+L"",
+L"",
+    }, { // 154 
+L"",
+L"",
+L"",
+    }, { // 155 
+L"",
+L"",
+L"",
+    }, { // 156 
+L"",
+L"",
+L"",
+    }, { // 157 
+L"",
+L"",
+L"",
+    }, { // 158 
+L"",
+L"",
+L"",
+    }, { // 159 
 L"",
 L"",
 L"",
@@ -583,11 +785,1571 @@ L"5 霍克",
 L"5 Hawk",
     }
 };
+LPCWSTR APP_WSTR_TELEPORT_PRESET[APP_WSTR_TELEPORT_PRESET_COUNT][AVAILABLE_LANGUAGE_COUNT] = {
+       { // 0 
+L"邊境之鎮周邊 - 紅哥布林",
+L"边境之镇周边 - 红哥布林",
+L"Near the Remote Town - Red Goblin",
+    }, { // 1 
+L"鐵之邊境 - [馬爾斯的寶石]",
+L"铁之边境 - [马尔斯的宝石]",
+L"Iron Boundary Line - [Malse's Gem]",
+    }, { // 2 
+L"石柱荒地 - 藍裝商人",
+L"石柱荒地 - 蓝装商人",
+L"Wasteland of Pillars - Blue Item Shop",
+    }, { // 3 
+L"塵土遺跡 連接的房間 - [絲莉亞的精靈石]",
+L"尘土遗迹 连接的房间 - [丝莉亚的精灵石]",
+L"Dusty Ruins, Continued Room - [Syria's Spirit Stone]",
+    }, { // 4 
+L"塵土遺跡 審判室",
+L"尘土遗迹 审判室",
+L"Dusty Ruins, Room of Judgment",
+    }, { // 5 
+L"寒冰暗妖精鎮周邊 - [回憶之紅寶石]",
+L"寒冰暗妖精镇周边 - [回忆之红宝石]",
+L"Near Cold Svalt Town - [Memorable Ruby]",
+    }, { // 6 
+L"邊境之鎮 - 幫格多跑腿",
+L"边境之镇 - 帮格多跑腿",
+L"Remote Town - Errand for Gedo",
+    }, { // 7 
+L"冰冷遺跡 最底層",
+L"冰冷遗迹 最底层",
+L"Cold Ruins, Bottom Floor",
+    }, { // 8 
+L"判決煉獄 是非之室 入口",
+L"判决炼狱 是非之室 入口",
+L"Purgatory of Judgments, Right/Wrong Room",
+    }, { // 9 
+L"輪迴遺跡 大廳 入口",
+L"轮回遗迹 大厅 入口",
+L"Remains of Reincarnation, Big Hall Entrance",
+    }, { // 10 
+L"樹海 不死的遺跡門口 - 任務觸發",
+L"树海 不死的遗迹门口 - 任务触发",
+L"Sea of Trees - Immortal Remains - Quest Trigger",
+    }, { // 11 
+L"不死的遺跡 絕望的通路",
+L"不死的遗迹 绝望的通路",
+L"Immortal Remains, Hopeless Road",
+    }, { // 12 
+L"========商隊 - 開啟第二話========",
+L"========商队 - 开启第二话========",
+L"========Caravan - EP.2 ========",
+    }, { // 13 
+L"煤礦之鎮 剛弗雷",
+L"煤矿之镇 刚弗雷",
+L"Kanfore, Mining Town",
+    }, { // 14 
+L"鉤爪之森 - 消滅盜賊團",
+L"钩爪之森 - 消灭盗贼团",
+L"Forest of Claws, Destory thieves",
+    }, { // 15 
+L"十字礦場 進入精靈之村之前 - 任務觸發",
+L"十字矿场 进入精灵之村之前 - 任务触发",
+L"Cross Agora - before Village of Elves - Quest Trigger",
+    }, { // 16 
+L"魔導師之塔 10F - 晉見魔導師吉爾修塔德",
+L"魔导师之塔 10F - 晋见魔导师吉尔修塔德",
+L"Tower of the Wizard, 10F - Meet Wizard Kirushutat",
+    }, { // 17 
+L"悲哀騎士森林 盜賊的碉堡 - 劇情觸發",
+L"悲哀骑士森林 盗贼的碉堡 - 剧情触发",
+L"Forest of Knight's Misery - Fort of Thieves - Quest Trigger",
+    }, { // 18 
+L"悲哀騎士森林 - 盜賊的碉堡內部通路入口",
+L"悲哀骑士森林 - 盗贼的碉堡内部通路入口",
+L"Forest of Knight's Misery - Fort of Thieves, a Back Street",
+    }, { // 19 
+L"盜賊的碉堡 - [封印的水晶]",
+L"盗贼的碉堡 - [封印的水晶]",
+L"Fort of Thieves - [Seal Crystal]",
+    }, { // 20 
+L"優格諾斯坑道 地下二樓 - 任務觸發",
+L"优格诺斯坑道 地下二楼 - 任务触发",
+L"Mining Tunnel of Yugunos, B2F - Quest Trigger",
+    }, { // 21 
+L"地下道 地下二樓 - 奪回防護控制設施",
+L"地下道 地下二楼 - 夺回防护控制设施",
+L"Underground Passage, B2F - Security & Control Facility",
+    }, { // 22 
+L"地下道 地下二樓 - 箱子",
+L"地下道 地下二楼 - 箱子",
+L"Underground Passage, B2F - Tresure Boxes",
+    }, { // 23 
+L"優格諾斯坑道 地下四樓 - 任務觸發",
+L"优格诺斯坑道 地下四楼 - 任务触发",
+L"Mining Tunnel of Yugunos, B4F - Quest Trigger",
+    }, { // 24 
+L"電源設施周邊 - 死亡二選一",
+L"电源设施周边 - 死亡二选一",
+L"Around the Power Supply Facility - Deadly Choice",
+    }, { // 25 
+L"電源碉堡",
+L"电源碉堡",
+L"Power Supply Fort",
+    }, { // 26 
+L"優格諾斯坑道 地下五樓 - 打倒巨龍",
+L"优格诺斯坑道 地下五楼 - 打倒巨龙",
+L"Mining Tunnel of Yugunos, B5F - Defeat the Dragon!",
+    }, { // 27 
+L"寂靜之森 - 入口",
+L"寂静之森 - 入口",
+L"Forest of Silence - Entrance",
+    }, { // 28 
+L"寂靜之森 - 剷除惡魔蜘蛛",
+L"寂静之森 - 铲除恶魔蜘蛛",
+L"Forest of Silence - Kill the Tarantulas.",
+    }, { // 29 
+L"威斯雷洞窟 - 尋找[非法的證據]",
+L"威斯雷洞窟 - 寻找[非法的证据]",
+L"Wesley Cave - [Evidence of Injustice]",
+    }, { // 30 - 
+L"========優格諾斯南方軍營 - 開啟第三話========",
+L"========优格诺斯南方军营 - 开启第三话========",
+L"========South Camp of Yugunos - EP.3 ========",
+    }, { // 31 
+L"德多隆山麓 - 消滅餘黨",
+L"德多隆山麓 - 消灭余党",
+L"South Camp of Yugunos - Sweep vicinity",
+    }, { // 32 
+L"納茲爾之塔 1樓 - 任務觸發",
+L"那兹尔之塔 1楼 - 任务触发",
+L"Tower of Nazzle, 1F - Quest Trigger",
+    }, { // 33 
+L"安德魯雪鎮",
+L"安德鲁雪镇",
+L"Town of Antalusia",
+    }, { // 34 
+L"納茲爾之塔 5樓 - [神聖之羽毛]",
+L"那兹尔之塔 5楼 - [神圣之羽毛]",
+L"Tower of Nazzle, 5F - [Sacred Wing]",
+    }, { // 35 
+L"教會地下洞窟 - [天使之發]",
+L"教会地下洞窟 - [天使之发]",
+L"Underground Cave of a Church - [Angle's Hair]",
+    }, { // 36 
+L"羅斯曼茲鎮東方 - 進入羅斯曼茲鎮之前 - 任務觸發",
+L"罗斯曼兹镇东方 - 进入罗斯曼兹镇之前 - 任务触发",
+L"East Losmans - before Town of Losmans - Quest Trigger",
+    }, { // 37 
+L"鼓動之遺跡",
+L"鼓动之遗迹",
+L"The Remains of Heartbeat",
+    }, { // 38 
+L"隆賽迪雅灣 - 鎮壓配管設施",
+L"隆赛迪雅湾 - 镇压配管设施",
+L"The Gulf of Lucentia - Examine the plumbing",
+    }, { // 39 
+L"羅斯曼茲鎮 - 帕西巴爾",
+L"罗斯曼兹镇 - 帕西巴尔",
+L"Town of Losmans - Barshival",
+    }, { // 40 
+L"羅斯曼茲鎮 - 晉見聖騎士萊鋼 - 任務觸發",
+L"罗斯曼兹镇 - 晋见圣骑士莱钢 - 任务触发",
+L"Town of Losmans - Saint Knight Licarn - Quest Trigger",
+    }, { // 41 
+L"萊剛之塔 1F",
+L"莱刚之塔 1F",
+L"Tower of Licarn, 1F",
+    }, { // 42 
+L"萊剛之塔 5F - 衝破萊剛之塔",
+L"莱刚之塔 5F - 冲破莱刚之塔",
+L"Tower of Licarn, 5F - Break through the Tower",
+    }, { // 43 
+L"龍之洞窟 - [天使之指甲]",
+L"龙之洞窟 - [天使之指甲]",
+L"Dragon Cave - [Angel's Nail]",
+    }, { // 44 
+L"遠古之遺跡 地下2樓",
+L"远古之遗迹 地下2楼",
+L"Ancient Ruins, B2F",
+    }, { // 45 
+L"矮人之村 彭賽 - 取得[解毒劑]",
+L"矮人之村 彭赛 - 取得[解毒剂]",
+L"Ponse, Village of Dwarves, Get an [Antidote]",
+    }, { // 46 
+L"波尼諾洞窟 - [波尼諾的果實]",
+L"波尼诺洞窟 - [波尼诺的果实]",
+L"Ponero Cave - [Fruit of Ponero]",
+    }, { // 47 
+L"聖女賽娜的祠堂 - 賽娜",
+L"圣女赛娜的祠堂 - 赛娜",
+L"Sena's Small Shrine - Sena",
+    }, { // 48 
+L"死者之遺跡 中央房間 - 討伐賈爾格",
+L"死者之遗迹 中央房间 - 讨伐贾尔格",
+L"The Remains of the Dead, Central Room",
+    }, { // 49 
+L"羅斯曼茲鎮 - 幫摩裡司夫人跑腿 - 任務觸發",
+L"罗斯曼兹镇 - 帮摩里司夫人跑腿 - 任务触发",
+L"Town of Losmans - Errand for Mrs. Morris - Quest Trigger",
+    }, { // 50 
+L"安德魯雪鎮 - 幫摩裡司夫人跑腿 - 白布",
+L"安德鲁雪镇 - 帮摩里司夫人跑腿 - 白布",
+L"Town of Antalusia - Errand for Mrs. Morris - White Cloth",
+    }, { // 51 
+L"卡拉得鎮 - 幫摩裡司夫人跑腿 - 紅線",
+L"卡拉得镇 - 帮摩里司夫人跑腿 - 红线",
+L"Town of Calado - Errand for Mrs. Morris - Red Thread",
+    }, { // 52 
+L"矮人之村 - 幫摩裡司夫人跑腿 - 銀針",
+L"矮人之村 - 帮摩里司夫人跑腿 - 银针",
+L"Village of Dwarves - Errand for Mrs. Morris - Silver Needle",
+    }, { // 53 
+L"安德魯雪鎮 - 歐貝隆之淚 - 任務觸發",
+L"安德鲁雪镇 - 欧贝隆之泪 - 任务触发",
+L"Town of Antalusia - Tears of Oberon - Quest Trigger",
+    }, { // 54 
+L"精靈之村 - 歐貝隆之淚 - 任務觸發",
+L"精灵之村 - 欧贝隆之泪 - 任务触发",
+L"Village of Elves - Tears of Oberon - Quest Trigger",
+    }, { // 55 
+L"卡拉得鎮 - 歐貝隆之淚 - 任務觸發",
+L"卡拉得镇 - 欧贝隆之泪 - 任务触发",
+L"Town of Calado - Tears of Oberon - Quest Trigger",
+    }, { // 56 
+L"黑暗天使的基地 - [歐貝隆之淚]",
+L"黑暗天使的基地 - [欧贝隆之泪]",
+L"Dark Elves Hiding Place - [Tears of Oberon]",
+    }, { // 57 
+L"矮人之村 - 遠古之短刀 - 任務觸發",
+L"矮人之村 - 远古之短刀 - 任务触发",
+L"Village of Dwarves - Ancient Short Sword - Quest Trigger",
+    }, { // 58 
+L"死與黑暗的荒野 [遠古之短刀]",
+L"死与黑暗的荒野 [远古之短刀]",
+L"The Wilds of Death and Darkness - [Ancient Short Sword]",
+    }, { // 59 
+L"薩雷斯遺跡 [金光球]",
+L"萨雷斯遗迹 [金光球]",
+L"The Ruins of Zeres - [Gold Orb]",
+    }, { // 60 
+L"魯庫那遺跡 [銀光球]",
+L"鲁库那遗迹 [银光球]",
+L"The Ruins of Lukuna - [Silver Orb]",
+    }, { // 61 
+L"果實 - 曼陀羅的根 - MP 50% - [黑傑克卡]",
+L"果实 - 曼陀罗的根 - MP 50% - [黑杰克卡]",
+L"Fruit - Mandragora - MP 50% - [Jack]",
+    }, { // 62 
+L"果實 - 精力之源 - MP 35% - [鬼卡]",
+L"果实 - 精力之源 - MP 35% - [鬼卡]",
+L"Fruit-  Mental Source - MP 35% - [Joker]",
+    }, { // 63 
+L"果實 - 活力之源 - HP 35% - [國王卡]",
+L"果实 - 活力之源 - HP 35% - [国王卡]",
+L"Fruit - Vitality Source - HP 35% - [King]",
+    }, { // 64 
+L"果實 - 木通子 - HP 30% - [皇后卡]",
+L"果实 - 木通子 - HP 30% - [皇后卡]",
+L"Fruit - Akebi Fruit - HP 30% - [Queen]",
+    }, { // 65 
+L"果實 - 柳橙 - MP 20%",
+L"果实 - 柳橙 - MP 20%",
+L"Fruit - Smart Orange - MP 20%",
+    }, { // 66 
+L"果實 - 枸杞 - MP 15%",
+L"果实 - 枸杞 - MP 15%",
+L"Fruit - Chinese Matrimony Vine - MP 15%",
+    }, { // 67 
+L"果實 - 青蘋果 - MP 10%",
+L"果实 - 青苹果 - MP 10%",
+L"Fruit - Green Apple - MP 10%",
+    }, { // 68 
+L"果實 - 奇哥的果實 - HP 20%",
+L"果实 - 奇哥的果实 - HP 20%",
+L"Fruit - Chico Nut - HP 20%",
+    }, { // 69 
+L"果實 - 胡桃 - HP 15%",
+L"果实 - 胡桃 - HP 15%",
+L"Fruit - Walnut - HP 15%",
+    }, { // 70 
+L"果實 - 蘋果 - HP 10%",
+L"果实 - 苹果 - HP 10%",
+L"Fruit - Apple - HP 10%",
+    }, { // 71 
+L"兌換 [黑傑克卡]",
+L"兑换 [黑杰克卡]",
+L"Redeem [Jack]",
+    }, { // 72 
+L"兌換 [鬼卡]",
+L"兑换 [鬼卡]",
+L"Redeem [Joker]",
+    }, { // 73 
+L"兌換 [國王卡]",
+L"兑换 [国王卡]",
+L"Redeem [King]",
+    }, { // 74 
+L"兌換 [皇后卡]",
+L"兑换 [皇后卡]",
+L"Redeem [Queen]",
+    }, { // 75 
+L"瓦姆洞窟 - [煉金藥] 復活藥",
+L"瓦姆洞窟 - [炼金药] 复活药",
+L"Wham Cave - [Elixir]",
+    }, { // 76 
+L"========卡拉得鎮西門 - 開啟第四話========",
+L"========卡拉得镇西门 - 开启第四话========",
+L"========West Gate of Calado - EP.4 ========",
+    }, { // 77 
+L"古代研究所 - [天使之記憶]",
+L"古代研究所 - [天使之记忆]",
+L"The Ancient Institute - [Angel's Memory]",
+    }, { // 78 
+L"卡修格爾遺跡 - [綠光球]",
+L"卡修格尔遗迹 - [绿光球]",
+L"The Ruins of Kashugal - [Green Orb]",
+    }, { // 79 
+L"貝爾尼村 - 賈爾格夫妻的紀念物 - 任務觸發",
+L"贝尔尼村 - 贾尔格夫妻的纪念物 - 任务触发",
+L"Berini Village - Find Jurg's Remembrance - Quest Trigger",
+    }, { // 80 
+L"貝爾尼村 - 賈爾格夫妻的紀念物 - 音樂盒",
+L"贝尔尼村 - 贾尔格夫妻的纪念物 - 音乐盒",
+L"Berini Village - Find Jurg's Remembrance - Music Box",
+    }, { // 81 
+L"廢墟之洞窟 地下2層 - [藍光球]",
+L"废墟之洞窟 地下2层 - [蓝光球]",
+L"The Cave of Ruins - [Blue Orb]",
+    }, { // 82 
+L"賽娜試煉之塔 5樓 - [紅光球]",
+L"赛娜试炼之塔 5楼 - [红光球]",
+L"Sena's Tower, 5F - [Red Orb]",
+    }, { // 83 
+L"退魔之遺跡",
+L"退魔之遗迹",
+L"The Ruins of Exorcism",
+    }, { // 84 
+L"終焉之森 - 前往哥利亞提之館 - 任務觸發",
+L"终焉之森 - 前往哥利亚提之馆 - 任务触发",
+L"Forest of Death - Goliate's Mansion - Quest Trigger",
+    }, { // 85 
+L"哥利亞提之館 地下3樓 - 哥利亞提",
+L"哥利亚提之馆 地下3楼 - 哥利亚提",
+L"Goliate's Mansion, B3 - Goliate",
+    }, { // 86 
+L"魔神的城堡 最上層 - 打倒魔神迪格諾西斯",
+L"魔神的城堡 最上层 - 打倒魔神迪格诺西斯",
+L"Devil's Castle, Top Floor - Beat the Devil Dignosis",
+    }, { // 87 
+L"矮人之村 - 賢者之遺跡 - 任務觸發1",
+L"矮人之村 - 贤者之遗迹 - 任务触发1",
+L"Village of Dwarves - Ruins of the Wise - Quest Trigger1",
+    }, { // 88 
+L"矮人之村 - 賢者之遺跡 - 任務觸發2",
+L"矮人之村 - 贤者之遗迹 - 任务触发2",
+L"Village of Dwarves - Ruins of the Wise - Quest Trigger2",
+    }, { // 89 
+L"賢者之遺跡 - 賢者魯溫",
+L"贤者之遗迹 - 贤者鲁温",
+L"Ruins of the Wise - Ruin, the Wise Man",
+    }, { // 90 
+L"反亂之塔 4樓 - 賈爾格餘黨的叛亂 - 任務觸發",
+L"反乱之塔 4楼 - 贾尔格余党的叛乱 - 任务触发",
+L"The Tower of Rebellion, 4F - Jurg Party - Quest Trigger",
+    }, { // 91 
+L"貝爾尼村 - 賈爾格餘黨的叛亂 - 任務觸發",
+L"贝尔尼村 - 贾尔格余党的叛乱 - 任务触发",
+L"Berini Village - Jurg Party - Quest Trigger",
+    }, { // 92 
+L"瘴氣之森 - [惡魔之牙]",
+L"瘴气之森 - [恶魔之牙]",
+L"Forest of Posion - [Demon Fang]",
+    }, { // 93 
+L"安德魯雪鎮 - 邊境之遺跡 - 任務觸發",
+L"安德鲁雪镇 - 边境之遗迹 - 任务触发",
+L"Town of Antalusia - The Ruins of Remoteness - Quest Trigger",
+    }, { // 94 
+L"邊境之遺跡 - [桂榴石] [紫水晶]",
+L"边境之遗迹 - [桂榴石] [紫水晶]",
+L"Ruins of Remoteness - [Hessonite] [Amethyst]",
+    }, { // 95 
+L"惡魔之碉堡 地下一層 - [錫石]",
+L"恶魔之碉堡 地下一层 - [锡石]",
+L"Fort of Demon, B1F - [Chiastolite]",
+    }, { // 96 
+L"惡魔之碉堡 地下二層 - [藍晶石]",
+L"恶魔之碉堡 地下二层 - [蓝晶石]",
+L"Fort of Demon, B2F - [Kyanite]",
+    }, { // 97 
+L"邊境之鎮 - [石榴石]",
+L"边境之镇 - [石榴石]",
+L"Remote Town - [Garnet]",
+    }, { // 98 
+L"寒冰暗妖精鎮 - [透輝石]",
+L"寒冰暗妖精镇 - [透辉石]",
+L"Cold Svalt Town - [Diopside]",
+    }, { // 99 
+L"煤礦之鎮 - [青金石]",
+L"煤矿之镇 - [青金石]",
+L"Mining Town - [Lapis-Lazuli]",
+    }, { // 100 
+L"精靈之村 - [銫綠柱石]",
+L"精灵之村 - [铯绿柱石]",
+L"Village of Elves - [Morganite]",
+    }, { // 101 
+L"試煉之塔 最上層 - [薔薇石英]",
+L"试炼之塔 最上层 - [蔷薇石英]",
+L"Tower of Ordeal, Top Floor - [RoseQuartz]",
+    }, { // 102 
+L"試煉之塔 別塔 13層",
+L"试炼之塔 别塔 13层",
+L"Tower of Ordeal, Annex 13F",
+    }, { // 103 
+L"試煉之塔 別塔 最上層",
+L"试炼之塔 别塔 最上层",
+L"Tower of Ordeal, Annex Top Floor",
+    }
+};
+LPCWSTR APP_WSTR_SCENARIO[APP_WSTR_SCENARIO_COUNT][AVAILABLE_LANGUAGE_COUNT] = {
+       { // 0 00000000
+L"[*] 邊境之鎮",
+L"[*] 边境之镇",
+L"[*] Remote Town",
+    }, { // 1 00000001
+L"    邊境之鎮周邊",
+L"    边境之镇周边",
+L"    Near the Remote Town",
+    }, { // 2 00000003
+L"    迷之荒地",
+L"    迷之荒地",
+L"    Wasteland of Hesitation",
+    }, { // 3 00000004
+L"    鐵之邊界",
+L"    铁之边界",
+L"    Iron Borderline",
+    }, { // 4 00000005
+L"    冰凍森林",
+L"    冰冻森林",
+L"    Frozen Forest",
+    }, { // 5 00000006
+L"[*] 石柱荒地",
+L"[*] 石柱荒地",
+L"[*] Wasteland of Pillars",
+    }, { // 6 00010000
+L"    塵土遺跡 地下一層 + 地下二層",
+L"    尘土遗迹 地下一层 + 地下二层",
+L"    Dusty Ruins, B1F + B2F",
+    }, { // 7 00010001
+L"    塵土遺跡 地下三層",
+L"    尘土遗迹 地下三层",
+L"    Dusty Ruins, B3F",
+    }, { // 8 00010002
+L"[*] 塵土遺跡 地下四層",
+L"[*] 尘土遗迹 地下四层",
+L"[*] Dusty Ruins, B4F",
+    }, { // 9 00010003
+L"[*] 塵土遺跡 底下五層",
+L"[*] 尘土遗迹 底下五层",
+L"[*] Dusty Ruins, B5F",
+    }, { // 10 00010004
+L"    塵土遺跡 審判室",
+L"    尘土遗迹 审判室",
+L"    Dusty Ruins, Room of Judgment",
+    }, { // 11 00010005
+L"    塵土遺跡 連通的房間",
+L"    尘土遗迹 连通的房间",
+L"    Dusty Ruins, Continued Room",
+    }, { // 12 01000000
+L"[*] 寒冰暗妖精鎮",
+L"[*] 寒冰暗妖精镇",
+L"[*] Cold Svalt Town",
+    }, { // 13 01000001
+L"    寒冰暗妖精鎮周邊",
+L"    寒冰暗妖精镇周边",
+L"    Near Cold Svalt Town",
+    }, { // 14 01000002
+L"[*] 蒸氣森林",
+L"[*] 蒸气森林",
+L"[*] Vaporous Forest",
+    }, { // 15 01000003
+L"[*] 倒吊男之森",
+L"[*] 倒吊男之森",
+L"[*] Hanged Men's Forest",
+    }, { // 16 01000004
+L"[*] 樹海",
+L"[*] 树海",
+L"[*] Sea of Trees",
+    }, { // 17 01020000
+L"    冰冷遺跡 地下一層",
+L"    冰冷遗迹 地下一层 ",
+L"    Cold Ruins, B1F",
+    }, { // 18 01020001
+L"[*] 冰冷遺跡 地下二層 + 地下三層 + 小房間",
+L"[*] 冰冷遗迹 地下二层 + 地下三层 + 小房间",
+L"[*] Cold Ruins, B2F + B3F + Small Room",
+    }, { // 19 01020002
+L"    冰冷遺跡 最底層",
+L"    冰冷遗迹 最底层",
+L"    Cold Ruins, Bottom Floor",
+    }, { // 20 01030000
+L"[*] 判決煉獄 地下一層",
+L"[*] 判决炼狱 地下一层",
+L"[*] Purgatory of Judgments, B1F",
+    }, { // 21 01030001
+L"    判決煉獄 地下二層",
+L"    判决炼狱 地下二层",
+L"    Purgatory of Judgments, B2F",
+    }, { // 22 01030002
+L"    判決煉獄 是非之室入口 + 是非之室",
+L"    判决炼狱 是非之室入口 + 是非之室",
+L"    Purgatory of Judgments, Right/Wrong Room",
+    }, { // 23 01040000
+L"    輪回遺跡(入口)",
+L"    轮回遗迹(入口)",
+L"    Remains of Reincarnation (Entrance)",
+    }, { // 24 01040001
+L"    輪回遺跡1F + 1F大廳 + 2F + B1F + 2F大廳 + 3F",
+L"    轮回遗迹1F + 1F大厅 + 2F + B1F + 2F大厅 + 3F",
+L"    Remains of Reincarnation, 1F + B1F + 2F + 3F",
+    }, { // 25 01040002
+L"    輪回遺跡 大廳入口 + 大廳 + 光亮的房間",
+L"    轮回遗迹 大厅入口 + 大厅 + 光亮的房间",
+L"    Remains of Reincarnation, Big Hall",
+    }, { // 26 01050000
+L"    不死的遺跡 地下一層",
+L"    不死的遗迹 地下一层",
+L"    Immortal Remains, B1F",
+    }, { // 27 01050001
+L"[*] 不死的遺跡 地下二層",
+L"[*] 不死的遗迹 地下二层",
+L"[*] Immortal Remains, B2F",
+    }, { // 28 01050002
+L"    不死的遺跡 絕望的通路 + 悶熱的房間 + 最底層",
+L"    不死的遗迹 绝望的通路 + 闷热的房间 + 最底层",
+L"    Immortal Remains Heated Hall + Bottom Section",
+    }, { // 29 02000000
+L"    森林(區域一)",
+L"    森林(区域一)",
+L"    Forest (Area 1)",
+    }, { // 30 02000001
+L"    森林(區域二)",
+L"    森林(区域二)",
+L"    Forest (Area 2)",
+    }, { // 31 02010000
+L"    煤礦(森林(區域二))",
+L"    煤矿(森林(区域二))",
+L"    Mine (Forest (Area 2))",
+    }, { // 32 02100000
+L"[*] 煤礦之鎮 剛佛雷",
+L"[*] 煤矿之镇 刚佛雷",
+L"[*] Kanfore, Mining Town",
+    }, { // 33 02100001
+L"    四葉之森",
+L"    四叶之森",
+L"    Forest of Four Leaves",
+    }, { // 34 02100002
+L"[*] 鉤爪之森",
+L"[*] 钩爪之森",
+L"[*] Forest of Claws",
+    }, { // 35 02100003
+L"    寂靜之森",
+L"    寂静之森",
+L"    Forest of Silence",
+    }, { // 36 02100004
+L"[*] 十字礦場",
+L"[*] 十字矿场",
+L"[*] Cross Agora",
+    }, { // 37 02100005
+L"[*] 英靈之森",
+L"[*] 英灵之森",
+L"[*] Forest of Sprits",
+    }, { // 38 02100006
+L"[*] 悲哀騎士森林",
+L"[*] 悲哀骑士森林",
+L"[*] Forest of Knight's Misery",
+    }, { // 39 02110000
+L"    魔導師之塔 1F-10F(英靈之森)",
+L"    魔导师之塔 1F-10F(英灵之森)",
+L"    Tower of the Wizard (Forest of Sprits)",
+    }, { // 40 02120000
+L"    盜賊的碉堡(悲哀騎士森林)",
+L"    盗贼的碉堡(悲哀骑士森林)",
+L"    Fort of Thieves",
+    }, { // 41 02120001
+L"    盜賊的碉堡內部通路(悲哀騎士森林)",
+L"    盗贼的碉堡内部通路(悲哀骑士森林)",
+L"    Back Street of the Fort of Thieves",
+    }, { // 42 02130000
+L"    煤礦(四葉之森)",
+L"    煤矿(四叶之森)",
+L"    Coal Mine (Forest of Four Leaves)",
+    }, { // 43 02140000
+L"    煤礦(英靈之森)",
+L"    煤矿(英灵之森)",
+L"    Coal Mine (Forest of Sprits)",
+    }, { // 44 02200000
+L"[*] 精靈之村 法南",
+L"[*] 精灵之村 法南",
+L"[*] Fanann, Village of Elves",
+    }, { // 45 02200001
+L"    蝶之丘",
+L"    蝶之丘",
+L"    Butterfly Hill",
+    }, { // 46 02200002
+L"    威斯雷森林",
+L"    威斯雷森林",
+L"    Forest of Wesley",
+    }, { // 47 02200003
+L"[*] 龍之道",
+L"[*] 龙之道",
+L"[*] Dragon Road",
+    }, { // 48 02200004
+L"    摩布之迷宮",
+L"    摩布之迷宫",
+L"    Labyrinth of Mauve",
+    }, { // 49 02200005
+L"[*] 電源設備周邊",
+L"[*] 电源设备周边",
+L"[*] Near The Power Supply Facility",
+    }, { // 50 02210000
+L"    優格諾斯坑道 地下一層",
+L"    优格诺斯坑道 地下一层",
+L"    Mining Tunnel of Yugunos, B1F",
+    }, { // 51 02210001
+L"    優格諾斯坑道 地下二層",
+L"    优格诺斯坑道 地下二层",
+L"    Mining Tunnel of Yugunos, B2F",
+    }, { // 52 02210002
+L"[*] 優格諾斯坑道 地下三層",
+L"[*] 优格诺斯坑道 地下三层",
+L"[*] Mining Tunnel of Yugunos, B3F",
+    }, { // 53 02210003
+L"    優格諾斯坑道 地下四層",
+L"    优格诺斯坑道 地下四层",
+L"    Mining Tunnel of Yugunos, B4F",
+    }, { // 54 02210004
+L"    優格諾斯坑道 地下五層",
+L"    优格诺斯坑道 地下五层",
+L"    Mining Tunnel of Yugunos, B5F",
+    }, { // 55 02220000
+L"    地下道 地下一層",
+L"    地下道 地下一层",
+L"    Underground Passage, B1F",
+    }, { // 56 02220001
+L"    地下道 地下二層",
+L"    地下道 地下二层",
+L"    Underground Passage, B2F",
+    }, { // 57 02230000
+L"    電源碉堡(電源設備周邊)",
+L"    电源碉堡(电源设备周边)",
+L"    Fort of the Power Supply",
+    }, { // 58 02240000
+L"    洞窟 地下一樓(蝶之丘)",
+L"    洞窟 地下一楼(蝶之丘)",
+L"    Cave, B1F (Butterfly Hill)",
+    }, { // 59 02240001
+L"    洞窟 地下一樓(蝶之丘)",
+L"    洞窟 地下一楼(蝶之丘)",
+L"    Cave, B2F",
+    }, { // 60 02250000
+L"    威斯雷洞窟(威斯雷森林)",
+L"    威斯雷洞窟(威斯雷森林)",
+L"    Wesley Cave",
+    }, { // 61 02999999
+L"    商隊",
+L"    商队",
+L"    Caravan",
+    }, { // 62 03000101
+L"    死與黑暗的荒野",
+L"    死与黑暗的荒野",
+L"    The Wilds of Death and Darkness",
+    }, { // 63 03000201
+L"[*] 走向毀滅者之谷",
+L"[*] 走向毁灭者之谷",
+L"[*] Valley of Dying People",
+    }, { // 64 03000202
+L"    魯那法多海岸",
+L"    鲁那法多海岸",
+L"    Lunafuld Beach",
+    }, { // 65 03000203
+L"    阿爾提利亞",
+L"    阿尔提利亚",
+L"    Alteria",
+    }, { // 66 03000301
+L"    哥拉斯沙漠",
+L"    哥拉斯沙漠",
+L"    Golas Desert",
+    }, { // 67 03000302
+L"[*] 天翔之丘",
+L"[*] 天翔之丘",
+L"[*] Hill of Heaven",
+    }, { // 68 03000303
+L"[*] 贖罪之道",
+L"[*] 赎罪之道",
+L"[*] The Road of Atonement",
+    }, { // 69 03000304
+L"    哥羅那郊區",
+L"    哥罗那郊区",
+L"    Goronaburb",
+    }, { // 70 03000305
+L"    隆賽迪雅灣",
+L"    隆赛迪雅湾",
+L"    The Gulf of Lucentia",
+    }, { // 71 03000306
+L"[*] 迪雅羅賽平原",
+L"[*] 迪雅罗赛平原",
+L"[*] The Plain of Dialose",
+    }, { // 72 03000307
+L"[*] 龍脈之荒野",
+L"[*] 龙脉之荒野",
+L"[*] The Wilds of Ryumyaku",
+    }, { // 73 03000402
+L"[*] 依爾巴那之森",
+L"[*] 依尔巴那之森",
+L"[*] Forest of Ilbarna",
+    }, { // 74 03000403
+L"    羅斯曼茲鎮南方",
+L"    罗斯曼兹镇南方",
+L"    South Losmans",
+    }, { // 75 03000404
+L"    羅斯曼茲鎮東方",
+L"    罗斯曼兹镇东方",
+L"    East Losmans",
+    }, { // 76 03000405
+L"    剛格司頓瓦爾多",
+L"    剛格司頓瓦爾多",
+L"    Gungstonwald",
+    }, { // 77 03000406
+L"    安德魯雪鎮西方",
+L"    安德鲁雪镇西方",
+L"    West Antalusia",
+    }, { // 78 03000407
+L"    德多隆山麓",
+L"    德多隆山麓",
+L"    The Foot of Mt. Tedoron",
+    }, { // 79 03000503
+L"    摩爾多那半島",
+L"    摩尔多那半岛",
+L"    The Moldona Peninsula",
+    }, { // 80 03000505
+L"[*] 梅賽拉爾德古墳",
+L"[*] 梅赛拉尔德古坟",
+L"[*] Mesrald Burial Grounds",
+    }, { // 81 03000506
+L"    安德魯雪鎮南方",
+L"    安德鲁雪镇南方",
+L"    South Antalusia",
+    }, { // 82 03000507
+L"    安德魯雪鎮東方",
+L"    安德鲁雪镇东方",
+L"    East Antalusia",
+    }, { // 83 03010000
+L"    死者之遺跡 東方",
+L"    死者之遗迹 东方",
+L"    East of The Remains of The Dead (Alteria)",
+    }, { // 84 03010001
+L"    死者之遺跡 西方",
+L"    死者之遗迹 西方",
+L"    West of The Remains of The Dead",
+    }, { // 85 03010002
+L"    死者之遺跡 南方",
+L"    死者之遗迹 南方",
+L"    South of The Remains of The Dead",
+    }, { // 86 03010003
+L"    死者之遺跡 北方",
+L"    死者之遗迹 北方",
+L"    North of The Remains of The Dead",
+    }, { // 87 03010004
+L"    死者之遺跡 中央房間",
+L"    死者之遗迹 中央房间",
+L"    The Remains of The Dead, Central Room",
+    }, { // 88 03020000
+L"    那茲爾之塔 1樓(安德魯雪鎮東方)",
+L"    那兹尔之塔 1楼(安德鲁雪镇东方)",
+L"    Tower of Nazzle, 1F (East Losmans)",
+    }, { // 89 03020001
+L"    那茲爾之塔 2樓",
+L"    那兹尔之塔 2楼",
+L"    Tower of Nazzle, 2F",
+    }, { // 90 03020002
+L"    那茲爾之塔 3樓",
+L"    那兹尔之塔 3楼",
+L"    Tower of Nazzle, 3F",
+    }, { // 91 03020003
+L"    那茲爾之塔 4樓",
+L"    那兹尔之塔 4楼",
+L"    Tower of Nazzle, 4F",
+    }, { // 92 03020004
+L"    那茲爾之塔 5樓",
+L"    那兹尔之塔 5楼",
+L"    Tower of Nazzle, 5F",
+    }, { // 93 03030000
+L"    教會地下洞窟(安德魯雪鎮)",
+L"    教会地下洞窟(安德鲁雪镇)",
+L"    Underground Cave of a Church (A Town of Antalusia)",
+    }, { // 94 03040000
+L"    剛恩遺跡(梅賽拉爾德古墳)",
+L"    刚恩遗迹(梅赛拉尔德古坟)",
+L"    Ruins of Carn (Mesrald Burial Grounds)",
+    }, { // 95 03050000
+L"    達爾斯遺跡(梅賽拉爾德古墳)",
+L"    达尔斯遗迹(梅赛拉尔德古坟)",
+L"    Ruins of Dals (Mesrald Burial Grounds)",
+    }, { // 96 03060000
+L"    葛爾迪亞洞窟(梅賽拉爾德古墳)",
+L"    葛尔迪亚洞窟(梅赛拉尔德古坟)",
+L"    Coldea Cave (Mesrald Burial Grounds)",
+    }, { // 97 03070000
+L"    瓦姆洞窟(梅賽拉爾德古墳)",
+L"    瓦姆洞窟(梅赛拉尔德古坟)",
+L"    Wham Cave (Mesrald Burial Grounds)",
+    }, { // 98 03080000
+L"    湖之遺跡(迪雅羅賽平原)",
+L"    湖之遗迹(迪雅罗赛平原)",
+L"    The Ruins of The Lake (The Plain of Dialose)",
+    }, { // 99 03090000
+L"    鼓動之遺跡(龍脈之荒野)",
+L"    鼓动之遗迹(龙脉之荒野)",
+L"    The Remains of Heartbeat (The Wilds of Ryumyaku)",
+    }, { // 100 03100000
+L"    哥亞洞窟[肉](剛格司頓瓦爾多)",
+L"    哥亚洞窟[肉](刚格司顿瓦尔多)",
+L"    Gore Cave [Meat] (Gungstonwald)",
+    }, { // 101 03110000
+L"    萊剛之塔 1樓(羅斯曼茲鎮南方)",
+L"    莱刚之塔 1楼(罗斯曼兹镇南方)",
+L"    Tower of Licarn, 1F (South Losmans)",
+    }, { // 102 03110001
+L"    萊剛之塔 2樓",
+L"    莱刚之塔 2楼",
+L"    Tower of Licarn, 2F",
+    }, { // 103 03110002
+L"    萊剛之塔 3樓",
+L"    莱刚之塔 3楼",
+L"    Tower of Licarn, 3F",
+    }, { // 104 03110003
+L"    萊剛之塔 4樓",
+L"    莱刚之塔 4楼",
+L"    Tower of Licarn, 4F",
+    }, { // 105 03110004
+L"    萊剛之塔 5樓",
+L"    莱刚之塔 5楼",
+L"    Tower of Licarn, 5F",
+    }, { // 106 03120000
+L"    龍之洞窟(依爾巴那之森)",
+L"    龙之洞窟(依尔巴那之森)",
+L"    Dragon Cave (Forest of Ilbarna)",
+    }, { // 107 03130000
+L"    波尼諾洞窟(摩爾多那半島)",
+L"    波尼诺洞窟(摩尔多那半岛)",
+L"    Ponero Cave (The Moldona Peninsula)",
+    }, { // 108 03140000
+L"    遠古之遺跡 地下一樓(天翔之丘)",
+L"    远古之遗迹 地下一楼(天翔之丘)",
+L"    Ancient Ruins, B1F (Hill of Heaven)",
+    }, { // 109 03140001
+L"    遠古之遺跡 地下二樓",
+L"    远古之遗迹 地下二楼",
+L"    Ancient Ruins, B2F",
+    }, { // 110 03150000
+L"    哥爾德遺跡(贖罪之道)",
+L"    哥尔德遗迹(赎罪之道)",
+L"    The Ruins of Goldo (The Road of Atonement)",
+    }, { // 111 03160000
+L"    梅利亞遺跡(哥羅那郊區)",
+L"    梅利亚遗迹(哥罗那郊区)",
+L"    Meria Ruin (Goronaburb)",
+    }, { // 112 03170000
+L"    拜達爾遺跡(哥拉斯沙漠)",
+L"    拜达尔遗迹(哥拉斯沙漠)",
+L"    Bidal Ruin (Golas Desert)",
+    }, { // 113 03180000
+L"    魯庫那遺跡(哥拉斯沙漠)",
+L"    鲁库那遗迹(哥拉斯沙漠)",
+L"    The Ruins of Lukuna (Golas Desert)",
+    }, { // 114 03190000
+L"    多隆遺跡(哥拉斯沙漠)",
+L"    多隆遗迹(哥拉斯沙漠)",
+L"    The Ruins of Dron (Golas Desert)",
+    }, { // 115 03200000
+L"    渥格洞窟[藥](走向毀滅者之穀)",
+L"    渥格洞窟[药](走向毁灭者之谷)",
+L"    Wog Cave [Tablet] (Valley of Dying People)",
+    }, { // 116 03210000
+L"    地下通路(走向毀滅者之穀-死與黑暗的荒野)",
+L"    地下通路(走向毁灭者之谷-死与黑暗的荒野)",
+L"    Underground Passage (Valley of Dying People)",
+    }, { // 117 03220000
+L"    薩雷斯遺跡(魯那法多海岸)",
+L"    萨雷斯遗迹(鲁那法多海岸)",
+L"    The Ruins of Zeres (Lunafuld Beach)",
+    }, { // 118 03230000
+L"    姆爾洞窟[膠囊](魯那法多海岸)",
+L"    姆尔洞窟[胶囊](鲁那法多海岸)",
+L"    Mour Cave [Capsule] (Lunafuld Beach)",
+    }, { // 119 03240000
+L"[*] 黑暗天使的基地",
+L"[*] 黑暗天使的基地",
+L"[*] Dark Elves Hiding Place",
+    }, { // 120 03900000
+L"    優格諾斯南方軍營",
+L"    优格诺斯南方军营",
+L"    South Camp of Yugunos",
+    }, { // 121 03900001
+L"[*] 安德魯雪鎮",
+L"[*] 安德鲁雪镇",
+L"[*] A Town of Antalusia",
+    }, { // 122 03900002
+L"[*] 卡拉得鎮",
+L"[*] 卡拉得镇",
+L"[*] Town of Calado",
+    }, { // 123 03900003
+L"[*] 羅斯曼茲鎮",
+L"[*] 罗斯曼兹镇",
+L"[*] Town of Losmans",
+    }, { // 124 03900004
+L"[*] 矮人之村 彭賽",
+L"[*] 矮人之村 彭赛",
+L"[*] Ponse, Village of Dwarves",
+    }, { // 125 03900005
+L"[*] 聖女賽娜的祠堂",
+L"[*] 圣女赛娜的祠堂",
+L"[*] Sena's Small Shrine",
+    }, { // 126 04000000
+L"    卡拉得鎮西方",
+L"    卡拉得镇西方",
+L"    West Calado",
+    }, { // 127 04000001
+L"[*] 卡伍德濕地",
+L"[*] 卡伍德湿地",
+L"[*] Garwood Swamp",
+    }, { // 128 04000002
+L"[*] 湖之迷宮",
+L"[*] 湖之迷宫",
+L"[*] Labyrinth of the Lake",
+    }, { // 129 04000003
+L"[*] 龍之森",
+L"[*] 龙之森",
+L"[*] Dragon Forest",
+    }, { // 130 04000004
+L"    魔物之森",
+L"    魔物之森",
+L"    Demon's Forest",
+    }, { // 131 04000005
+L"[*] 歐爾菲海岸",
+L"[*] 欧尔菲海岸",
+L"[*] Orphe Beach",
+    }, { // 132 04000006
+L"    瘴氣之森",
+L"    瘴气之森",
+L"    Forest of Poison",
+    }, { // 133 04000007
+L"[*] 哥利亞提森林",
+L"[*] 哥利亚提森林",
+L"[*] Forest of Goliate",
+    }, { // 134 04000008
+L"    夢幻之道",
+L"    梦幻之道",
+L"    Fantasy Road",
+    }, { // 135 04000009
+L"[*] 終焉之森",
+L"[*] 终焉之森",
+L"[*] Forest of Death",
+    }, { // 136 04010000
+L"    古代研究所(龍之森)",
+L"    古代研究所(龙之森)",
+L"    The Ancient Institute (Dragon Forest)",
+    }, { // 137 04020000
+L"    卡修格爾遺跡(卡伍德濕地)",
+L"    卡修格尔遗迹(卡伍德湿地)",
+L"    The Ruins of Kashugal (Garwood Swamp)",
+    }, { // 138 04030000
+L"    湖之地下通路",
+L"    湖之地下通路",
+L"    Tunnel Under The Lake (Labyrinth of the Lake)",
+    }, { // 139 04040000
+L"    退魔之遺跡(魔物之森)",
+L"    退魔之遗迹(魔物之森)",
+L"    Ruins of Exorcism (Demon's Forest)",
+    }, { // 140 04050000
+L"    哥利亞提之館 地下一層",
+L"    哥利亚提之馆 地下一层",
+L"    Goliate's Mansion, B1F (Forest of Goliate)",
+    }, { // 141 04050001
+L"    哥利亞提之館 地下二層",
+L"    哥利亚提之馆 地下二层",
+L"    Goliate's Mansion, B2F",
+    }, { // 142 04050002
+L"    哥利亞提之館 地下三層",
+L"    哥利亚提之馆 地下三层",
+L"    Goliate's Mansion, B3F",
+    }, { // 143 04060000
+L"[*] 冥府之道(區域一)",
+L"[*] 冥府之道(区域一)",
+L"[*] The Road of The Netherworld, B1F (Forest of Death)",
+    }, { // 144 04060001
+L"    冥府之道(區域二)",
+L"    冥府之道(区域二)",
+L"    The Road of The Netherworld, B2F",
+    }, { // 145 04060002
+L"    冥府之道(區域三)",
+L"    冥府之道(区域三)",
+L"    The Road of The Netherworld, B3F",
+    }, { // 146 04060003
+L"    魔神的城堡 一層",
+L"    魔神的城堡 一层",
+L"    Devil's Castle, 1F",
+    }, { // 147 04060004
+L"    魔神的城堡 二層",
+L"    魔神的城堡 二层",
+L"    Devil's Castle, 2F",
+    }, { // 148 04060005
+L"    魔神的城堡 三層",
+L"    魔神的城堡 三层",
+L"    Devil's Castle, 3F",
+    }, { // 149 04060006
+L"    魔神的城堡 最頂層",
+L"    魔神的城堡 最顶层",
+L"    Devil's Castle, Top Floor",
+    }, { // 150 04070000
+L"    廢墟之洞窟 地下一層(廢墟)",
+L"    废墟之洞窟 地下一层(废墟)",
+L"    The Cave of Ruins, B1F (Ruins of Berini Village)",
+    }, { // 151 04070001
+L"    廢墟之洞窟 地下二層",
+L"    废墟之洞窟 地下二层",
+L"    The Cave of Ruins, B2F",
+    }, { // 152 04080000
+L"    賽娜試煉之塔 一樓(貝爾尼村)",
+L"    赛娜试炼之塔 一楼(贝尔尼村)",
+L"    Sena's Tower, 1F (Berini Village)",
+    }, { // 153 04080001
+L"    賽娜試煉之塔 二樓",
+L"    赛娜试炼之塔 二楼",
+L"    Sena's Tower, 2F",
+    }, { // 154 04080002
+L"    賽娜試煉之塔 三樓",
+L"    赛娜试炼之塔 三楼",
+L"    Sena's Tower, 3F",
+    }, { // 155 04080003
+L"    賽娜試煉之塔 四樓",
+L"    赛娜试炼之塔 四楼",
+L"    Sena's Tower, 4F",
+    }, { // 156 04080004
+L"    賽娜試煉之塔 五樓",
+L"    赛娜试炼之塔 五楼",
+L"    Sena's Tower, 5F",
+    }, { // 157 04090000
+L"    反亂之塔 一樓(哥拉斯沙漠)",
+L"    反乱之塔 一楼(哥拉斯沙漠)",
+L"    Tower of Rebellion, 1F (Golas Desert)",
+    }, { // 158 04090001
+L"    反亂之塔 二樓",
+L"    反乱之塔 二楼",
+L"    Tower of Rebellion, 2F",
+    }, { // 159 04090002
+L"    反亂之塔 三樓",
+L"    反乱之塔 三楼",
+L"    Tower of Rebellion, 3F",
+    }, { // 160 04090003
+L"    反亂之塔 四樓",
+L"    反乱之塔 四楼",
+L"    Tower of Rebellion, 4F",
+    }, { // 161 04100000
+L"    賢者之遺跡(哥羅那郊區)",
+L"    贤者之遗迹(哥罗那郊区)",
+L"    The Ruins of The Wise (Goronaburb)",
+    }, { // 162 04110000
+L"    邊境之遺跡(梅賽拉爾德古墳)",
+L"    边境之遗迹(梅赛拉尔德古坟)",
+L"    The Ruins of Remoteness (Mesrald Burial Grounds)",
+    }, { // 163 04120000
+L"    惡魔之碉堡 地下一層(安特村)",
+L"    恶魔之碉堡 地下一层(安特村)",
+L"    Fort of Demon, B1F",
+    }, { // 164 04120001
+L"    惡魔之碉堡 地下二層",
+L"    恶魔之碉堡 地下二层",
+L"    Fort of Demon, B2F",
+    }, { // 165 04130000
+L"[*] 狂氣之森",
+L"[*] 狂气之森",
+L"[*] Forest of Madness",
+    }, { // 166 04140000
+L"    恐龍之洞窟(夢幻之道)",
+L"    恐龙之洞窟(梦幻之道)",
+L"    Dinosaur Cave (Fantasy Road)",
+    }, { // 167 04900000
+L"    卡拉得鎮西門",
+L"    卡拉得镇西门",
+L"    West Gate of Calado",
+    }, { // 168 04900001
+L"[*] 貝爾尼村",
+L"[*] 贝尔尼村",
+L"[*] Berini Village",
+    }, { // 169 04900002
+L"[*] 安特村",
+L"[*] 安特村",
+L"[*] Ento Village",
+    }, { // 170 04900003
+L"    廢墟",
+L"    废墟",
+L"    Ruins of Berini Village",
+    }, { // 171 99000000
+L"    通往塔的道路",
+L"    通往塔的道路",
+L"    Road to a Tower",
+    }, { // 172 99000001
+L"[*] 試煉之塔",
+L"[*] 试炼之塔",
+L"[*] Tower of Ordeal",
+    }, { // 173 99000002
+L"    試煉之塔 1樓",
+L"    试炼之塔 1楼",
+L"    Tower of Ordeal, 1F",
+    }, { // 174 99000003
+L"    試煉之塔 2樓",
+L"    试炼之塔 2楼",
+L"    Tower of Ordeal, 2F",
+    }, { // 175 99000004
+L"    試煉之塔 3樓",
+L"    试炼之塔 3楼",
+L"    Tower of Ordeal, 3F",
+    }, { // 176 99000005
+L"    試煉之塔 4樓",
+L"    试炼之塔 4楼",
+L"    Tower of Ordeal, 4F",
+    }, { // 177 99000006
+L"    試煉之塔 5樓",
+L"    试炼之塔 5楼",
+L"    Tower of Ordeal, 5F",
+    }, { // 178 99000007
+L"[*] 試煉之塔 6樓",
+L"[*] 试炼之塔 6楼",
+L"[*] Tower of Ordeal, 6F",
+    }, { // 179 99000008
+L"    試煉之塔 7樓",
+L"    试炼之塔 7楼",
+L"    Tower of Ordeal, 7F",
+    }, { // 180 99000009
+L"    試煉之塔 8樓",
+L"    试炼之塔 8楼",
+L"    Tower of Ordeal, 8F",
+    }, { // 181 99000010
+L"    試煉之塔 9樓",
+L"    试炼之塔 9楼",
+L"    Tower of Ordeal, 9F",
+    }, { // 182 99000011
+L"    試煉之塔 10樓",
+L"    试炼之塔 10楼",
+L"    Tower of Ordeal, 10F",
+    }, { // 183 99000012
+L"    試煉之塔 11樓",
+L"    试炼之塔 11楼",
+L"    Tower of Ordeal, 11F",
+    }, { // 184 99000013
+L"[*] 試煉之塔 12樓",
+L"[*] 试炼之塔 12楼",
+L"[*] Tower of Ordeal, 12F",
+    }, { // 185 99000014
+L"    試煉之塔 13樓",
+L"    试炼之塔 13楼",
+L"    Tower of Ordeal, 13F",
+    }, { // 186 99000015
+L"    試煉之塔 14樓",
+L"    试炼之塔 14楼",
+L"    Tower of Ordeal, 14F",
+    }, { // 187 99000016
+L"    試煉之塔 15樓",
+L"    试炼之塔 15楼",
+L"    Tower of Ordeal, 15F",
+    }, { // 188 99000017
+L"    試煉之塔 16樓",
+L"    试炼之塔 16楼",
+L"    Tower of Ordeal, 16F",
+    }, { // 189 99000018
+L"[*] 試煉之塔 17樓",
+L"[*] 试炼之塔 17楼",
+L"[*] Tower of Ordeal, 17F",
+    }, { // 190 99000019
+L"    試煉之塔 18樓",
+L"    试炼之塔 18楼",
+L"    Tower of Ordeal, 18F",
+    }, { // 191 99000020
+L"    試煉之塔 19樓",
+L"    试炼之塔 19楼",
+L"    Tower of Ordeal, 19F",
+    }, { // 192 99000021
+L"    試煉之塔 20樓",
+L"    试炼之塔 20楼",
+L"    Tower of Ordeal, 20F",
+    }, { // 193 99000022
+L"    試煉之塔 21樓",
+L"    试炼之塔 21楼",
+L"    Tower of Ordeal, 21F",
+    }, { // 194 99000023
+L"[*] 試煉之塔 最上層",
+L"[*] 试炼之塔 最上层",
+L"[*] Tower of Ordeal, Top Floor",
+    }, { // 195 99000024
+L"    試煉之塔 別塔 1樓",
+L"    试炼之塔 别塔 1楼",
+L"    Tower of Ordeal, Annex, 1F",
+    }, { // 196 99000025
+L"    試煉之塔 別塔 2樓",
+L"    试炼之塔 别塔 2楼",
+L"    Tower of Ordeal, Annex, 2F",
+    }, { // 197 99000026
+L"    試煉之塔 別塔 3樓",
+L"    试炼之塔 别塔 3楼",
+L"    Tower of Ordeal, Annex, 3F",
+    }, { // 198 99000027
+L"    試煉之塔 別塔 4樓",
+L"    试炼之塔 别塔 4楼",
+L"    Tower of Ordeal, Annex, 4F",
+    }, { // 199 99000028
+L"    試煉之塔 別塔 5樓",
+L"    试炼之塔 别塔 5楼",
+L"    Tower of Ordeal, Annex, 5F",
+    }, { // 200 99000029
+L"    試煉之塔 別塔 6樓",
+L"    试炼之塔 别塔 6楼",
+L"    Tower of Ordeal, Annex, 6F",
+    }, { // 201 99000030
+L"    試煉之塔 別塔 7樓",
+L"    试炼之塔 别塔 7楼",
+L"    Tower of Ordeal, Annex, 7F",
+    }, { // 202 99000031
+L"    試煉之塔 別塔 8樓",
+L"    试炼之塔 别塔 8楼",
+L"    Tower of Ordeal, Annex, 8F",
+    }, { // 203 99000032
+L"    試煉之塔 別塔 9樓",
+L"    试炼之塔 别塔 9楼",
+L"    Tower of Ordeal, Annex, 9F",
+    }, { // 204 99000033
+L"    試煉之塔 別塔 10樓",
+L"    试炼之塔 别塔 10楼",
+L"    Tower of Ordeal, Annex, 10F",
+    }, { // 205 99000034
+L"    試煉之塔 別塔 11樓",
+L"    试炼之塔 别塔 11楼",
+L"    Tower of Ordeal, Annex, 11F",
+    }, { // 206 99000035
+L"    試煉之塔 別塔 12樓",
+L"    试炼之塔 别塔 12楼",
+L"    Tower of Ordeal, Annex, 12F",
+    }, { // 207 99000036
+L"    試煉之塔 別塔 13樓",
+L"    试炼之塔 别塔 13楼",
+L"    Tower of Ordeal, Annex, 13F",
+    }, { // 208 99000037
+L"    試煉之塔 別塔 頂層",
+L"    试炼之塔 别塔 顶层",
+L"    Tower of Ordeal, Annex, Top Floor",
+    }
+};
+LPCWSTR APP_WSTR_MAGIC[APP_WSTR_MAGIC_COUNT][AVAILABLE_LANGUAGE_COUNT] = {
+       { // 0 AWSTR_MAGIC_TRANSPORT
+L"傳送術",
+L"传送术",
+L"Transport",
+    }, { // 1 AWSTR_MAGIC_FIRE_BALL
+L"火球術",
+L"火球术",
+L"Fire Ball",
+    }, { // 2 AWSTR_MAGIC_ICE_BOLT
+L"冰彈術",
+L"冰弹术",
+L"Ice Bolt",
+    }, { // 3 AWSTR_MAGIC_PLASMA
+L"閃電術",
+L"闪电术",
+L"Plasma",
+    }, { // 4 AWSTR_MAGIC_HELL_FIRE
+L"地獄火",
+L"地狱火",
+L"Hell Fire",
+    }, { // 5 AWSTR_MAGIC_ICE_BLAST
+L"冰風暴",
+L"冰风暴",
+L"Ice Blast",
+    }, { // 6 AWSTR_MAGIC_HEAL
+L"治療術",
+L"治疗术",
+L"Heal",
+    }, { // 7 AWSTR_MAGIC_MOON
+L"月之術",
+L"月之术",
+L"Moon",
+    }, { // 8 AWSTR_MAGIC_BERSERKER
+L"狂暴化",
+L"狂暴化",
+L"Berserker",
+    }, { // 9 AWSTR_MAGIC_ENERGY_SHIELD
+L"能量盾",
+L"能量盾",
+L"Energy Shield",
+    }, { // 10 AWSTR_MAGIC_EARTH_SPEAR
+L"大地之槍",
+L"大地之枪",
+L"Earth Spear",
+    }, { // 11 AWSTR_MAGIC_FLAME_STRIKE
+L"烈焰強擊",
+L"烈焰强击",
+L"Flame Strike",
+    }, { // 12 AWSTR_MAGIC_DREAD_DEATHSCYTHE
+L"冰鐮刀",
+L"冰镰刀",
+L"Dread Deathscythe",
+    }, { // 13 AWSTR_MAGIC_LIGHTNING_STORM
+L"閃電風暴",
+L"闪电风暴",
+L"Lightning Storm",
+    }, { // 14 AWSTR_MAGIC_MEDUSA
+L"蛇發魔女",
+L"蛇发魔女",
+L"Medusa",
+    }, { // 15 AWSTR_MAGIC_SONIC_BLADE
+L"音速劍",
+L"音速剑",
+L"Sonic Blade",
+    }, { // 16 AWSTR_MAGIC_MUD_JAVELIN
+L"泥槍術",
+L"泥枪术",
+L"Mud Javelin",
+    }, { // 17 AWSTR_MAGIC_IDENTIFY
+L"鑒定術",
+L"鉴定术",
+L"Identify",
+    }, { // 18 AWSTR_MAGIC_MAGIC_SHIELD
+L"魔法盾",
+L"魔法盾",
+L"Magic Shield",
+    }, { // 19 AWSTR_MAGIC_COUNTER_BURST
+L"攻擊反彈",
+L"攻击反弹",
+L"Counter Burst",
+    }, { // 20 AWSTR_MAGIC_EXPLOSION
+L"爆炸術",
+L"爆炸术",
+L"Explosion",
+    }, { // 21 AWSTR_MAGIC_ELEMENTAL_STRIKE
+L"元素攻擊",
+L"元素攻击",
+L"Elemental Strike",
+    }
+};
+LPCWSTR APP_WSTR_TELEPORT_GATE[APP_WSTR_TELEPORT_GATE_COUNT][AVAILABLE_LANGUAGE_COUNT] = {
+       { // 0 
+L"邊境之鎮",
+L"边境之镇",
+L"Remote Town",
+    }, { // 1 
+L"石柱荒地",
+L"石柱荒地",
+L"Wasteland of Pillars",
+    }, { // 2 
+L"塵土遺跡 地下4樓",
+L"尘土遗迹 地下4楼",
+L"Dusty Ruins, B4F",
+    }, { // 3 
+L"塵土遺跡 地下5樓",
+L"尘土遗迹 地下5楼",
+L"Dusty Ruins, B5F",
+    }, { // 4 
+L"寒冰暗妖精鎮",
+L"寒冰暗妖精镇",
+L"Cold Svalt Town",
+    }, { // 5 
+L"蒸汽森林",
+L"蒸汽森林",
+L"Vaporous Forest",
+    }, { // 6 
+L"倒吊男之森",
+L"倒吊男之森",
+L"Hanged Men's Forest",
+    }, { // 7 
+L"裂成十字形的樹海",
+L"裂成十字形的树海",
+L"Forest Divided Like a Cross",
+    }, { // 8 
+L"樹海燃燒後的遺跡",
+L"树海燃烧后的遗迹",
+L"The Ruins of Fire, Sea of Trees",
+    }, { // 9 
+L"冰冷遺跡 地下3樓",
+L"冰冷遗迹 地下3楼",
+L"Cold Ruins, B3F",
+    }, { // 10 
+L"判決煉獄 地下1樓",
+L"判决炼狱 地下1楼",
+L"Purgatory of Judgements, B1F",
+    }, { // 11 
+L"不死的遺跡 地下2樓",
+L"不死的遗迹 地下2楼",
+L"Immortal Remains, B2F",
+    }, { // 12 
+L"試煉之塔",
+L"试炼之塔",
+L"Tower of Ordeal",
+    }, { // 13 
+L"煤礦之鎮 剛佛雷",
+L"煤矿之镇 刚佛雷",
+L"Kanfore, Mining Town",
+    }, { // 14 
+L"鉤爪之森",
+L"钩爪之森",
+L"Forest of Claws",
+    }, { // 15 
+L"十字礦場",
+L"十字矿场",
+L"Cross Agora",
+    }, { // 16 
+L"英靈之森",
+L"英灵之森",
+L"Forest of Sprits",
+    }, { // 17 
+L"盜賊的碉堡",
+L"盗贼的碉堡",
+L"Fort of Thieves",
+    }, { // 18 
+L"精靈之村 法南",
+L"精灵之村 法南",
+L"Fanann, Village of Elves",
+    }, { // 19 
+L"優格諾斯坑道",
+L"优格诺斯坑道",
+L"Mining Tunnel of Yugunos",
+    }, { // 20 
+L"抗龍防禦壁之前",
+L"抗龙防御壁之前",
+L"Dragon Defense Walls",
+    }, { // 21 
+L"優格諾斯坑道 地下3樓",
+L"优格诺斯坑道 地下3楼",
+L"Mining Tunnel of Yugunos, B3F",
+    }, { // 22 
+L"封印之電源設施",
+L"封印之电源设施",
+L"Power Supply Facillity",
+    }, { // 23 
+L"試煉之塔 6樓",
+L"试炼之塔 6楼",
+L"Tower of Ordeal, 6F",
+    }, { // 24 
+L"試煉之塔 12樓",
+L"试炼之塔 12楼",
+L"Tower of Ordeal, 12F",
+    }, { // 25 
+L"優格諾斯南方軍營",
+L"优格诺斯南方军营",
+L"South Camp of Yugunos",
+    }, { // 26 
+L"安德魯雪鎮",
+L"安德鲁雪镇",
+L"Town of Antalusia",
+    }, { // 27 
+L"梅賽拉爾德古墳",
+L"梅赛拉尔德古坟",
+L"Mesrald Burial Grounds",
+    }, { // 28 
+L"迪雅羅賽平原",
+L"迪雅罗赛平原",
+L"Plain of Dialose",
+    }, { // 29 
+L"龍脈之荒野",
+L"龙脉之荒野",
+L"The Wilds of Ryumyaku",
+    }, { // 30 
+L"卡拉得鎮",
+L"卡拉得镇",
+L"Town of Calado",
+    }, { // 31 
+L"羅斯曼茲鎮",
+L"罗斯曼兹镇",
+L"Town of Losmans",
+    }, { // 32 
+L"依爾巴那之森",
+L"依尔巴那之森",
+L"Forest of Ilbarna",
+    }, { // 33 
+L"矮人之村 彭賽",
+L"矮人之村 彭赛",
+L"Ponse, Village of Dwarves",
+    }, { // 34 
+L"天翔之丘",
+L"天翔之丘",
+L"Hill of Heaven",
+    }, { // 35 
+L"贖罪之道",
+L"赎罪之道",
+L"The Road of Atonement",
+    }, { // 36 
+L"逐漸毀滅者之谷",
+L"逐渐消亡者之谷",
+L"Valley of Dying People",
+    }, { // 37 
+L"聖女賽娜的祠堂",
+L"圣女赛娜之祠堂",
+L"Sena's Small Shrine",
+    }, { // 38 
+L"黑暗天使的基地",
+L"黑暗天使的基地",
+L"Dark Elves Hiding Place",
+    }, { // 39 
+L"試煉之塔 17樓",
+L"试炼之塔 17楼",
+L"Tower of Ordeal, 17F",
+    }, { // 40 
+L"貝爾尼村",
+L"贝尔尼村",
+L"Beini Village",
+    }, { // 41 
+L"安特村",
+L"安特村",
+L"Ento Village",
+    }, { // 42 
+L"卡修格爾遺跡前",
+L"卡修格尔遗迹前",
+L"The Ruins of Kashugal",
+    }, { // 43 
+L"湖之迷宮",
+L"湖之迷宫",
+L"Labyrinth of the Lake",
+    }, { // 44 
+L"古代研究所前",
+L"古代研究所前",
+L"The Ancient Institute",
+    }, { // 45 
+L"退魔之遺跡前",
+L"退魔之遗迹前",
+L"The Ruins of Exorcism",
+    }, { // 46 
+L"哥利亞提之館",
+L"哥利亚提之馆",
+L"Goliate's Mansion",
+    }, { // 47 
+L"終焉之森",
+L"终焉之森",
+L"Forest of Death",
+    }, { // 48 
+L"冥府之道",
+L"冥府之道",
+L"The Road of The Underworld",
+    }, { // 49 
+L"瘋狂之森",
+L"疯狂之森",
+L"Forest of Madness",
+    }, { // 50 
+L"試煉之塔 最上階",
+L"试炼之塔 最上阶",
+L"Tower of Ordeal, Top Floor",
+    }
+};
 
 extern LPCWSTR APP_WSTR[APP_WSTR_STRINGS_COUNT][AVAILABLE_LANGUAGE_COUNT];
 extern LPCWSTR APP_WSTR_SEX[APP_WSTR_SEX_COUNT][AVAILABLE_LANGUAGE_COUNT];
 extern LPCWSTR APP_WSTR_PROF[APP_WSTR_PROF_COUNT][AVAILABLE_LANGUAGE_COUNT];
 extern LPCWSTR APP_WSTR_COMP[APP_WSTR_COMP_COUNT][AVAILABLE_LANGUAGE_COUNT];
+extern LPCWSTR APP_WSTR_TELEPORT_PRESET[APP_WSTR_TELEPORT_PRESET_COUNT][AVAILABLE_LANGUAGE_COUNT];
+extern LPCWSTR APP_WSTR_SCENARIO[APP_WSTR_SCENARIO_COUNT][AVAILABLE_LANGUAGE_COUNT];
+extern LPCWSTR APP_WSTR_MAGIC[APP_WSTR_MAGIC_COUNT][AVAILABLE_LANGUAGE_COUNT];
+extern LPCWSTR APP_WSTR_TELEPORT_GATE[APP_WSTR_TELEPORT_GATE_COUNT][AVAILABLE_LANGUAGE_COUNT];
 
 
 

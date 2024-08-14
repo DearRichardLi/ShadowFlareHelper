@@ -1,10 +1,10 @@
 #include "SFHelperStd.h"
 
 
-LPCWSTR APP_VERSION = L"0.2.0";
+LPCWSTR APP_VERSION = L"0.3.0";
 extern LPCWSTR APP_VERSION;
-LPCWSTR LINE_SEPARATER = L"========================================\n";
-extern LPCWSTR LINE_SEPARATER;
+LPCWSTR GitHub_Address = L"https://github.com/DearRichardLi/ShadowFlareHelper";
+extern LPCWSTR GitHub_Address;
 LPCWSTR SF_EXE_Filename = L"ShadowFlare.exe";
 extern LPCWSTR SF_EXE_Filename;
 

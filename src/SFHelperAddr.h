@@ -59,7 +59,7 @@
 #define STATS_TAB_MAGIC                         0x4C
 #define STATS_TAB_SHOP                          0x50
 #define STATS_TAB_WAREHOUSE                     0x54
-#define STATS_TAB_GIANTWAREHOUSE                0x58
+#define STATS_TAB_G_WAREHOUSE                   0x58
 #define STATS_TAB_TELEPORT_GATES                0x5C
 #define STATS_TAB_QUEST                         0x60
 #define STATS_TAB_HELP                          0x64

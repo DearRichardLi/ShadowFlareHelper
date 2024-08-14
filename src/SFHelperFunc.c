@@ -8,13 +8,20 @@
 #include "SFHelperWindows.h"
 #include "SFHelperLanguage.h"
 #include "SFHelperFunc.h"
+#include "SFHelperResource.h"
+
+
 
 extern LPCWSTR SF_EXE_Filename;
 extern const Version GameVersions[SF_VERSION_COUNT];
 extern Hack_Statu_Info Hack_Status;
 extern SF_Window_Info SF_Window;
 extern Hook_Move_Info Hook_Move;
+extern SF_Tab_Info SF_Tab;
 extern LPCWSTR APP_WSTR[APP_WSTR_STRINGS_COUNT][AVAILABLE_LANGUAGE_COUNT];
+extern LPCWSTR APP_WSTR_SCENARIO[APP_WSTR_SCENARIO_COUNT][AVAILABLE_LANGUAGE_COUNT];
+extern const Teleport_Preset_Info Teleport_Preset[TELEPORT_PRESET_COUNT];
+extern const __int32 Scenario_Map_ID[SCENARIO_COUNT];
 
 void TimeLogger(HWND hwndEditLog, BOOL lineFeed){
     WCHAR buffer[16] = {0};
@@ -26,6 +33,7 @@ void TimeLogger(HWND hwndEditLog, BOOL lineFeed){
     AppendText(hwndEditLog, buffer, lineFeed);
 }
 BOOL OpenSF(void){
+    Hack_Status.LastErrorCode = APP_NORMAL;
     if(SF_Window.hWnd != NULL){
         Hack_Status.LastErrorCode = ERR_SF_SFEXE_ALREADY_RUNNING;
         return FALSE;
@@ -48,7 +56,14 @@ void OpenSFLogger(HWND hwndEditLog){
         AppendText(hwndEditLog, APP_WSTR[AWSTR_APP_SFEXE_FOUND][Hack_Status.App_Language], TRUE);
     }
 }
+BOOL ApplyGameVersion(HWND hwndParent){
+    // integer, from 0 to SF_VERSION_COUNT
+    __int32 index = SendMessageW(GetDlgItem(hwndParent, IDC_COMBOBOX_GAMEVERSION), CB_GETCURSEL, 0, 0); 
+    SF_Window.SF_Version = index;
+    return TRUE;
+}
 BOOL BindSF(void){
+    Hack_Status.LastErrorCode = APP_NORMAL;
     SF_Window.hWnd = FindWindowW(NULL, GameVersions[SF_Window.SF_Version].WindowTitle);
     if(SF_Window.hWnd == NULL){ // ----Failed to find ShadowFlare.exe Window---- //
         Hack_Status.LastErrorCode = ERR_SF_GET_WINDOW_FAILED;
@@ -183,6 +198,9 @@ BOOL GetAndDisplayValues(HWND hwndParent){
         && DisplayPlayerPosition(hwndParent)
         && GetAndDisplayMapID(hwndParent)
         && GetAndDisplayMapName(hwndParent)
+        && GetAndDisplayMapGateID(hwndParent)
+        && GetTabs()
+        && GetAndDisplayMagicStatus(hwndParent)
     ){
         return TRUE;
     } else{
@@ -230,7 +248,7 @@ BOOL DisplayGameModeAndOnlineRole(HWND hwndParent){
             AppendText(GetDlgItem(hwndParent, IDC_EDIT_ONLINEROLE), L"Host", FALSE);
         } else{
             AppendText(GetDlgItem(hwndParent, IDC_EDIT_ONLINEROLE), L"Client ", FALSE);
-            WCHAR buffer[2] = {L'\0'};
+            WCHAR buffer[2] = {0};
             _ultow_s(Hack_Status.Client_Index, buffer, 2, 10);
             AppendText(GetDlgItem(hwndParent, IDC_EDIT_ONLINEROLE), buffer, FALSE);
             AppendText(GetDlgItem(hwndParent, IDC_EDIT_INIT_LOG), 
@@ -298,7 +316,7 @@ BOOL ApplyPlayerName(HWND hwndParent){
      * just need to Get with ANSI version. seems there is a auto transform
      */
     // WCHAR wstr[PLAYER_NAME_LEN];
-    char str[PLAYER_NAME_LEN];
+    char str[PLAYER_NAME_LEN] = {0};
     GetWindowTextA(GetDlgItem(hwndParent, IDC_EDIT_PLAYER_NAME), str, PLAYER_NAME_LEN);
     // APPStringToGame(str, wstr, PLAYER_NAME_LEN);
     if(str[PLAYER_NAME_LEN-1] != 0){
@@ -312,7 +330,7 @@ BOOL ApplyPlayerName(HWND hwndParent){
             (void*)str, sizeof(char) * PLAYER_NAME_LEN);
     return TRUE;
 }
-LONG64 KeepNumWStrInRange(WCHAR* buf, size_t nSize, 
+LONG64 NumWStrInRange(WCHAR* buf, size_t nSize, 
         LONG64 lBound, LONG64 hBound, BOOL _Modify, __int32 _Radix){
     LONG64 num = _wtoi64(buf);
     num = num<lBound? lBound: num>hBound? hBound: num;
@@ -320,18 +338,27 @@ LONG64 KeepNumWStrInRange(WCHAR* buf, size_t nSize,
         _i64tow_s(num, buf, nSize, _Radix);
     return num;
 }
+LONG64 KeepWndNumWStrInRange(HWND hwndParent, int hwndID, size_t nSize, 
+        LONG64 lBound, LONG64 hBound, BOOL _Modify, __int32 _Radix){
+    WCHAR buffer[nSize];
+    GetWindowTextW(GetDlgItem(hwndParent, hwndID), buffer, nSize);
+    LONG64 num = NumWStrInRange(buffer, nSize, lBound, hBound, _Modify, _Radix);
+    SetWindowTextW(GetDlgItem(hwndParent, hwndID), buffer);
+    SendMessageW(GetDlgItem(hwndParent, hwndID), EM_SETSEL, nSize - 1, nSize - 1);
+    return num;
+}
 BOOL GetAndDisplayPlayerLV(HWND hwndParent){
     __int32 LV = 0;
     ReadVal((void*)(Hack_Status.Character_Attribute_P + 
             CA_LV), 
             (void*)&LV, sizeof(__int32));
-    WCHAR buffer[4];
+    WCHAR buffer[4] = {0};
     _itow_s(LV, buffer, 4, 10);
     SetWindowTextW(GetDlgItem(hwndParent, IDC_EDIT_LV), buffer);
     return TRUE;
 }
 BOOL ApplyPlayerLV(HWND hwndParent){
-    WCHAR buffer[4];
+    WCHAR buffer[4] = {0};
     GetWindowTextW(GetDlgItem(hwndParent, IDC_EDIT_LV), buffer, 4);
     __int32 LV = _wtoi(buffer);
     WriteVal((void*)(Hack_Status.Character_Attribute_P + 
@@ -369,13 +396,13 @@ BOOL GetAndDisplayPlayerEXP(HWND hwndParent){
     ReadVal((void*)(Hack_Status.Character_Attribute_P + 
             CA_PLAYER_EXP), 
             (void*)&EXP, sizeof(__int32));
-    WCHAR buffer[10];
+    WCHAR buffer[10] = {0};
     _itow_s(EXP, buffer, 10, 10);
     SetWindowTextW(GetDlgItem(hwndParent, IDC_EDIT_EXP), buffer);
     return TRUE;
 }
 BOOL ApplyPlayerEXP(HWND hwndParent){
-    WCHAR buffer[10];
+    WCHAR buffer[10] = {0};
     GetWindowTextW(GetDlgItem(hwndParent, IDC_EDIT_EXP), buffer, 10);
     __int32 EXP = _wtoi(buffer);
     WriteVal((void*)(Hack_Status.Character_Attribute_P + 
@@ -389,19 +416,19 @@ BOOL GetAndDisplayPlayerProf(HWND hwndParent){
             CA_PROFESSION), 
             (void*)&Prof, sizeof(__int32));
     switch(Prof){
-    case 5:
+    case P_C_HUNTER:
         SendMessageW(GetDlgItem(hwndParent, IDC_COMBOBOX_PROF), 
                 CB_SETCURSEL, 0, 0);
         break;
-    case 6:
+    case P_C_SWORDMAN:
         SendMessageW(GetDlgItem(hwndParent, IDC_COMBOBOX_PROF), 
                 CB_SETCURSEL, 1, 0);
         break;
-    case 9:
+    case P_C_WITCH:
         SendMessageW(GetDlgItem(hwndParent, IDC_COMBOBOX_PROF), 
                 CB_SETCURSEL, 2, 0);
         break;
-    case 16:
+    case P_C_MERCENARY:
         SendMessageW(GetDlgItem(hwndParent, IDC_COMBOBOX_PROF), 
                 CB_SETCURSEL, 3, 0);
         break;
@@ -411,10 +438,10 @@ BOOL GetAndDisplayPlayerProf(HWND hwndParent){
 BOOL ApplyPlayerProf(HWND hwndParent){
     __int32 Prof = SendMessageW(GetDlgItem(hwndParent, IDC_COMBOBOX_PROF), 
             CB_GETCURSEL, 0, 0); 
-        Prof = Prof == 0? 5:
-                Prof == 1? 6:
-                Prof == 2? 9:
-                Prof == 3? 16: 16;
+        Prof = Prof == 0? P_C_HUNTER:
+                Prof == 1? P_C_SWORDMAN:
+                Prof == 2? P_C_WITCH:
+                Prof == 3? P_C_MERCENARY: P_C_MERCENARY;
     WriteVal((void*)(Hack_Status.Character_Attribute_P + 
             CA_PROFESSION), 
             (void*)&Prof, sizeof(__int32));
@@ -430,15 +457,15 @@ BOOL GetAndDisplayPlayerProfToBe(HWND hwndParent){
             (void*)&ProfToBe, sizeof(__int32));
     switch(ProfToBe){
         // can not become Mercenary, so no need to consider case 16
-    case 5:
+    case P_C_HUNTER:
         SendMessageW(GetDlgItem(hwndParent, IDC_COMBOBOX_PROF_TO_BE), 
                 CB_SETCURSEL, 0, 0);
         break;
-    case 6:
+    case P_C_SWORDMAN:
         SendMessageW(GetDlgItem(hwndParent, IDC_COMBOBOX_PROF_TO_BE), 
                 CB_SETCURSEL, 1, 0);
         break;
-    case 9:
+    case P_C_WITCH:
         SendMessageW(GetDlgItem(hwndParent, IDC_COMBOBOX_PROF_TO_BE), 
                 CB_SETCURSEL, 2, 0);
         break;
@@ -446,11 +473,11 @@ BOOL GetAndDisplayPlayerProfToBe(HWND hwndParent){
     return TRUE;
 }
 BOOL ApplyPlayerProfToBe(HWND hwndParent){
-        __int32 ProfToBe = SendMessageW(GetDlgItem(hwndParent, IDC_COMBOBOX_PROF_TO_BE), 
-            CB_GETCURSEL, 0, 0); 
-        ProfToBe = ProfToBe == 0? 5:
-                ProfToBe == 1? 6:
-                ProfToBe == 2? 9: 9;
+    __int32 ProfToBe = SendMessageW(GetDlgItem(hwndParent, IDC_COMBOBOX_PROF_TO_BE), 
+        CB_GETCURSEL, 0, 0); 
+    ProfToBe = ProfToBe == 0? P_C_HUNTER:
+            ProfToBe == 1? P_C_SWORDMAN:
+            ProfToBe == 2? P_C_WITCH: P_C_WITCH;
     WriteVal((void*)(Hack_Status.Character_Attribute_P + 
             CA_PROFESSION_TO_BE), 
             (void*)&ProfToBe, sizeof(__int32));
@@ -464,13 +491,13 @@ BOOL GetAndDisplayCompanionLV(HWND hwndParent){
     ReadVal((void*)(Hack_Status.Character_Attribute_P + 
             CA_COMPANION_LV), 
             (void*)&CompanionLV, sizeof(__int32));
-    WCHAR buffer[3];
+    WCHAR buffer[3] = {0};
     _itow_s(CompanionLV, buffer, 3, 10);
     SetWindowTextW(GetDlgItem(hwndParent, IDC_EDIT_COMPANION_LV), buffer);
     return TRUE;
 }
 BOOL ApplyCompanionLV(HWND hwndParent){
-    WCHAR buffer[3];
+    WCHAR buffer[3] = {0};
     GetWindowTextW(GetDlgItem(hwndParent, IDC_EDIT_COMPANION_LV), buffer, 3);
     __int32 CompanionLV = _wtoi(buffer);
     WriteVal((void*)(Hack_Status.Character_Attribute_P + 
@@ -506,13 +533,13 @@ BOOL GetAndDisplayCompanionEXP(HWND hwndParent){
     ReadVal((void*)(Hack_Status.Character_Attribute_P + 
             CA_COMPANION_EXP), 
             (void*)&CompanionEXP, sizeof(__int32));
-    WCHAR buffer[4];
+    WCHAR buffer[4] = {0};
     _itow_s(CompanionEXP, buffer, 4, 10);
     SetWindowTextW(GetDlgItem(hwndParent, IDC_EDIT_COMPANION_EXP), buffer);
     return TRUE;
 }
 BOOL ApplyCompanionEXP(HWND hwndParent){
-    WCHAR buffer[4];
+    WCHAR buffer[4] = {0};
     GetWindowTextW(GetDlgItem(hwndParent, IDC_EDIT_COMPANION_EXP), buffer, 4);
     __int32 CompanionEXP = _wtoi(buffer);
     WriteVal((void*)(Hack_Status.Character_Attribute_P + 
@@ -536,10 +563,10 @@ BOOL GetPlayerPositionY(void){
     return TRUE;
 }
 BOOL DisplayPlayerPosition(HWND hwndParent){
-    WCHAR buffer[10];
-    _itow_s(Hook_Move.X, buffer, 10, 10);
+    WCHAR buffer[12] = {0};
+    _itow_s(Hook_Move.X, buffer, 12, 10);
     SetWindowTextW(GetDlgItem(hwndParent, IDC_EDIT_X), buffer);
-    _itow_s(Hook_Move.Y, buffer, 10, 10);
+    _itow_s(Hook_Move.Y, buffer, 12, 10);
     SetWindowTextW(GetDlgItem(hwndParent, IDC_EDIT_Y), buffer);
     return TRUE;
 }
@@ -563,12 +590,23 @@ BOOL ApplyPlayerPositionY(void){
 }
 LRESULT CALLBACK LowLevelKeyboardProc(DWORD nCode, WPARAM wParam, LPARAM lParam){
     KBDLLHOOKSTRUCT *ks = (KBDLLHOOKSTRUCT*)lParam;
-    if(GetForegroundWindow() == SF_Window.hWnd && 
+    BOOL movable = !(
+            (SF_Tab.Tab_Shop             || SF_Tab.Tab_Quest       || 
+             SF_Tab.Tab_Help             || SF_Tab.Tab_Esc_Menu    || 
+             SF_Tab.Tab_Customize_Outfit || SF_Tab.Tab_Blackjack)
+            ||
+            ((SF_Tab.Tab_Status          || SF_Tab.Tab_Magic       ||
+              SF_Tab.Tab_Warehouse       || SF_Tab.Tab_G_Warehouse ||
+              SF_Tab.Tab_Teleport_Gates  || SF_Tab.Tab_Minimap)
+             &&
+             (SF_Tab.Tab_Item            || SF_Tab.Tab_Special_Item)
+            )
+    );
+    if(GetForegroundWindow() == SF_Window.hWnd && movable &&
             (ks->flags == 0 || ks->flags == 1)){
         GetPlayerPositionX();
         GetPlayerPositionY();
-        // MessageBoxW(NULL, L"pressdown", L"press", 0);
-        switch(ks->vkCode){                
+        switch(ks->vkCode){ 
         case VK_NUMPAD1:     // numpad 1, SOUTH
         // case 0x46:           // F, SOUTH
             PlayerMoveAxisY(TRUE); 
@@ -586,28 +624,28 @@ LRESULT CALLBACK LowLevelKeyboardProc(DWORD nCode, WPARAM wParam, LPARAM lParam)
             PlayerMoveAxisY(FALSE); 
             break;
         case VK_DOWN:                         // Down arrow
-            if(Hook_Move.isMiniMapOpen)
+            if(SF_Tab.Tab_Minimap)
                 break;
         case VK_NUMPAD2: case VK_NUMPAD5:     // numpad 2 & 5 
             PlayerMoveAxisX(TRUE); 
             PlayerMoveAxisY(TRUE); 
             break;
         case VK_LEFT:                         // Left arrow
-            if(Hook_Move.isMiniMapOpen)
+            if(SF_Tab.Tab_Minimap)
                 break;
         case VK_NUMPAD4:                      // numpad 4
             PlayerMoveAxisX(FALSE); 
             PlayerMoveAxisY(TRUE); 
             break;
         case VK_RIGHT:                        // Right arrow
-            if(Hook_Move.isMiniMapOpen)
+            if(SF_Tab.Tab_Minimap)
                 break;
         case VK_NUMPAD6:                      // numpad 6
             PlayerMoveAxisX(TRUE); 
             PlayerMoveAxisY(FALSE); 
             break;
         case VK_UP:                           // UP arrow
-            if(Hook_Move.isMiniMapOpen)
+            if(SF_Tab.Tab_Minimap)
                 break;
         case VK_NUMPAD8:                      // numpad 8
             PlayerMoveAxisX(FALSE); 
@@ -638,12 +676,15 @@ void GlobalKeyboardHook(void){
     UnhookWindowsHookEx(keyboardHook);
 }
 void CheckGameCloseOrLogout(void){
+    HWND hwnd = FindWindowW(L"SFHelperWindowClass", 
+            APP_WSTR[AWSTR_WNDNAME][Hack_Status.App_Language]);
     while(Hack_Status.isBind_Game){
         DWORD flag = WaitForSingleObject(SF_Window.SF_Handle, 
                 DEFAULT_CHECK_GAME_CLOSED_WAIT_MILLISECONDS);
         if(flag == 0){
             Hack_Status.isBind_Game = FALSE;
             Hack_Status.LastErrorCode = ERR_SF_CLOSED;
+            SendMessageW(hwnd, WM_GAME_CLOSED, 0, 0);
         } else{
             DWORD GameLogin = 0;
             ReadVal((void*)(Hack_Status.Character_Attribute_P), 
@@ -651,6 +692,7 @@ void CheckGameCloseOrLogout(void){
             if(GameLogin > 1){
                 Hack_Status.isBind_Game = FALSE;
                 Hack_Status.LastErrorCode = ERR_SF_LOGOUT;
+            SendMessageW(hwnd, WM_GAME_LOGOUT, 0, 0);
             }
         }
         if(Hack_Status.LastErrorCode != APP_NORMAL){
@@ -693,11 +735,13 @@ void SFHelperCreateThread(pthread_t *th, const pthread_attr_t *attr,
     if(pthread_create(th, attr, func, arg) != 0){
         Hack_Status.LastErrorCode = ERR_APP_CREATE_THREAD_FAIL;
     }
+    MessageBeep(MB_ICONEXCLAMATION);
 }
 void SFHelperJoinThread(pthread_t t, void **res){
     if(pthread_join(t, res) != 0){
         Hack_Status.LastErrorCode = ERR_APP_JOIN_THREAD_FAIL;
     }
+    MessageBeep(MB_OK); 
 }
 void HookLogger(HWND hwndEditLog){
     if(Hack_Status.LastErrorCode != APP_NORMAL){
@@ -746,12 +790,12 @@ BOOL DisplayHookStatus(HWND hwndParent){
 }
 BOOL GetAndDisplayMapID(HWND hwndParent){
     __int32 MapID = 0;
-    ReadVal((void*)(Hack_Status.Character_Attribute_P + 
-            CA_MAP_ID), 
+    ReadVal(((void*)SF_Window.Base_hModule + 
+            Addr_Map_ID[SF_Window.SF_Version]),
             (void*)&MapID, sizeof(__int32));
-    WCHAR buffer[9];
+    WCHAR buffer[9] = {0};
     _itow_s(MapID, buffer, 9, 10);
-    WCHAR buffer2[9];
+    WCHAR buffer2[9] = {0};
     swprintf_s(buffer2, sizeof(buffer), L"%08s", buffer);
     SetWindowTextW(GetDlgItem(hwndParent, IDC_EDIT_MAP_ID), buffer2);
     return TRUE;
@@ -767,22 +811,459 @@ BOOL GetAndDisplayMapName(HWND hwndParent){
     SetWindowTextW(GetDlgItem(hwndParent, IDC_EDIT_MAP_NAME), wstr);
     return TRUE;
 }
+BOOL GetAndDisplayMapGateID(HWND hwndParent){
+    __int32 MapGateID = 0;
+    ReadVal(((void*)SF_Window.Base_hModule + 
+            Addr_Map_Gate_ID[SF_Window.SF_Version]),
+            (void*)&MapGateID, sizeof(__int32));
+    WCHAR buffer[5] = {0};
+    _itow_s(MapGateID, buffer, 5, 10);
+    SetWindowTextW(GetDlgItem(hwndParent, IDC_EDIT_MAP_GATE_ID), buffer);
+    return TRUE;
+}
 BOOL DisplayMoveDistance(HWND hwndParent){
-    WCHAR buffer[5];
+    WCHAR buffer[5] = {0};
     _itow_s(Hook_Move.Move_Distance, buffer, 5, 10);
     SetWindowTextW(GetDlgItem(hwndParent, IDC_EDIT_MOVE_DISTANCE), buffer);
     return TRUE;
 }
 BOOL DisplayMoveDelay(HWND hwndParent){
-    WCHAR buffer[5];
+    WCHAR buffer[5] = {0};
     _itow_s(Hook_Move.Move_Delay, buffer, 5, 10);
     SetWindowTextW(GetDlgItem(hwndParent, IDC_EDIT_MOVE_DELAY), buffer);
     return TRUE;
 }
 BOOL DisplayRefreshDelay(HWND hwndParent){
-    WCHAR buffer[5];
+    WCHAR buffer[5] = {0};
     _itow_s(Hack_Status.Data_Refresh_Delay, buffer, 5, 10);
     SetWindowTextW(GetDlgItem(hwndParent, IDC_EDIT_REFRESH_DELAY), buffer);
     return TRUE;
 }
-
+BOOL GetTabs(void){
+    ReadVal(((void*)SF_Window.Base_hModule + 
+            Addr_STATS_Base[SF_Window.SF_Version] +
+            STATS_TAB_STATUS), 
+            (void*)&SF_Tab, sizeof(__int32) * 14);
+    return TRUE;
+}
+BOOL CloseAllTabs(void){
+    SF_Tab_Info Close = {0};
+    WriteVal(((void*)SF_Window.Base_hModule + 
+            Addr_STATS_Base[SF_Window.SF_Version] +
+            STATS_TAB_STATUS), 
+            (void*)&Close, sizeof(__int32) * 14);
+    return TRUE;
+}
+BOOL PressCloseTabButton(void){
+    __int32 Close = 3;
+    WriteVal(((void*)SF_Window.Base_hModule + 
+            Addr_STATS_Base[SF_Window.SF_Version] +
+            STATS_CLOSE_BUTTON_STATUS), 
+            (void*)&Close, sizeof(__int32));
+    return TRUE;
+}
+BOOL SetXYDefault(HWND hwndParent){
+    WCHAR buffer[3] = L"0";
+    SetWindowTextW(GetDlgItem(hwndParent, IDC_EDIT_TELEPORT_GATE_ID), buffer);
+    SetWindowTextW(GetDlgItem(hwndParent, IDC_EDIT_TELEPORT_X), NULL);
+    SetWindowTextW(GetDlgItem(hwndParent, IDC_EDIT_TELEPORT_Y), NULL);
+    return TRUE;
+}
+BOOL SetGateIDDefault(HWND hwndParent){
+    WCHAR buffer[3] = L"-1";
+    SetWindowTextW(GetDlgItem(hwndParent, IDC_EDIT_TELEPORT_GATE_ID), buffer);
+    return TRUE;
+}
+BOOL ApplyTeleportPreset(HWND hwndParent){
+    HWND hwnd = FindWindowW(L"SFHelperWindowClass", 
+            APP_WSTR[AWSTR_WNDNAME][Hack_Status.App_Language]);
+    __int32 index = SendMessageW(GetDlgItem(hwndParent, IDC_COMBOBOX_TELEPORT_PRESET), 
+            CB_GETCURSEL, 0, 0); 
+    index = index < 0? 0: index;
+    WCHAR buffer[12] = {0};
+    WCHAR buffer2[12] = {0};
+    _itow_s(Teleport_Preset[index].Map_ID, buffer, 12, 10);
+    swprintf_s(buffer2, sizeof(buffer), L"%08s", buffer);
+    SetWindowTextW(GetDlgItem(hwndParent, IDC_EDIT_TELEPORT_MAP_ID), buffer2);
+    SendMessageW(GetDlgItem(hwndParent, IDC_COMBOBOX_TELEPORT_MAP_NAME), 
+            CB_SETCURSEL, -1, 0);
+    if(Teleport_Preset[index].Gate_ID >= 0){ // Gate ID Mode
+        SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_RADIO_GATE), 
+                BM_SETCHECK, BST_CHECKED, 0); 
+        SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_RADIO_XY), 
+                BM_SETCHECK, BST_UNCHECKED, 0); 
+        SendMessageW(hwnd, WM_COMMAND, IDC_BUTTON_RADIO_GATE, 0);
+        _itow_s(Teleport_Preset[index].Gate_ID, buffer, 12, 10);
+        SetWindowTextW(GetDlgItem(hwndParent, IDC_EDIT_TELEPORT_GATE_ID), buffer);
+    } else{ // XY Mode
+        SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_RADIO_GATE), 
+                BM_SETCHECK, BST_UNCHECKED, 0); 
+        SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_RADIO_XY), 
+                BM_SETCHECK, BST_CHECKED, 0); 
+        SendMessageW(hwnd, WM_COMMAND, IDC_BUTTON_RADIO_XY, 0);
+        _itow_s(Teleport_Preset[index].X, buffer, 12, 10);
+        SetWindowTextW(GetDlgItem(hwndParent, IDC_EDIT_TELEPORT_X), buffer);
+        _itow_s(Teleport_Preset[index].Y, buffer, 12, 10);
+        SetWindowTextW(GetDlgItem(hwndParent, IDC_EDIT_TELEPORT_Y), buffer);
+    }
+    SendMessageW(GetDlgItem(hwndParent, IDC_COMBOBOX_TELEPORT_PRESET), 
+            CB_SETCURSEL, index, 0);
+    return TRUE;
+}
+BOOL PresetContentChange(HWND hwndParent){
+    SendMessageW(GetDlgItem(hwndParent, IDC_COMBOBOX_TELEPORT_PRESET), 
+            CB_SETCURSEL, -1, 0);
+    return TRUE;
+}
+BOOL ApplyTeleportMapID(HWND hwndParent){
+    HWND hwnd = FindWindowW(L"SFHelperWindowClass", 
+            APP_WSTR[AWSTR_WNDNAME][Hack_Status.App_Language]);
+    __int32 index = SendMessageW(GetDlgItem(hwndParent, IDC_COMBOBOX_TELEPORT_MAP_NAME), 
+            CB_GETCURSEL, 0, 0); 
+    index = index < 0? 0: index;
+    WCHAR buffer[9] = {0};
+    WCHAR buffer2[9] = {0};
+    _itow_s(Scenario_Map_ID[index], buffer, 9, 10);
+    swprintf_s(buffer2, sizeof(buffer), L"%08s", buffer);
+    SetWindowTextW(GetDlgItem(hwndParent, IDC_EDIT_TELEPORT_MAP_ID), buffer2);
+    SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_RADIO_GATE), 
+            BM_SETCHECK, BST_CHECKED, 0); 
+    SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_RADIO_XY), 
+            BM_SETCHECK, BST_UNCHECKED, 0); 
+    SendMessageW(hwnd, WM_COMMAND, IDC_BUTTON_RADIO_GATE, 0);
+    SendMessageW(GetDlgItem(hwndParent, IDC_COMBOBOX_TELEPORT_MAP_NAME), 
+            CB_SETCURSEL, index, 0);
+    SendMessageW(GetDlgItem(hwndParent, IDC_COMBOBOX_TELEPORT_PRESET), 
+            CB_SETCURSEL, -1, 0);
+    return TRUE;
+}
+BOOL ApplyTeleport(HWND hwndParent){
+    WCHAR buffer[12] = {0};
+    GetWindowTextW(GetDlgItem(hwndParent, IDC_EDIT_TELEPORT_MAP_ID), buffer, 12);
+    __int32 MapID = _wtoi(buffer);
+    GetWindowTextW(GetDlgItem(hwndParent, IDC_EDIT_TELEPORT_GATE_ID), buffer, 12);
+    __int32 GateID = _wtoi(buffer);
+    if(GateID < 0){ // XY Mode
+        GetWindowTextW(GetDlgItem(hwndParent, IDC_EDIT_TELEPORT_X), buffer, 12);
+        __int32 X = _wtoi(buffer);
+        GetWindowTextW(GetDlgItem(hwndParent, IDC_EDIT_TELEPORT_Y), buffer, 12);
+        __int32 Y = _wtoi(buffer);
+        WriteVal((void*)(Hack_Status.Character_Attribute_P + 
+                CA_TRANSPORT_POSITION_X), 
+                (void*)&X, sizeof(__int32));
+        WriteVal((void*)(Hack_Status.Character_Attribute_P + 
+                CA_TRANSPORT_POSITION_Y), 
+                (void*)&Y, sizeof(__int32));
+    }
+    WriteVal((void*)(Hack_Status.Character_Attribute_P + 
+            CA_MAP_ID), 
+            (void*)&MapID, sizeof(__int32));
+    WriteVal((void*)(Hack_Status.Character_Attribute_P + 
+            CA_MAP_GATE_ID), 
+            (void*)&GateID, sizeof(__int32));
+    __int32 trigger = 1;
+    WriteVal((void*)(Hack_Status.Character_Attribute_P + 
+            CA_LOADSCREEN_TRIGGER), 
+            (void*)&trigger, sizeof(__int32));
+    return TRUE;
+}
+BOOL OpenWarehouseTab(void){
+    CloseAllTabs();
+    __int32 Warehouse = 0;
+    ReadVal(((void*)SF_Window.Base_hModule + 
+            Addr_STATS_Base[SF_Window.SF_Version] +
+            STATS_TAB_WAREHOUSE), 
+            (void*)&Warehouse, sizeof(__int32));
+    Warehouse ^= 1;
+    WriteVal(((void*)SF_Window.Base_hModule + 
+            Addr_STATS_Base[SF_Window.SF_Version] +
+            STATS_TAB_WAREHOUSE), 
+            (void*)&Warehouse, sizeof(__int32));
+    return TRUE;
+}
+BOOL OpenGaintWarehouseTab(void){
+    CloseAllTabs();
+    __int32 GaintWarehouse = 0;
+    ReadVal(((void*)SF_Window.Base_hModule + 
+            Addr_STATS_Base[SF_Window.SF_Version] +
+            STATS_TAB_G_WAREHOUSE), 
+            (void*)&GaintWarehouse, sizeof(__int32));
+    GaintWarehouse ^= 1;
+    WriteVal(((void*)SF_Window.Base_hModule + 
+            Addr_STATS_Base[SF_Window.SF_Version] +
+            STATS_TAB_G_WAREHOUSE), 
+            (void*)&GaintWarehouse, sizeof(__int32));
+    return TRUE;
+}
+BOOL OpenCustomOutfitTab(void){
+    CloseAllTabs();
+    __int32 Custom = 0;
+    ReadVal(((void*)SF_Window.Base_hModule + 
+            Addr_STATS_Base[SF_Window.SF_Version] +
+            STATS_TAB_CUSTOMIZE_OUTFIT), 
+            (void*)&Custom, sizeof(__int32));
+    Custom ^= 1;
+    WriteVal(((void*)SF_Window.Base_hModule + 
+            Addr_STATS_Base[SF_Window.SF_Version] +
+            STATS_TAB_CUSTOMIZE_OUTFIT), 
+            (void*)&Custom, sizeof(__int32));
+    return TRUE;
+}
+BOOL PauseGame(void){
+    __int32 Pause = 0;
+    ReadVal(((void*)SF_Window.Base_hModule + 
+            Addr_STATS_Base[SF_Window.SF_Version] +
+            STATS_PAUSE_GAME), 
+            (void*)&Pause, sizeof(__int32));
+    Pause ^= 1;
+    WriteVal(((void*)SF_Window.Base_hModule + 
+            Addr_STATS_Base[SF_Window.SF_Version] +
+            STATS_PAUSE_GAME), 
+            (void*)&Pause, sizeof(__int32));
+    return TRUE;
+}
+BOOL InfinitePower(void){
+    __int32 Power = 0;
+    ReadVal((void*)(Hack_Status.Character_Attribute_P + 
+            CA_POWER_REMAINING_TIMER), 
+            (void*)&Power, sizeof(__int32));
+    Power = Power > 0? 0: 0x20000;
+    WriteVal((void*)(Hack_Status.Character_Attribute_P + 
+            CA_POWER_REMAINING_TIMER), 
+            (void*)&Power, sizeof(__int32));
+    return TRUE;
+}
+BOOL CompanionRevive(void){
+    __int32 Timer = 1;
+    WriteVal((void*)(Hack_Status.Character_Attribute_P + 
+            CA_COMPANION_REVIVE_TIMER), 
+            (void*)&Timer, sizeof(__int32));
+    WriteVal((void*)(Hack_Status.Character_Attribute_P + 
+            CA_COMPANION_REVIVE_TIMER_2), 
+            (void*)&Timer, sizeof(__int32));
+    return TRUE;
+}
+BOOL ExtraLandMine(void){
+    __int32 LandMine = 0;
+    ReadVal((void*)(Hack_Status.Character_Attribute_P + 
+            CA_LANDMINE_POSSESS_LIMIT), 
+            (void*)&LandMine, sizeof(__int32));
+    LandMine = LandMine > 100? 10: 0xFFFF;
+    WriteVal((void*)(Hack_Status.Character_Attribute_P + 
+            CA_LANDMINE_POSSESS_LIMIT), 
+            (void*)&LandMine, sizeof(__int32));
+    WriteVal((void*)(Hack_Status.Character_Attribute_P + 
+            CA_LANDMINE_POSSESS_LIMIT_2), 
+            (void*)&LandMine, sizeof(__int32));
+    WriteVal((void*)(Hack_Status.Character_Attribute_P + 
+            CA_LANDMINE_POSSESS), 
+            (void*)&LandMine, sizeof(__int32));
+    return TRUE;
+}
+BOOL ExtraLandMinePower(void){
+    __int32 LandMinePower = 0;
+    ReadVal((void*)(Hack_Status.Character_Attribute_P + 
+            CA_EXTRA_LANDMINE_POWER), 
+            (void*)&LandMinePower, sizeof(__int32));
+    LandMinePower = LandMinePower > 100? 0: 0x20000;
+    WriteVal((void*)(Hack_Status.Character_Attribute_P + 
+            CA_EXTRA_LANDMINE_POWER), 
+            (void*)&LandMinePower, sizeof(__int32));
+    return TRUE;
+}
+BOOL BeRich(void){
+    ULONG_PTR Addr1 = 0;
+    ReadVal(((void*)SF_Window.Base_hModule + 
+            Addr_STATS_Base[SF_Window.SF_Version] +
+            STATS_POINTER_HOLDING_ITEM_P), 
+            (void*)&Addr1, sizeof(__int32));
+    if(Addr1 == 0){
+        Hack_Status.LastErrorCode = ERR_SF_CURSOR_NULL;
+        ExceptionHandler();
+        return FALSE;
+    }
+    __int32 ItemIdentifier = 0;
+    ReadVal(((void*)Addr1), 
+            (void*)&ItemIdentifier, sizeof(__int32));
+    __int32 GoldIdentifier = SF_Window.SF_Version == 2?
+            4681312 + 0x10 :4681312;
+    if(ItemIdentifier != GoldIdentifier){
+        Hack_Status.LastErrorCode = ERR_SF_BE_RICH_NOT_MONEY;
+        ExceptionHandler();
+        return FALSE;
+    }
+    __int32 GoldNum = 0;
+    ReadVal(((void*)Addr1 + 0x40), 
+            (void*)&GoldNum, sizeof(__int32));
+    GoldNum = GoldNum <= 10000?
+            88888: GoldNum <= 100000?
+            888888: GoldNum <= 1000000?
+            8888888: 88888888;
+    WriteVal(((void*)Addr1 + 0x40), 
+            (void*)&GoldNum, sizeof(__int32));
+    return TRUE;
+}
+BOOL NoMonsterDisplay(void){
+    __int32 Display = 0;
+    ReadVal((void*)(Hack_Status.Character_Attribute_P + 
+            CA_MONSTER_DISPLAY_AND_AI), 
+            (void*)&Display, sizeof(__int32));
+    Display ^= 1;
+    WriteVal((void*)(Hack_Status.Character_Attribute_P + 
+            CA_MONSTER_DISPLAY_AND_AI), 
+            (void*)&Display, sizeof(__int32));
+    return TRUE;
+}
+BOOL MagicLVto30(void){
+    __int32 Extra = 0;
+    ReadVal((void*)(Hack_Status.Character_Attribute_P + 
+            CA_EXTRA_MAGIC_LV_2), 
+            (void*)&Extra, sizeof(__int32));
+    Extra = Extra == 50? 0: 50;
+    WriteVal((void*)(Hack_Status.Character_Attribute_P + 
+            CA_EXTRA_MAGIC_LV_2), 
+            (void*)&Extra, sizeof(__int32));
+    return TRUE;
+}
+BOOL CrazySpeed(void){
+    __int32 Walk = 0;
+    __int32 Run = 0;
+    ReadVal((void*)(Hack_Status.Character_Attribute_P + 
+            CA_REAL_SPEED_RUN), 
+            (void*)&Run, sizeof(__int32));
+    Run = Run > 50? 50: 200;
+    Walk = Walk > 25? 25: 100;
+    WriteVal((void*)(Hack_Status.Character_Attribute_P + 
+            CA_REAL_SPEED_WALK), 
+            (void*)&Walk, sizeof(__int32));
+    WriteVal((void*)(Hack_Status.Character_Attribute_P + 
+            CA_REAL_SPEED_RUN), 
+            (void*)&Run, sizeof(__int32));
+    return TRUE;
+}
+BOOL GodMode(void){
+    static God_Mode G_Ori = {0};
+    static God_Mode G_After = {
+        255,    255,
+        100000, 100000,
+        100000, 100000, 
+        10000, 
+        500000, 500000,
+        1000,   1000,
+        500000, 500000,
+        1000,   1000,
+    };
+    __int32 Flag_HP_Ori_value = 0;
+    ReadVal((void*)(Hack_Status.Character_Attribute_P + 
+            CA_HP_LIMIT_SEX_ORI_VALUE), 
+            (void*)&Flag_HP_Ori_value, sizeof(__int32));
+    if(Flag_HP_Ori_value < G_After.HP_2){
+        ReadVal((void*)(Hack_Status.Character_Attribute_P + 
+             CA_ATK_SPD), 
+             (void*)&G_Ori, sizeof(__int32) * 15);
+        WriteVal((void*)(Hack_Status.Character_Attribute_P + 
+             CA_ATK_SPD), 
+             (void*)&G_After, sizeof(__int32) * 15);
+    }else{
+        WriteVal((void*)(Hack_Status.Character_Attribute_P + 
+             CA_ATK_SPD), 
+             (void*)&G_Ori, sizeof(__int32) * 15);
+    }
+    return TRUE;
+}
+BOOL ExtendAtkRange(void){
+    __int32 Range = 0;
+    ReadVal((void*)(Hack_Status.Character_Attribute_P + 
+            CA_PICKUP_AND_ATK_RANGE), 
+            (void*)&Range, sizeof(__int32));
+    Range = Range == 159? 0x20000: 159;
+    WriteVal((void*)(Hack_Status.Character_Attribute_P + 
+            CA_PICKUP_AND_ATK_RANGE), 
+            (void*)&Range, sizeof(__int32));
+    return TRUE;
+}
+BOOL ReviveEneny(void){
+    __int32 Reload = 1;
+    WriteVal(((void*)SF_Window.Base_hModule + 
+            Addr_STATS_Base[SF_Window.SF_Version] +
+            STATS_RELOAD_SAVEFILE_TRIGGER), 
+            (void*)&Reload, sizeof(__int32));
+    return TRUE;
+}
+BOOL Suicide(void){
+    __int32 HP = 0;
+    WriteVal((void*)(Hack_Status.Character_Attribute_P + 
+            CA_HP), 
+            (void*)&HP, sizeof(__int32));
+    return TRUE;
+}
+BOOL GetAndDisplayMagicStatus(HWND hwndParent){
+    __int32 Magic[SF_MAGIC_COUNT * 3] = {0};
+    ReadVal((void*)(Hack_Status.Character_Attribute_P + 
+            CA_MAGIC_TRANSPORT), 
+            (void*)&Magic, sizeof(__int32) * SF_MAGIC_COUNT * 3);
+    for(__int32 i = 0; i < SF_MAGIC_COUNT; i++){
+        if(Magic[i] == 0x3){
+            EnableWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_LV_1 + i * 5), TRUE);
+            EnableWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_LV_1 + i * 5), TRUE);
+            EnableWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_EXP_1 + i * 5), TRUE);
+            EnableWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_EXP_1 + i * 5), TRUE);
+        }
+        EnableWindow(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_1 + i * 5), TRUE);
+        WCHAR buffer[4] = {0};
+        _itow_s(Magic[i + SF_MAGIC_COUNT], buffer, 4, 10);
+        SetWindowTextW(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_LV_1 + i * 5), buffer);
+        _itow_s(Magic[i + SF_MAGIC_COUNT * 2], buffer, 4, 10);
+        SetWindowTextW(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_EXP_1 + i * 5), buffer);   
+    }
+    return TRUE;
+}
+BOOL UnlockMagic(HWND hwndParent, __int32 index){
+    __int32 val = 0;
+    ReadVal((void*)(Hack_Status.Character_Attribute_P + 
+            CA_MAGIC_TRANSPORT +
+            sizeof(__int32) * index), 
+            (void*)&val, sizeof(__int32));
+    val ^= 0x03;
+    WriteVal((void*)(Hack_Status.Character_Attribute_P + 
+            CA_MAGIC_TRANSPORT +
+            sizeof(__int32) * index), 
+            (void*)&val, sizeof(__int32));
+    switch(val){
+        case 0x0:
+            EnableWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_LV_1 + index * 5), FALSE);
+            EnableWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_LV_1 + index * 5), FALSE);
+            EnableWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_EXP_1 + index * 5), FALSE);
+            EnableWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_EXP_1 + index * 5), FALSE);
+            break;
+        case 0x3:
+            EnableWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_LV_1 + index * 5), TRUE);
+            EnableWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_LV_1 + index * 5), TRUE);
+            EnableWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_EXP_1 + index * 5), TRUE);
+            EnableWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_EXP_1 + index * 5), TRUE);
+            break;
+        default:
+            break;
+    }
+    return TRUE;
+}
+BOOL ApplyMagicLV(HWND hwndParent, __int32 index){
+    WCHAR buffer[3] = {0};
+    GetWindowTextW(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_LV_1 + index * 5), buffer, 3);
+    __int32 LV = _wtoi(buffer);
+    WriteVal((void*)(Hack_Status.Character_Attribute_P + 
+            CA_MAGIC_TRANSPORT_LV +
+            sizeof(__int32) * index), 
+            (void*)&LV, sizeof(__int32));
+    return TRUE;
+}
+BOOL ApplyMagicEXP(HWND hwndParent, __int32 index){
+    WCHAR buffer[4] = {0};
+    GetWindowTextW(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_EXP_1 + index * 5), buffer, 4);
+    __int32 EXP = _wtoi(buffer);
+    WriteVal((void*)(Hack_Status.Character_Attribute_P + 
+            CA_MAGIC_TRANSPORT_EXP +
+            sizeof(__int32) * index), 
+            (void*)&EXP, sizeof(__int32));
+    return TRUE;
+}

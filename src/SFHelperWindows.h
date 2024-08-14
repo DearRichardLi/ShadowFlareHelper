@@ -12,71 +12,223 @@
 #define IDM_OPTION_EXIT    0x2
 #define IDM_ABOUT_HELP     0x3
 #define IDM_ABOUT_ABOUTAPP 0x4
+#define IDM_ABOUT_ADDRESS  0x5
 // 0x50 - 0x51 : Tray Bar Icon
 #define IDI_ICON      0x50
 #define IDI_ICONSM    0x51
 // 0x100 - 0x1FF: Tab control, tab 0, Init
-#define IDC_TABCONTROL                 0x100
-#define IDC_BUTTON_OPENSF              0x101
-#define IDC_COMBOBOX_GAMEVERSION       0x102
-#define IDC_BUTTON_BIND_GAME           0x103
-#define IDC_EDIT_INIT_LOG              0x104
-#define IDC_BUTTON_REFRESH             0x105
-#define IDC_STATIC_REFRESH_DELAY       0x106
-#define IDC_EDIT_REFRESH_DELAY         0x107
-#define IDC_UPDOWN_REFRESH_DELAY       0x108
-#define IDC_STATIC_GAMEMODE            0x109
-#define IDC_EDIT_GAMEMODE              0x10A
-#define IDC_STATIC_ONLINEROLE          0x10B
-#define IDC_EDIT_ONLINEROLE            0x10C
-#define IDC_STATIC_PLAYER_NAME         0x10D
-#define IDC_EDIT_PLAYER_NAME           0x10E
-#define IDC_BUTTON_APPLY_PLAYER_NAME   0x10F
-#define IDC_STATIC_LV                  0x110
-#define IDC_EDIT_LV                    0x111
-#define IDC_UPDOWN_LV                  0x112
-#define IDC_STATIC_SEX                 0x113
-#define IDC_COMBOBOX_SEX               0x114
-#define IDC_STATIC_EXP                 0x115
-#define IDC_EDIT_EXP                   0x116
-#define IDC_BUTTON_APPLY_EXP           0x117
-#define IDC_STATIC_PROF                0x118
-#define IDC_COMBOBOX_PROF              0x119
-#define IDC_STATIC_PROF_TO_BE          0x11A
-#define IDC_COMBOBOX_PROF_TO_BE        0x11B
-#define IDC_STATIC_COMPANION_LV        0x11C
-#define IDC_EDIT_COMPANION_LV          0x11D
-#define IDC_UPDOWN_COMPANION_LV        0x11E
-#define IDC_STATIC_COMPANION_ID        0x11F
-#define IDC_COMBOBOX_COMPANION_ID      0x120
-#define IDC_STATIC_COMPANION_EXP       0x121
-#define IDC_EDIT_COMPANION_EXP         0x122
-#define IDC_BUTTON_APPLY_COMPANION_EXP 0x123
-#define IDC_BUTTON_CHANGE_LANG         0x1FF
-
+#define IDC_TABCONTROL                  0x100
+#define IDC_BUTTON_OPENSF               0x101
+#define IDC_COMBOBOX_GAMEVERSION        0x102
+#define IDC_BUTTON_BIND_GAME            0x103
+#define IDC_EDIT_INIT_LOG               0x104
+#define IDC_BUTTON_REFRESH              0x105
+#define IDC_STATIC_REFRESH_DELAY        0x106
+#define IDC_EDIT_REFRESH_DELAY          0x107
+#define IDC_UPDOWN_REFRESH_DELAY        0x108
+#define IDC_STATIC_GAMEMODE             0x109
+#define IDC_EDIT_GAMEMODE               0x10A
+#define IDC_STATIC_ONLINEROLE           0x10B
+#define IDC_EDIT_ONLINEROLE             0x10C
+#define IDC_STATIC_PLAYER_NAME          0x10D
+#define IDC_EDIT_PLAYER_NAME            0x10E
+#define IDC_BUTTON_APPLY_PLAYER_NAME    0x10F
+#define IDC_STATIC_LV                   0x110
+#define IDC_EDIT_LV                     0x111
+#define IDC_UPDOWN_LV                   0x112
+#define IDC_STATIC_SEX                  0x113
+#define IDC_COMBOBOX_SEX                0x114
+#define IDC_STATIC_EXP                  0x115
+#define IDC_EDIT_EXP                    0x116
+#define IDC_BUTTON_APPLY_EXP            0x117
+#define IDC_STATIC_PROF                 0x118
+#define IDC_COMBOBOX_PROF               0x119
+#define IDC_STATIC_PROF_TO_BE           0x11A
+#define IDC_COMBOBOX_PROF_TO_BE         0x11B
+#define IDC_STATIC_COMPANION_LV         0x11C
+#define IDC_EDIT_COMPANION_LV           0x11D
+#define IDC_UPDOWN_COMPANION_LV         0x11E
+#define IDC_STATIC_COMPANION_ID         0x11F
+#define IDC_COMBOBOX_COMPANION_ID       0x120
+#define IDC_STATIC_COMPANION_EXP        0x121
+#define IDC_EDIT_COMPANION_EXP          0x122
+#define IDC_BUTTON_APPLY_COMPANION_EXP  0x123
+#define IDC_BUTTON_CHANGE_LANG          0x124
 // 0x200 - 0x2FF: tab 1, WallHack
-#define IDC_BUTTON_HOOK                0x200
-#define IDC_STATIC_HOOK_STATUS         0x201
-#define IDC_EDIT_HOOK_STATUS           0x202
-#define IDC_EDIT_HOOK_LOG              0x203
-#define IDC_STATIC_MAP_ID              0x204
-#define IDC_EDIT_MAP_ID                0x205
-#define IDC_STATIC_X                   0x206
-#define IDC_EDIT_X                     0x207
-#define IDC_STATIC_Y                   0x208
-#define IDC_EDIT_Y                     0x209
-#define IDC_EDIT_MAP_NAME              0x20A
-#define IDC_STATIC_MOVE_DISTANCE       0x20B
-#define IDC_EDIT_MOVE_DISTANCE         0x20C
-#define IDC_UPDOWN_MOVE_DISTANCE       0x20D
-#define IDC_STATIC_MOVE_DELAY          0x20E
-#define IDC_EDIT_MOVE_DELAY            0x20F
-#define IDC_UPDOWN_MOVE_DELAY          0x210
-
-
-// 0x300 - 0x3FF: tab 2
-
-
+#define IDC_BUTTON_HOOK                 0x200
+#define IDC_STATIC_HOOK_STATUS          0x201
+#define IDC_EDIT_HOOK_STATUS            0x202
+#define IDC_EDIT_HOOK_LOG               0x203
+#define IDC_STATIC_MAP_ID               0x204
+#define IDC_EDIT_MAP_ID                 0x205
+#define IDC_STATIC_X                    0x206
+#define IDC_EDIT_X                      0x207
+#define IDC_STATIC_Y                    0x208
+#define IDC_EDIT_Y                      0x209
+#define IDC_EDIT_MAP_NAME               0x20A
+#define IDC_STATIC_MAP_GATE_ID          0x20B
+#define IDC_EDIT_MAP_GATE_ID            0x20C
+#define IDC_STATIC_MOVE_DISTANCE        0x20D
+#define IDC_EDIT_MOVE_DISTANCE          0x20E
+#define IDC_UPDOWN_MOVE_DISTANCE        0x20F
+#define IDC_STATIC_MOVE_DELAY           0x210
+#define IDC_EDIT_MOVE_DELAY             0x211
+#define IDC_UPDOWN_MOVE_DELAY           0x212
+#define IDC_STATIC_TELEPORT             0x213
+#define IDC_COMBOBOX_TELEPORT_PRESET    0x214
+#define IDC_STATIC_TELEPORT_MAP_ID      0x215
+#define IDC_COMBOBOX_TELEPORT_MAP_NAME  0x216
+#define IDC_EDIT_TELEPORT_MAP_ID        0x217
+#define IDC_GROUPBOX_GATE_OR_XY         0x218
+#define IDC_BUTTON_RADIO_GATE           0x219
+#define IDC_BUTTON_RADIO_XY             0x21A
+#define IDC_STATIC_TELEPORT_GATE_ID     0x21B
+#define IDC_EDIT_TELEPORT_GATE_ID       0x21C
+#define IDC_STATIC_TELEPORT_GATE_WARN   0x21D
+#define IDC_STATIC_TELEPORT_X           0x21E
+#define IDC_EDIT_TELEPORT_X             0x21F
+#define IDC_STATIC_TELEPORT_Y           0x220
+#define IDC_EDIT_TELEPORT_Y             0x221
+#define IDC_BUTTON_TELEPORT             0x222
+// 0x300 - 0x3FF: tab 2, Assist
+#define IDC_BUTTON_OPEN_WAREHOUSE       0x300
+#define IDC_BUTTON_OPEN_G_WAREHOUSE     0x301
+#define IDC_BUTTON_OPEN_CUSTOM_OUTFIT   0x302
+#define IDC_BUTTON_PAUSE_GAME           0x303
+#define IDC_BUTTON_INFINITE_POWER       0x304
+#define IDC_BUTTON_COMPANION_REVIVE     0x305
+#define IDC_BUTTON_EXTRA_LANDMINE       0x306
+#define IDC_BUTTON_EXTRA_LANDMINE_POWER 0x307
+#define IDC_BUTTON_BE_RICH              0x308
+#define IDC_BUTTON_NO_MONSTER           0x309
+#define IDC_BUTTON_MAGIC_LV_TO_30       0x30A
+#define IDC_BUTTON_CRAZY_SPEED          0x30B
+#define IDC_BUTTON_GOD_MODE             0x30C
+#define IDC_BUTTON_EXTEND_ATK_RANGE     0x30D
+#define IDC_EDIT_ASSIST_LOG             0x30E
+#define IDC_BUTTON_REVIVE_ENEMY         0x30F
+#define IDC_BUTTON_SUICIDE              0x310
+// 0x400 - 0x4FF: tab 3, Magic
+#define IDC_STATIC_MAGIC_NAME_1         0x400
+#define IDC_STATIC_MAGIC_LV_1           0x401
+#define IDC_STATIC_MAGIC_EXP_1          0x402
+#define IDC_STATIC_MAGIC_NAME_2         0x403
+#define IDC_STATIC_MAGIC_LV_2           0x404
+#define IDC_STATIC_MAGIC_EXP_2          0x405
+#define IDC_GROUPBOX_TAB_1              0x406
+#define IDC_GROUPBOX_TAB_2              0x407
+#define IDC_GROUPBOX_TAB_3              0x408
+#define IDC_GROUPBOX_TAB_4              0x409
+#define IDC_BUTTON_MAGIC_1              0x40A
+#define IDC_EDIT_MAGIC_LV_1             0x40B
+#define IDC_UPDOWN_MAGIC_LV_1           0x40C
+#define IDC_EDIT_MAGIC_EXP_1            0x40D
+#define IDC_UPDOWN_MAGIC_EXP_1          0x40E
+#define IDC_BUTTON_MAGIC_2              0x40F
+#define IDC_EDIT_MAGIC_LV_2             0x410
+#define IDC_UPDOWN_MAGIC_LV_2           0x411
+#define IDC_EDIT_MAGIC_EXP_2            0x412
+#define IDC_UPDOWN_MAGIC_EXP_2          0x413
+#define IDC_BUTTON_MAGIC_3              0x414
+#define IDC_EDIT_MAGIC_LV_3             0x415
+#define IDC_UPDOWN_MAGIC_LV_3           0x416
+#define IDC_EDIT_MAGIC_EXP_3            0x417
+#define IDC_UPDOWN_MAGIC_EXP_3          0x418
+#define IDC_BUTTON_MAGIC_4              0x419
+#define IDC_EDIT_MAGIC_LV_4             0x41A
+#define IDC_UPDOWN_MAGIC_LV_4           0x41B
+#define IDC_EDIT_MAGIC_EXP_4            0x41C
+#define IDC_UPDOWN_MAGIC_EXP_4          0x41D
+#define IDC_BUTTON_MAGIC_5              0x41E
+#define IDC_EDIT_MAGIC_LV_5             0x41F
+#define IDC_UPDOWN_MAGIC_LV_5           0x420
+#define IDC_EDIT_MAGIC_EXP_5            0x421
+#define IDC_UPDOWN_MAGIC_EXP_5          0x422
+#define IDC_BUTTON_MAGIC_6              0x423
+#define IDC_EDIT_MAGIC_LV_6             0x424
+#define IDC_UPDOWN_MAGIC_LV_6           0x425
+#define IDC_EDIT_MAGIC_EXP_6            0x426
+#define IDC_UPDOWN_MAGIC_EXP_6          0x427
+#define IDC_BUTTON_MAGIC_7              0x428
+#define IDC_EDIT_MAGIC_LV_7             0x429
+#define IDC_UPDOWN_MAGIC_LV_7           0x42A
+#define IDC_EDIT_MAGIC_EXP_7            0x42B
+#define IDC_UPDOWN_MAGIC_EXP_7          0x42C
+#define IDC_BUTTON_MAGIC_8              0x42D
+#define IDC_EDIT_MAGIC_LV_8             0x42E
+#define IDC_UPDOWN_MAGIC_LV_8           0x42F
+#define IDC_EDIT_MAGIC_EXP_8            0x430
+#define IDC_UPDOWN_MAGIC_EXP_8          0x431
+#define IDC_BUTTON_MAGIC_9              0x432
+#define IDC_EDIT_MAGIC_LV_9             0x433
+#define IDC_UPDOWN_MAGIC_LV_9           0x434
+#define IDC_EDIT_MAGIC_EXP_9            0x435
+#define IDC_UPDOWN_MAGIC_EXP_9          0x436
+#define IDC_BUTTON_MAGIC_10             0x437
+#define IDC_EDIT_MAGIC_LV_10            0x438
+#define IDC_UPDOWN_MAGIC_LV_10          0x439
+#define IDC_EDIT_MAGIC_EXP_10           0x43A
+#define IDC_UPDOWN_MAGIC_EXP_10         0x43B
+#define IDC_BUTTON_MAGIC_11             0x43C
+#define IDC_EDIT_MAGIC_LV_11            0x43D
+#define IDC_UPDOWN_MAGIC_LV_11          0x43E
+#define IDC_EDIT_MAGIC_EXP_11           0x43F
+#define IDC_UPDOWN_MAGIC_EXP_11         0x440
+#define IDC_BUTTON_MAGIC_12             0x441
+#define IDC_EDIT_MAGIC_LV_12            0x442
+#define IDC_UPDOWN_MAGIC_LV_12          0x443
+#define IDC_EDIT_MAGIC_EXP_12           0x444
+#define IDC_UPDOWN_MAGIC_EXP_12         0x445
+#define IDC_BUTTON_MAGIC_13             0x446
+#define IDC_EDIT_MAGIC_LV_13            0x447
+#define IDC_UPDOWN_MAGIC_LV_13          0x448
+#define IDC_EDIT_MAGIC_EXP_13           0x449
+#define IDC_UPDOWN_MAGIC_EXP_13         0x44A
+#define IDC_BUTTON_MAGIC_14             0x44B
+#define IDC_EDIT_MAGIC_LV_14            0x44C
+#define IDC_UPDOWN_MAGIC_LV_14          0x44D
+#define IDC_EDIT_MAGIC_EXP_14           0x44E
+#define IDC_UPDOWN_MAGIC_EXP_14         0x44F
+#define IDC_BUTTON_MAGIC_15             0x450
+#define IDC_EDIT_MAGIC_LV_15            0x451
+#define IDC_UPDOWN_MAGIC_LV_15          0x452
+#define IDC_EDIT_MAGIC_EXP_15           0x453
+#define IDC_UPDOWN_MAGIC_EXP_15         0x454
+#define IDC_BUTTON_MAGIC_16             0x455
+#define IDC_EDIT_MAGIC_LV_16            0x456
+#define IDC_UPDOWN_MAGIC_LV_16          0x457
+#define IDC_EDIT_MAGIC_EXP_16           0x458
+#define IDC_UPDOWN_MAGIC_EXP_16         0x459
+#define IDC_BUTTON_MAGIC_17             0x45A
+#define IDC_EDIT_MAGIC_LV_17            0x45B
+#define IDC_UPDOWN_MAGIC_LV_17          0x45C
+#define IDC_EDIT_MAGIC_EXP_17           0x45D
+#define IDC_UPDOWN_MAGIC_EXP_17         0x45E
+#define IDC_BUTTON_MAGIC_18             0x45F
+#define IDC_EDIT_MAGIC_LV_18            0x460
+#define IDC_UPDOWN_MAGIC_LV_18          0x461
+#define IDC_EDIT_MAGIC_EXP_18           0x462
+#define IDC_UPDOWN_MAGIC_EXP_18         0x463
+#define IDC_BUTTON_MAGIC_19             0x464
+#define IDC_EDIT_MAGIC_LV_19            0x465
+#define IDC_UPDOWN_MAGIC_LV_19          0x466
+#define IDC_EDIT_MAGIC_EXP_19           0x467
+#define IDC_UPDOWN_MAGIC_EXP_19         0x468
+#define IDC_BUTTON_MAGIC_20             0x469
+#define IDC_EDIT_MAGIC_LV_20            0x46A
+#define IDC_UPDOWN_MAGIC_LV_20          0x46B
+#define IDC_EDIT_MAGIC_EXP_20           0x46C
+#define IDC_UPDOWN_MAGIC_EXP_20         0x46D
+#define IDC_BUTTON_MAGIC_21             0x46E
+#define IDC_EDIT_MAGIC_LV_21            0x46F
+#define IDC_UPDOWN_MAGIC_LV_21          0x470
+#define IDC_EDIT_MAGIC_EXP_21           0x471
+#define IDC_UPDOWN_MAGIC_EXP_21         0x472
+#define IDC_BUTTON_MAGIC_22             0x473
+#define IDC_EDIT_MAGIC_LV_22            0x474
+#define IDC_UPDOWN_MAGIC_LV_22          0x475
+#define IDC_EDIT_MAGIC_EXP_22           0x476
+#define IDC_UPDOWN_MAGIC_EXP_22         0x477
 
 void SetTheme(void);
 void SetDefaultLanguage(void);
@@ -89,10 +241,13 @@ void CreateMenuBar(void);
 void CreateTabControl(HWND hwnd, LPARAM lParam);
 void CreateTab0(void);
 void CreateTab1(void);
+void CreateTab2(void);
+void CreateTab3(void);
 void ShowTabContents(HWND hwndTab, __int32 iPageOld, __int32 iPageNew);
 void UseCustomFont(HWND hwndTab, HFONT hCustomFont);
-void SwitchOpenGameControl(HWND hwndTab, BOOL isAble);
+void SwitchBindGameControl(HWND hwndTab, BOOL isAble);
 void SwitchRefreshControl(HWND hwndTab, BOOL isAble);
+void SwitchTeleportModeControl(HWND hwndTab, BOOL isAble);
 void ChangeLanguage(void);
 
 #endif /* SFHelperWindows.h */
