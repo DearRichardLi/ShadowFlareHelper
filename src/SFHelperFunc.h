@@ -78,7 +78,7 @@ BOOL PresetContentChange(HWND hwndParent);
 BOOL ApplyTeleportMapID(HWND hwndParent);
 BOOL ApplyTeleport(HWND hwndParent);
 BOOL OpenWarehouseTab(void);
-BOOL OpenGaintWarehouseTab(void);
+BOOL OpenGiantWarehouseTab(void);
 BOOL OpenCustomOutfitTab(void);
 BOOL PauseGame(void);
 BOOL InfinitePower(void);
@@ -97,5 +97,10 @@ BOOL GetAndDisplayMagicStatus(HWND hwndParent);
 BOOL UnlockMagic(HWND hwndParent, __int32 index);
 BOOL ApplyMagicLV(HWND hwndParent, __int32 index);
 BOOL ApplyMagicEXP(HWND hwndParent, __int32 index);
+BOOL UnlockQuest(__int32 index);
+BOOL UnlockGiantWarehouse(__int32 index);
+BOOL GetAndDisplayGiantWarehouseIndex(HWND hwndParent);
+BOOL ApplyGiantWarehouseIndex(HWND hwndParent);
+
 
 #endif /* SFHelperFunc.h */

@@ -7,6 +7,7 @@ ShadowFlare Helper is an intergrated hack tool of the game Shadowflare, help you
 ![Screenshot](/README/ScreenShot1.png)  
 ![Screenshot](/README/ScreenShot2.png)  
 ![Screenshot](/README/ScreenShot3.png)
+![Screenshot](/README/ScreenShot4.png)
 
 ## How To Use
 Put `SFHelper` and `libwinpthread-1.dll` to your ShadowFLare Game Folder.  
@@ -24,17 +25,15 @@ ATTENTION: Re-Bind Game after you S/L Savefile.
 - Modify as much data as possible
 - Timely monitor and update Game data 
 - Integrated [ShadowFlare WallHack](https://github.com/DearRichardLi/ShadowFlareWallHack) to this APP 
-
-
-
-## Future Functions
-
-- Unlimited & Instantly Teleport to ANY place.
-- Player Status Modify
-- Quest/Magic/GiantWarehouse Modify
+- Customized Teleportation (To Any map, Any where)
+- Unlimited & Instantly Teleport to ANY place
 - extend Swordman Atk Range
 - Be super rich in game
-- Customized Teleportation (To Any map, Any where)
+- Quest/Magic/GiantWarehouse Modify
+## Future Functions
+
+- Player Status Modify
+- Item modify
 - more......
 
 
@@ -76,4 +75,10 @@ gcc -o SFHelper SFHelperResource.o main.c libshlwapi.a libpsapi.a libwinpthread.
 - Assist functions Tab Available! "Open Warehouse at any time" "Infinite Power" "Revive Companion immediately".... and more....
 - Magic Hack Available! Unlock Magic as you wish, modify Magic LV and EXP easily.
 - Bug fixed: Map ID display incorrectly sometime.
-More experience enhanced.
+- More using experience enhanced.
+
+### v0.4.0
+- Optimized code logic. Let less code do more work.
+- Bug fixed: "Invicible Status" cause some player status turn to 1.
+- Quest Hack Available!
+- Giant Warehouse Hack Available!

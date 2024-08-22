@@ -54,7 +54,7 @@
 #define S_IMMORTAL_REMAINS_B1F                    1050000
 #define S_IMMORTAL_REMAINS_B2F                    1050001
 #define S_IMMORTAL_REMAINS_HEATED_HALL            1050002
-
+    // EP2
 #define S_FOREST_AREA_1                      2000000
 #define S_FOREST_AREA_2                      2000001
 #define S_MINE__FOREST                       2010000
@@ -88,7 +88,7 @@
 #define S_CAVE_B2F                           2240001
 #define S_WESLEY_CAVE                        2250000
 #define S_CARAVAN                            2999999
-
+    // EP3
 #define S_THE_WILDS_OF_DEATH_AND_DARKNESS             3000101
 #define S_VALLEY_OF_DYING_PEOPLE                      3000201
 #define S_LUNAFULD_BEACH                              3000202
@@ -153,7 +153,7 @@
 #define S_TOWN_OF_LOSMANS                             3900003
 #define S_PONSE_VILLAGE_OF_DWARVES                    3900004
 #define S_SENAS_SMALL_SHRINE                          3900005
-
+    // EP4
 #define S_WEST_CALADO                      4000000
 #define S_GARWOOD_SWAMP                    4000001
 #define S_LABYRINTH_OF_THE_LAKE            4000002
@@ -199,7 +199,7 @@
 #define S_BERINI_VILLAGE                                  4900001
 #define S_ENTO_VILLAGE                                    4900002
 #define S_RUINS_OF_BERINI_VILLAGE                         4900003
-
+    // Tower of ordeal
 #define S_ROAD_TO_A_TOWER           99000000
 #define S_TOWER_OF_ORDEAL           99000001
 #define S_TOWER_OF_ORDEAL_1F        99000002
@@ -238,7 +238,6 @@
 #define S_TOWER_OF_ORDEAL_ANNEX_12F         99000035
 #define S_TOWER_OF_ORDEAL_ANNEX_13F         99000036
 #define S_TOWER_OF_ORDEAL_ANNEX_TOP_FLOOR   99000037
-#define TELEPORT_PRESET_COUNT                    104
 #endif // _SF_SCENARIO
 
 
@@ -251,7 +250,7 @@ typedef struct _Teleport_Preset_Info{
     __int32 Y;
 } Teleport_Preset_Info;
 
-
+#define TELEPORT_PRESET_COUNT                    104
 
 #endif // _SF_TELEPORT_PRESET
 

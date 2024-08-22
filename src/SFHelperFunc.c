@@ -181,9 +181,7 @@ BOOL WriteVal(void* addr, void* val, size_t nSize){
     return ret; 
 }
 BOOL GetAndDisplayValues(HWND hwndParent){
-    if(    GetGameModeAndOnlineRole()
-        && DisplayGameModeAndOnlineRole(hwndParent)
-        && GetAndDisplayPlayerName(hwndParent)
+    if(    GetAndDisplayPlayerName(hwndParent)
         && GetAndDisplayPlayerLV(hwndParent)
         && GetAndDisplayPlayerSex(hwndParent)
         && GetAndDisplayPlayerEXP(hwndParent)
@@ -201,6 +199,7 @@ BOOL GetAndDisplayValues(HWND hwndParent){
         && GetAndDisplayMapGateID(hwndParent)
         && GetTabs()
         && GetAndDisplayMagicStatus(hwndParent)
+        && GetAndDisplayGiantWarehouseIndex(hwndParent)
     ){
         return TRUE;
     } else{
@@ -981,18 +980,18 @@ BOOL OpenWarehouseTab(void){
             (void*)&Warehouse, sizeof(__int32));
     return TRUE;
 }
-BOOL OpenGaintWarehouseTab(void){
+BOOL OpenGiantWarehouseTab(void){
     CloseAllTabs();
-    __int32 GaintWarehouse = 0;
+    __int32 GiantWarehouse = 0;
     ReadVal(((void*)SF_Window.Base_hModule + 
             Addr_STATS_Base[SF_Window.SF_Version] +
             STATS_TAB_G_WAREHOUSE), 
-            (void*)&GaintWarehouse, sizeof(__int32));
-    GaintWarehouse ^= 1;
+            (void*)&GiantWarehouse, sizeof(__int32));
+    GiantWarehouse ^= 1;
     WriteVal(((void*)SF_Window.Base_hModule + 
             Addr_STATS_Base[SF_Window.SF_Version] +
             STATS_TAB_G_WAREHOUSE), 
-            (void*)&GaintWarehouse, sizeof(__int32));
+            (void*)&GiantWarehouse, sizeof(__int32));
     return TRUE;
 }
 BOOL OpenCustomOutfitTab(void){
@@ -1153,18 +1152,18 @@ BOOL GodMode(void){
         500000, 500000,
         1000,   1000,
     };
-    __int32 Flag_HP_Ori_value = 0;
+    __int32 Flag_Strength_Ori_value = 0;
     ReadVal((void*)(Hack_Status.Character_Attribute_P + 
-            CA_HP_LIMIT_SEX_ORI_VALUE), 
-            (void*)&Flag_HP_Ori_value, sizeof(__int32));
-    if(Flag_HP_Ori_value < G_After.HP_2){
+            CA_STRENGTH), 
+            (void*)&Flag_Strength_Ori_value, sizeof(__int32));
+    if(Flag_Strength_Ori_value != G_After.Strength){
         ReadVal((void*)(Hack_Status.Character_Attribute_P + 
              CA_ATK_SPD), 
              (void*)&G_Ori, sizeof(__int32) * 15);
         WriteVal((void*)(Hack_Status.Character_Attribute_P + 
              CA_ATK_SPD), 
              (void*)&G_After, sizeof(__int32) * 15);
-    }else{
+    } else{
         WriteVal((void*)(Hack_Status.Character_Attribute_P + 
              CA_ATK_SPD), 
              (void*)&G_Ori, sizeof(__int32) * 15);
@@ -1267,3 +1266,57 @@ BOOL ApplyMagicEXP(HWND hwndParent, __int32 index){
             (void*)&EXP, sizeof(__int32));
     return TRUE;
 }
+BOOL UnlockQuest(__int32 index){
+    ULONG_PTR QuestAddr = 0;
+    ReadVal(((void*)SF_Window.Base_hModule + 
+            Addr_STATS_Base[SF_Window.SF_Version] + 
+            STATS_QUEST_IS_UNLOCKED_P),
+            (void*)&QuestAddr, sizeof(DWORD));
+    __int32 Quest = 0;
+    ReadVal((void*)(QuestAddr + sizeof(__int32) * index), 
+            (void*)&Quest, sizeof(__int32));
+    Quest = (Quest + 1) % 3;
+    WriteVal((void*)(QuestAddr + sizeof(__int32) * index), 
+            (void*)&Quest, sizeof(__int32));
+    return TRUE;
+}
+BOOL UnlockGiantWarehouse(__int32 index){
+    __int32 GW = 0;
+    ReadVal((void*)(Hack_Status.Character_Attribute_P + 
+            CA_G_WAREHOUSE_1_UNLOCK +
+            sizeof(__int32) * index), 
+            (void*)&GW, sizeof(__int32));
+    GW ^= 1;
+    WriteVal((void*)(Hack_Status.Character_Attribute_P + 
+            CA_G_WAREHOUSE_1_UNLOCK +
+            sizeof(__int32) * index), 
+            (void*)&GW, sizeof(__int32));
+    return TRUE;
+}
+BOOL GetAndDisplayGiantWarehouseIndex(HWND hwndParent){
+    __int32 Index = 0;
+    ReadVal((void*)(Hack_Status.Character_Attribute_P + 
+            CA_G_WAREHOUSE_CURRENT_PAGE), 
+            (void*)&Index, sizeof(__int32));
+    WCHAR buffer[4] = {0};
+    _itow_s(Index, buffer, 4, 10);
+    SetWindowTextW(GetDlgItem(hwndParent, IDC_EDIT_G_WAREHOUSE_INDEX), buffer);
+    return 0;
+}
+BOOL ApplyGiantWarehouseIndex(HWND hwndParent){
+    WCHAR buffer[4] = {0};
+    GetWindowTextW(GetDlgItem(hwndParent, IDC_EDIT_G_WAREHOUSE_INDEX), buffer, 4);
+    __int32 Index = _wtoi(buffer);
+    if( (0 <= Index && Index <= 13) || (25 <= Index && Index <= 479)){
+        // 0-13; 25-479
+        WriteVal((void*)(Hack_Status.Character_Attribute_P + 
+                CA_G_WAREHOUSE_CURRENT_PAGE), 
+                (void*)&Index, sizeof(__int32));
+    }
+    return TRUE;
+}
+
+
+    // WCHAR buffer[3] = {0};
+    // _itow(x, buffer, 10);
+    // MessageBoxW(NULL, buffer, L"", 0);

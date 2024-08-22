@@ -111,7 +111,7 @@ HWND hwndButtonHook, hwndStaticHookStatus, hwndEditHookStatus,
 BOOL isMoveDistanceChanged = FALSE;
 BOOL isMoveDelayChanged    = FALSE;
     // tab 2, Assist
-HWND hwndButtonOpenWarehouse, hwndButtonOpenGaintWarehouse, 
+HWND hwndButtonOpenWarehouse, hwndButtonOpenGiantWarehouse, 
         hwndButtonOpenCustomOutfit, hwndButtonPauseGame,
         hwndButtonInfinitePower, hwndButtonCompanionRevive,
         hwndButtonExtraLandmine, hwndButtonExtraLandminePower,
@@ -124,7 +124,7 @@ HWND hwndButtonOpenWarehouse, hwndButtonOpenGaintWarehouse,
     // tab 3, Magic
 HWND hwndStaticMagicName1, hwndStaticMagicLV1, hwndStaticMagicEXP1,
         hwndStaticMagicName2, hwndStaticMagicLV2, hwndStaticMagicEXP2,
-        hwndGroupBoxTab1,  hwndGroupBoxTab2,  hwndGroupBoxTab3, hwndGroupBoxTab4,
+        hwndGroupBoxMagicPage1,  hwndGroupBoxMagicPage2,  hwndGroupBoxMagicPage3, hwndGroupBoxMagicPage4,
         hwndButtonMagic1,  hwndEditMagicLV1,  hwndUpDownMagicLV1,  hwndEditMagicEXP1,  hwndUpDownMagicEXP1, 
         hwndButtonMagic2,  hwndEditMagicLV2,  hwndUpDownMagicLV2,  hwndEditMagicEXP2,  hwndUpDownMagicEXP2, 
         hwndButtonMagic3,  hwndEditMagicLV3,  hwndUpDownMagicLV3,  hwndEditMagicEXP3,  hwndUpDownMagicEXP3, 
@@ -148,6 +148,32 @@ HWND hwndStaticMagicName1, hwndStaticMagicLV1, hwndStaticMagicEXP1,
         hwndButtonMagic21, hwndEditMagicLV21, hwndUpDownMagicLV21, hwndEditMagicEXP21, hwndUpDownMagicEXP21, 
         hwndButtonMagic22, hwndEditMagicLV22, hwndUpDownMagicLV22, hwndEditMagicEXP22, hwndUpDownMagicEXP22; 
 BOOL isMagicLVChanged = FALSE;
+    // tab 4, Quest
+HWND hwndStaticQuestCol1, hwndStaticQuestCol2, hwndStaticQuestCol3, hwndStaticQuestCol4,
+        hwndGroupBoxQuestPage1,  hwndGroupBoxQuestPage2,
+        hwndButtonQuest1,  hwndButtonQuest2,  hwndButtonQuest3,  hwndButtonQuest4,
+        hwndButtonQuest5,  hwndButtonQuest6,  hwndButtonQuest7,  hwndButtonQuest8,
+        hwndButtonQuest9,  hwndButtonQuest10, hwndButtonQuest11, hwndButtonQuest12,
+        hwndButtonQuest13, hwndButtonQuest14, hwndButtonQuest15, hwndButtonQuest16,
+        hwndButtonQuest17, hwndButtonQuest18, hwndButtonQuest19, hwndButtonQuest20,
+        hwndButtonQuest21, hwndButtonQuest22, hwndButtonQuest23, hwndButtonQuest24,
+        hwndButtonQuest25, hwndButtonQuest26, hwndButtonQuest27, hwndButtonQuest28,
+        hwndButtonQuest29, hwndButtonQuest30, hwndButtonQuest31, hwndButtonQuest32,
+        hwndButtonQuest33, hwndButtonQuest34, hwndButtonQuest35, hwndButtonQuest36,
+        hwndButtonQuest37, hwndButtonQuest38, hwndButtonQuest39, hwndButtonQuest40,
+        hwndButtonQuest41, hwndButtonQuest42, hwndButtonQuest43, hwndButtonQuest44,
+        hwndButtonQuest45, hwndButtonQuest46, hwndButtonQuest47, hwndButtonQuest48;
+    // tab 5, G Warehouse
+HWND hwndButtonOpenGiantWarehouse2, 
+        hwndGroupBoxGiantWarehouse,
+        hwndButtonGiantWarehouse1, hwndButtonGiantWarehouse2,
+        hwndButtonGiantWarehouse3, hwndButtonGiantWarehouse4,
+        hwndButtonGiantWarehouse5, hwndButtonGiantWarehouse6,
+        hwndButtonGiantWarehouse7, hwndButtonGiantWarehouse8,
+        hwndButtonGiantWarehouse9, hwndButtonGiantWarehouse10,
+        hwndStaticGiantWarehouseIndex, hwndEditGiantWarehouseIndex, hwndUpDownGiantWarehouseIndex,
+        hwndEditGiantWarehouseLog;
+BOOL isGiantWarehouseIndexChanged = FALSE;
 
 pthread_t th_GlobalKeyboardHook = 0;
 pthread_t th_CheckGameCloseOrLogout = 0;
@@ -163,7 +189,7 @@ pthread_t th_SendRefreshSignal = 0;
 LRESULT CALLBACK WndProc(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam){
     HWND hwndParent = GetParent(hwndTab);
     switch(Message){
-    case WM_CREATE: {
+    case WM_CREATE: 
         CreateFonts_CH_EN(&hFontCH, &hFontEN);
         InitTrayBarData(hwnd);
         CreateTabControl(hwnd, lParam);
@@ -177,20 +203,23 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam){
         CreateTab2(); 
         // tab 3, Magic
         CreateTab3(); 
-
+        // tab 4, Quest
+        CreateTab4();
+        // tab 5, G Warehouse
+        CreateTab5();
 
         SwitchBindGameControl(hwndTab, FALSE);
-            // initially show contents of tab 0
+            // initially show contents of tab 0, hide other tabs
         ShowTabContents(hwndTab, 1, -1);
         ShowTabContents(hwndTab, 2, -1);
         ShowTabContents(hwndTab, 3, -1);
-        // ShowTabContents(hwndTab, 4, -1);
+        ShowTabContents(hwndTab, 4, -1);
+        ShowTabContents(hwndTab, 5, -1);
 
         UseCustomFont(hwndTab, hFontEN);
         Shell_NotifyIconW(NIM_ADD, &nid);
         return 0;
-    }
-    break; // WM_CREATE
+        break; // WM_CREATE
     case WM_COMMAND:
         switch(LOWORD(wParam) >> 8){
         case 0x0:
@@ -214,7 +243,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam){
                 ShellExecuteW(NULL, L"open", GitHub_Address, NULL, NULL, SW_SHOWNORMAL);
                 break;
             }
-        break;
+            break;
         case 0x1:
             switch(LOWORD(wParam) & 0xff){
             case 0xff & IDC_BUTTON_OPENSF: {
@@ -234,6 +263,8 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam){
                 Hack_Status.isBind_Game = BindSF();
                 if(Hack_Status.isBind_Game){
                     SwitchBindGameControl(hwndTab, Hack_Status.isBind_Game);
+                    GetGameModeAndOnlineRole();
+                    DisplayGameModeAndOnlineRole(hwndParent);
                     GetAndDisplayValues(hwndParent);
                     DisplayRefreshDelay(hwndParent);
                     DisplayMoveDistance(hwndParent);
@@ -323,7 +354,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam){
                 DrawMenuBar(hwnd);
                 break;
             }
-        break;
+            break;
         case 0x2:
             switch(LOWORD(wParam) & 0xff){
             case 0xff & IDC_BUTTON_HOOK:
@@ -384,14 +415,14 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam){
                 ApplyTeleport(hwndParent);
                 break;
             }
-        break;
+            break;
         case 0x3:
             switch(LOWORD(wParam) & 0xff){
             case 0xff & IDC_BUTTON_OPEN_WAREHOUSE:
                 OpenWarehouseTab();
                 break;
             case 0xff & IDC_BUTTON_OPEN_G_WAREHOUSE:
-                OpenGaintWarehouseTab();
+                OpenGiantWarehouseTab();
                 break;
             case 0xff & IDC_BUTTON_OPEN_CUSTOM_OUTFIT:
                 OpenCustomOutfitTab();
@@ -436,7 +467,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam){
                 Suicide();
                 break;
             }
-        break;
+            break;
         case 0x4:
             switch(LOWORD(wParam) & 0xff){
             case 0xff & IDC_BUTTON_MAGIC_1:
@@ -516,11 +547,91 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam){
             case 0xff & IDC_EDIT_MAGIC_EXP_22:
                 ApplyMagicEXP(hwndParent, (LOWORD(wParam) - IDC_EDIT_MAGIC_EXP_1) / 5);
                 break;
-            
             }
-        break;
+            break;
+        case 0x5:
+            switch(LOWORD(wParam) & 0xff){
+            case 0xff & IDC_BUTTON_QUEST_1:
+            case 0xff & IDC_BUTTON_QUEST_2:
+            case 0xff & IDC_BUTTON_QUEST_3:
+            case 0xff & IDC_BUTTON_QUEST_4:
+            case 0xff & IDC_BUTTON_QUEST_5:
+            case 0xff & IDC_BUTTON_QUEST_6:
+            case 0xff & IDC_BUTTON_QUEST_7:
+            case 0xff & IDC_BUTTON_QUEST_8:
+            case 0xff & IDC_BUTTON_QUEST_9:
+            case 0xff & IDC_BUTTON_QUEST_10:
+            case 0xff & IDC_BUTTON_QUEST_11:
+            case 0xff & IDC_BUTTON_QUEST_12:
+            case 0xff & IDC_BUTTON_QUEST_13:
+            case 0xff & IDC_BUTTON_QUEST_14:
+            case 0xff & IDC_BUTTON_QUEST_15:
+            case 0xff & IDC_BUTTON_QUEST_16:
+            case 0xff & IDC_BUTTON_QUEST_17:
+            case 0xff & IDC_BUTTON_QUEST_18:
+            case 0xff & IDC_BUTTON_QUEST_19:
+            case 0xff & IDC_BUTTON_QUEST_20:
+            case 0xff & IDC_BUTTON_QUEST_21:
+            case 0xff & IDC_BUTTON_QUEST_22:
+            case 0xff & IDC_BUTTON_QUEST_23:
+            case 0xff & IDC_BUTTON_QUEST_24:
+            case 0xff & IDC_BUTTON_QUEST_25:
+            case 0xff & IDC_BUTTON_QUEST_26:
+            case 0xff & IDC_BUTTON_QUEST_27:
+            case 0xff & IDC_BUTTON_QUEST_28:
+            case 0xff & IDC_BUTTON_QUEST_29:
+            case 0xff & IDC_BUTTON_QUEST_30:
+            case 0xff & IDC_BUTTON_QUEST_31:
+            case 0xff & IDC_BUTTON_QUEST_32:
+            case 0xff & IDC_BUTTON_QUEST_33:
+            case 0xff & IDC_BUTTON_QUEST_34:
+            case 0xff & IDC_BUTTON_QUEST_35:
+            case 0xff & IDC_BUTTON_QUEST_36:
+            case 0xff & IDC_BUTTON_QUEST_37:
+            case 0xff & IDC_BUTTON_QUEST_38:
+            case 0xff & IDC_BUTTON_QUEST_39:
+            case 0xff & IDC_BUTTON_QUEST_40:
+            case 0xff & IDC_BUTTON_QUEST_41:
+            case 0xff & IDC_BUTTON_QUEST_42:
+            case 0xff & IDC_BUTTON_QUEST_43:
+            case 0xff & IDC_BUTTON_QUEST_44:
+            case 0xff & IDC_BUTTON_QUEST_45:
+            case 0xff & IDC_BUTTON_QUEST_46:
+            case 0xff & IDC_BUTTON_QUEST_47:
+            case 0xff & IDC_BUTTON_QUEST_48:
+                UnlockQuest(LOWORD(wParam) - IDC_BUTTON_QUEST_1);
+                break;
+            }
+            break;
+        case 0x06:
+            switch(LOWORD(wParam) & 0xff){
+            case 0xff & IDC_BUTTON_OPEN_G_WAREHOUSE_2:
+                OpenGiantWarehouseTab();
+                break;
+            case 0xff & IDC_BUTTON_G_WAREHOUSE_1:
+            case 0xff & IDC_BUTTON_G_WAREHOUSE_2:
+            case 0xff & IDC_BUTTON_G_WAREHOUSE_3:
+            case 0xff & IDC_BUTTON_G_WAREHOUSE_4:
+            case 0xff & IDC_BUTTON_G_WAREHOUSE_5:
+            case 0xff & IDC_BUTTON_G_WAREHOUSE_6:
+            case 0xff & IDC_BUTTON_G_WAREHOUSE_7:
+            case 0xff & IDC_BUTTON_G_WAREHOUSE_8:
+            case 0xff & IDC_BUTTON_G_WAREHOUSE_9:
+            case 0xff & IDC_BUTTON_G_WAREHOUSE_10:
+                UnlockGiantWarehouse(LOWORD(wParam) - IDC_BUTTON_G_WAREHOUSE_1);
+                break;
+            }
+            case 0xff & IDC_EDIT_G_WAREHOUSE_INDEX:
+                if(HIWORD(wParam) == EN_CHANGE && !isGiantWarehouseIndexChanged){
+                    isGiantWarehouseIndexChanged = TRUE; // this is to avoid endless call WndProc
+                    KeepWndNumWStrInRange(hwndParent, LOWORD(wParam), 4, 0, 479, TRUE, 10);
+                    ApplyGiantWarehouseIndex(hwndParent);
+                    isGiantWarehouseIndexChanged = FALSE; // this is to avoid endless call WndProc
+                }
+                break;
+            break;
         default:
-        break;
+            break;
         }
         break; //WM_COMMAND
     case WM_NOTIFY:
@@ -578,10 +689,12 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam){
         FillRect(hdc, &ps.rcPaint, (HBRUSH)(COLOR_WINDOW+1));
         EndPaint(hwnd, &ps);
         return 0;
+        break;
     }
     /* All other messages (a lot of them) are processed using default procedures */
     default:
         return DefWindowProcW(hwnd, Message, wParam, lParam);
+        break;
     }
     // DeleteObject(hFontCH);
     // DeleteObject(hFontEN);

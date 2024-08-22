@@ -115,10 +115,10 @@
 #define IDC_STATIC_MAGIC_NAME_2         0x403
 #define IDC_STATIC_MAGIC_LV_2           0x404
 #define IDC_STATIC_MAGIC_EXP_2          0x405
-#define IDC_GROUPBOX_TAB_1              0x406
-#define IDC_GROUPBOX_TAB_2              0x407
-#define IDC_GROUPBOX_TAB_3              0x408
-#define IDC_GROUPBOX_TAB_4              0x409
+#define IDC_GROUPBOX_MAGIC_PAGE_1       0x406
+#define IDC_GROUPBOX_MAGIC_PAGE_2       0x407
+#define IDC_GROUPBOX_MAGIC_PAGE_3       0x408
+#define IDC_GROUPBOX_MAGIC_PAGE_4       0x409
 #define IDC_BUTTON_MAGIC_1              0x40A
 #define IDC_EDIT_MAGIC_LV_1             0x40B
 #define IDC_UPDOWN_MAGIC_LV_1           0x40C
@@ -229,6 +229,81 @@
 #define IDC_UPDOWN_MAGIC_LV_22          0x475
 #define IDC_EDIT_MAGIC_EXP_22           0x476
 #define IDC_UPDOWN_MAGIC_EXP_22         0x477
+// 0x500 - 0x5FF: tab 4, Quest
+#define IDC_STATIC_QUEST_COL_1          0x500
+#define IDC_STATIC_QUEST_COL_2          0x501
+#define IDC_STATIC_QUEST_COL_3          0x502
+#define IDC_STATIC_QUEST_COL_4          0x503
+#define IDC_GROUPBOX_QUEST_PAGE_1       0x504
+#define IDC_GROUPBOX_QUEST_PAGE_2       0x505
+#define IDC_BUTTON_QUEST_1              0x506
+#define IDC_BUTTON_QUEST_2              0x507
+#define IDC_BUTTON_QUEST_3              0x508
+#define IDC_BUTTON_QUEST_4              0x509
+#define IDC_BUTTON_QUEST_5              0x50A
+#define IDC_BUTTON_QUEST_6              0x50B
+#define IDC_BUTTON_QUEST_7              0x50C
+#define IDC_BUTTON_QUEST_8              0x50D
+#define IDC_BUTTON_QUEST_9              0x50E
+#define IDC_BUTTON_QUEST_10             0x50F
+#define IDC_BUTTON_QUEST_11             0x510
+#define IDC_BUTTON_QUEST_12             0x511
+#define IDC_BUTTON_QUEST_13             0x512
+#define IDC_BUTTON_QUEST_14             0x513
+#define IDC_BUTTON_QUEST_15             0x514
+#define IDC_BUTTON_QUEST_16             0x515
+#define IDC_BUTTON_QUEST_17             0x516
+#define IDC_BUTTON_QUEST_18             0x517
+#define IDC_BUTTON_QUEST_19             0x518
+#define IDC_BUTTON_QUEST_20             0x519
+#define IDC_BUTTON_QUEST_21             0x51A
+#define IDC_BUTTON_QUEST_22             0x51B
+#define IDC_BUTTON_QUEST_23             0x51C
+#define IDC_BUTTON_QUEST_24             0x51D
+#define IDC_BUTTON_QUEST_25             0x51E
+#define IDC_BUTTON_QUEST_26             0x51F
+#define IDC_BUTTON_QUEST_27             0x520
+#define IDC_BUTTON_QUEST_28             0x521
+#define IDC_BUTTON_QUEST_29             0x522
+#define IDC_BUTTON_QUEST_30             0x523
+#define IDC_BUTTON_QUEST_31             0x524
+#define IDC_BUTTON_QUEST_32             0x525
+#define IDC_BUTTON_QUEST_33             0x526
+#define IDC_BUTTON_QUEST_34             0x527
+#define IDC_BUTTON_QUEST_35             0x528
+#define IDC_BUTTON_QUEST_36             0x529
+#define IDC_BUTTON_QUEST_37             0x52A
+#define IDC_BUTTON_QUEST_38             0x52B
+#define IDC_BUTTON_QUEST_39             0x52C
+#define IDC_BUTTON_QUEST_40             0x52D
+#define IDC_BUTTON_QUEST_41             0x52E
+#define IDC_BUTTON_QUEST_42             0x52F
+#define IDC_BUTTON_QUEST_43             0x530
+#define IDC_BUTTON_QUEST_44             0x531
+#define IDC_BUTTON_QUEST_45             0x532
+#define IDC_BUTTON_QUEST_46             0x533
+#define IDC_BUTTON_QUEST_47             0x534
+#define IDC_BUTTON_QUEST_48             0x535
+// 0x600 - 0x6FF: tab 5, G Warehouse
+#define IDC_BUTTON_OPEN_G_WAREHOUSE_2   0x600
+#define IDC_GROUPBOX_G_WAREHOUSE        0x601
+#define IDC_BUTTON_G_WAREHOUSE_1        0x602
+#define IDC_BUTTON_G_WAREHOUSE_2        0x603
+#define IDC_BUTTON_G_WAREHOUSE_3        0x604
+#define IDC_BUTTON_G_WAREHOUSE_4        0x605
+#define IDC_BUTTON_G_WAREHOUSE_5        0x606
+#define IDC_BUTTON_G_WAREHOUSE_6        0x607
+#define IDC_BUTTON_G_WAREHOUSE_7        0x608
+#define IDC_BUTTON_G_WAREHOUSE_8        0x609
+#define IDC_BUTTON_G_WAREHOUSE_9        0x60A
+#define IDC_BUTTON_G_WAREHOUSE_10       0x60B
+#define IDC_STATIC_G_WAREHOUSE_INDEX    0x60C
+#define IDC_EDIT_G_WAREHOUSE_INDEX      0x60D
+#define IDC_UPDOWN_G_WAREHOUSE_INDEX    0x60E
+#define IDC_EDIT_G_WAREHOUSE_LOG        0x60F
+
+
+
 
 void SetTheme(void);
 void SetDefaultLanguage(void);
@@ -243,6 +318,8 @@ void CreateTab0(void);
 void CreateTab1(void);
 void CreateTab2(void);
 void CreateTab3(void);
+void CreateTab4(void);
+void CreateTab5(void);
 void ShowTabContents(HWND hwndTab, __int32 iPageOld, __int32 iPageNew);
 void UseCustomFont(HWND hwndTab, HFONT hCustomFont);
 void SwitchBindGameControl(HWND hwndTab, BOOL isAble);

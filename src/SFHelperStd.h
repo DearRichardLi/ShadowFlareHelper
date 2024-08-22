@@ -18,6 +18,7 @@
 #define SF_PROF_COUNT            4
 #define SF_COMPANION_COUNT       6
 #define SF_MAGIC_COUNT          22
+#define SF_QUEST_COUNT          48
 #define SF_TELEPORT_GATE_COUNT  51
 #define PLAYER_NAME_LEN         20
 #define MAP_NAME_LEN           256

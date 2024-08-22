@@ -1,7 +1,7 @@
 #include "SFHelperStd.h"
 
 
-LPCWSTR APP_VERSION = L"0.3.0";
+LPCWSTR APP_VERSION = L"0.4.0";
 extern LPCWSTR APP_VERSION;
 LPCWSTR GitHub_Address = L"https://github.com/DearRichardLi/ShadowFlareHelper";
 extern LPCWSTR GitHub_Address;

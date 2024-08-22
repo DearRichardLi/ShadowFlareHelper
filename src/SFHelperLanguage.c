@@ -128,19 +128,19 @@ L"",
 L"",
 L"",
     }, { // 31 AWSTR_APP_INIT_HELP
-L"將\"SFHelper.exe\"檔案放入焰影神兵遊戲文件夾。\r\n\
+L"將\"SFHelper.exe\" \"libwinpthread-1.dll\"放入焰影神兵遊戲文件夾。\r\n\
 開啟遊戲並讀檔後，在下拉框中選擇遊戲版本。\r\n\
 點擊\"綁定遊戲\"。成功後即可開始修改。\r\n\
 \r\n\
 注意: 重啟遊戲或重新讀檔後，需要重新綁定遊戲。\r\n\
 將間隔時間(單位: 毫秒)調至過低可能會導致CPU佔用率上升。\r\n",
-L"将\"SFHelper.exe\"放入焰影神兵游戏文件夹。\r\n\
+L"将\"SFHelper.exe\" \"libwinpthread-1.dll\"放入焰影神兵游戏文件夹。\r\n\
 开启游戏并读档，在下拉框中选择游戏版本。\r\n\
 点击\"绑定游戏\"。成功后即可开始修改。\r\n\
 \r\n\
 注意: 重启游戏或重新读档后，需要重新绑定游戏。\r\n\
 将间隔时间(单位: 毫秒)调至过低可能会导致CPU占用率高。\r\n",
-L"Put \"SFHelper.exe\" to your ShadowFLare Game Folder.\r\n\
+L"Put \"SFHelper.exe\" \"libwinpthread-1.dll\" to your ShadowFLare Game Folder.\r\n\
 Opening SF Game and Load your Savefile.\r\n\
 Choose SF Version from ComboBox and \"Bind Game\"\r\n\
 After Binding successfully, Hack functions unlock. \r\n\
@@ -304,10 +304,32 @@ L"No Item holding in Cursor.",
 L"手持的不是Gold。",
 L"手持的不是Gold。",
 L"Item holding in Cursor is not money.",
-    }, { // 68 
-L"",
-L"",
-L"",
+    }, { // 68 AWSTR_APP_HINT_G_WAREHOUSE
+L"點擊按鈕解鎖/禁用對應的大倉庫頁面。\r\n\
+\"當前頁面編號\"的範圍為[0 - 13; 25 - 479], \r\n\
+其中[0 - 9]分別對應10頁大倉庫;\r\n\
+[10 - 13]頁對應特殊物品頁([X])的四部分內容。\r\n\
+這4頁也可以用來存物品但不推薦,\r\n\
+因為會導致特殊物品頁([X])顯示異常。\r\n\
+[25 - 479]頁為隱藏頁, 其內存儲的物品會在[關閉遊戲]後全部清除。\r\n\
+但是你可以用這個功能在不同存檔之間傳遞裝備(返回主菜單時物品不清空)。",
+L"点击按钮解锁/禁用对应的大仓库页面。\r\n\
+\"当前页面编号\"的范围为[0 - 13; 25 - 479], \r\n\
+其中[0 - 9]分别对应10页大仓库;\r\n\
+[10 - 13]页对应特殊物品页([X])的四部分内容。\r\n\
+这4页也可以用来存物品但不推荐,\r\n\
+因为会导致特殊物品页([X])的显示异常。\r\n\
+[25 - 479]页为隐藏页, 其内存储的物品会在[关闭游戏]后全部清除。\r\n\
+但是你可以用这个功能在不同存档之间传递装备(返回主菜单时物品不清空)。\r\n",
+L"Click a button to Lock/Unlock a page of Giant Warehouse.\r\n\
+The Range of \"Current G_Warehouse Page\" is [0 - 13; 25 - 479].\r\n\
+Among them, [0 - 9] correspond to 10 pages of G_Warehouse,\r\n\
+[10 - 13] correspond to 4 sections in 'Special Item ([X])' Tab.\r\n\
+These 4 pages could also be used to store Item, but not suggested.\r\n\
+Because this cause abnormal displaying in 'Special Item ([X])' Tab.\r\n\
+[25 - 479] is considered as hidden pages.\r\n\
+Items in these pages will DISAPPEAR after EXIT GAME.\r\n\
+We could use these pages to deliver Items across different Savefiles.\r\n",
     }, { // 69 
 L"",
 L"",
@@ -515,7 +537,7 @@ L"Open Warehouse Tab",
     }, { // 120 AWSTR_CTL_B_OPEN_G_WAREHOUSE
 L"打開大倉庫頁",
 L"打开大仓库页",
-L"Open G Warehouse Tab",
+L"Open Giant Warehouse Tab",
     }, { // 121 AWSTR_CTL_B_OPEN_CUSTOM_OUTFIT
 L"打開自定義裝備配色頁",
 L"打开自定义装备配色页",
@@ -559,7 +581,7 @@ L"Crazy Walking Speed",
     }, { // 131 AWSTR_CTL_B_GOD_MODE
 L"屬性無敵",
 L"属性无敌",
-L"invincible Status",
+L"Invincible Status",
     }, { // 132 AWSTR_CTL_B_EXTEND_ATK_RANGE
 L"攻擊距離拉滿",
 L"攻击距离拉满",
@@ -584,54 +606,54 @@ L"LV",
 L"EXP",
 L"EXP",
 L"EXP",
-    }, { // 138 AWSTR_CTL_G_TAB_1
-L"第1頁",
-L"第1页",
-L"Tab 1",
-    }, { // 139 AWSTR_CTL_G_TAB_2
-L"第2頁",
-L"第2页",
-L"Tab 2",
-    }, { // 140 AWSTR_CTL_G_TAB_3
-L"第3頁",
-L"第3页",
-L"Tab 3",
-    }, { // 141 AWSTR_CTL_G_TAB_4
-L"第4頁",
-L"第4页",
-L"Tab 4",
-    }, { // 142 
-L"",
-L"",
-L"",
-    }, { // 143 
-L"",
-L"",
-L"",
-    }, { // 144 
-L"",
-L"",
-L"",
-    }, { // 145 
-L"",
-L"",
-L"",
-    }, { // 146 
-L"",
-L"",
-L"",
-    }, { // 147 
-L"",
-L"",
-L"",
-    }, { // 148 
-L"",
-L"",
-L"",
-    }, { // 149 
-L"",
-L"",
-L"",
+    }, { // 138 AWSTR_CTL_G_MAGIC_PAGE_1
+L"第1頁魔法",
+L"第1页魔法",
+L"Magic Page 1",
+    }, { // 139 AWSTR_CTL_G_MAGIC_PAGE_2
+L"第2頁魔法",
+L"第2页魔法",
+L"Magic Page 2",
+    }, { // 140 AWSTR_CTL_G_MAGIC_PAGE_3
+L"第3頁魔法",
+L"第3页魔法",
+L"Magic Page 3",
+    }, { // 141 AWSTR_CTL_G_MAGIC_PAGE_4
+L"第4頁魔法",
+L"第4页魔法",
+L"Magic Page 4",
+    }, { // 142 AWSTR_CTL_S_QUEST_COL_1
+L"第1列",
+L"第1列",
+L"Column 1",
+    }, { // 143 AWSTR_CTL_S_QUEST_COL_2
+L"第2列",
+L"第2列",
+L"Column 2",
+    }, { // 144 AWSTR_CTL_S_QUEST_COL_3
+L"第3列",
+L"第3列",
+L"Column 3",
+    }, { // 145 AWSTR_CTL_S_QUEST_COL_4
+L"第4列",
+L"第4列",
+L"Column 4",
+    }, { // 146 AWSTR_CTL_G_QUEST_PAGE_1
+L"第1頁任務",
+L"第1页任务",
+L"Quest Page 1",
+    }, { // 147 AWSTR_CTL_G_QUEST_PAGE_2
+L"第2頁任務",
+L"第2页任务",
+L"Quest Page 2",
+    }, { // 148 AWSTR_CTL_G_G_WAREHOUSE
+L"解鎖大倉庫",
+L"解锁大仓库",
+L"Unlock Giant Warehouse",
+    }, { // 149 AWSTR_CTL_S_G_WAREHOUSE_INDEX
+L"目前大倉庫頁面編號 (范围: 0-13; 25-479):",
+L"当前大仓库页面编号 (范围: 0-13; 25-479):",
+L"Current G_Warehouse Page (Range: 0-13; 25-479):",
     }, { // 150 
 L"",
 L"",
@@ -2134,208 +2156,403 @@ L"元素攻击",
 L"Elemental Strike",
     }
 };
+LPCWSTR APP_WSTR_QUEST[APP_WSTR_QUEST_COUNT][AVAILABLE_LANGUAGE_COUNT] = {
+        { // 0 AWSTR_QUEST_DEFEAT_THE_RED_GOBLIN
+L"紅哥布林",
+L"红哥布林",
+L"Red Goblin",
+    }, { // 1 AWSTR_QUEST_TAKE_BACK_MALSES_GEM
+L"馬爾斯的寶石",
+L"马尔斯的宝石",
+L"Malse's Gem",
+    }, { // 2 AWSTR_QUEST_TAKE_BACK_SYRIAS_SPIRIT_STONE
+L"絲莉亞精靈石",
+L"丝莉亚精灵石",
+L"Syria's stone",
+    }, { // 3 AWSTR_QUEST_SWEEP_THE_MONSTERS_IN_THE_DUSTY_RUINS
+L"塵土遺跡",
+L"尘土遗迹",
+L"Dusty Ruins",
+    }, { // 4 AWSTR_QUEST_TAKE_BACK_ROSANNAS_MEMORABLE_RUBY
+L"回憶之紅寶石",
+L"回忆之红宝石",
+L"Memorable ruby",
+    }, { // 5 AWSTR_QUEST_ERRAND_FOR_GEDO
+L"幫格多跑腿",
+L"帮格多跑腿",
+L"Errand for Gedo",
+    }, { // 6 AWSTR_QUEST_SWEEP_THE_MONSTERS_IN_THE_COLD_RUINS
+L"冰冷遺跡",
+L"冰冷遗迹",
+L"Cold Ruins",
+    }, { // 7 AWSTR_QUEST_SCOUT_THE_PURGATORY_OF_JUDGMENTS
+L"判決煉獄",
+L"判决炼狱",
+L"Purgatory",
+    }, { // 8 AWSTR_QUEST_SCOUT_THE_REMAINS_OF_REINCARNATION
+L"輪迴遺跡",
+L"轮回遗迹",
+L"Reincarnation",
+    }, { // 9 AWSTR_QUEST_SCOUT_THE_CONTINUING_LAND
+L"輪迴遺跡周邊",
+L"轮回遗迹周边",
+L"Continuing land",
+    }, { // 10 AWSTR_QUEST_SCOUT_THE_IMMORTAL_REMAINS
+L"不死的遺跡",
+L"不死的遗迹",
+L"Immortal",
+    }, { // 11 AWSTR_QUEST_DESTROY_THIEVES_STAYING_SE_OF_KANFORE
+L"消滅盜賊團",
+L"消灭盗贼团",
+L"Destroy thieves",
+    }, { // 12 AWSTR_QUEST_HEAD_FOR_THE_MINING_TUNNEL_OF_YUGUNOS
+L"前往調查坑道",
+L"前往调查坑道",
+L"Yugunos",
+    }, { // 13 AWSTR_QUEST_MEET_WITH_THE_WIZARD_KIRUSHUTAT
+L"晉見魔導師",
+L"晋见魔导师",
+L"Meet Wizard",
+    }, { // 14 AWSTR_QUEST_TAKE_BACK_THE_SEAL_CRYSTAL
+L"封印的水晶",
+L"封印的水晶",
+L"Seal Crystal",
+    }, { // 15 AWSTR_QUEST_RETAKE_THE_SECURITY_CONTROL_FACILITY
+L"防護控制設施",
+L"防护控制设施",
+L"Retake Facility",
+    }, { // 16 AWSTR_QUEST_RECAPTURE_THE_POWER_SUPPLY_FACILITY
+L"前往電源碉堡",
+L"前往电源碉堡",
+L"Recapture Faci.",
+    }, { // 17 AWSTR_QUEST_DEFEAT_THE_DRAGONS
+L"打倒巨龍",
+L"打倒巨龙",
+L"Dragon!",
+    }, { // 18 AWSTR_QUEST_KILL_THE_TARANTULAS
+L"剷除惡魔蜘蛛",
+L"铲除恶魔蜘蛛",
+L"Kill tarantulas",
+    }, { // 19 AWSTR_QUEST_SEARCH_DEVALIOS_HIDDEN_WAREHOUSE
+L"尋找非法證據",
+L"寻找非法证据",
+L"Devalio's",
+    }, { // 20 AWSTR_QUEST_SWEEP_VICINITY_OF_S_CAMP_OF_YUGUNOS
+L"消滅餘黨",
+L"消灭余党",
+L"Sweep vicinity",
+    }, { // 21 AWSTR_QUEST_GET_THE_SACRED_RELIC_SACRED_WING
+L"神聖之羽毛",
+L"神圣之羽毛",
+L"Sacred Wing",
+    }, { // 22 AWSTR_QUEST_GET_THE_SACRED_RELIC_ANGELS_HAIR
+L"天使之發",
+L"天使之发",
+L"Angel's Hair",
+    }, { // 23 AWSTR_QUEST_DELIVER_THE_BISHOP_BERINIS_REPORT
+L"報告書送達",
+L"报告书送达",
+L"Deliver report",
+    }, { // 24 AWSTR_QUEST_EXPLORE_THE_REMAINS_OF_HEARTBEAT
+L"鼓動之遺跡",
+L"鼓动之遗迹",
+L"Heartbeat",
+    }, { // 25 AWSTR_QUEST_EXAMINE_THE_PLUMBING
+L"鎮壓配管設施",
+L"镇压配管设施",
+L"plumbing",
+    }, { // 26 AWSTR_QUEST_TRUTH_BEHIND_DEATH_OF_THE_ELF_RANGERS
+L"全滅的真相",
+L"全灭的真相",
+L"Truth behind",
+    }, { // 27 AWSTR_QUEST_MEET_WITH_SAINT_KNIGHT_LICARN
+L"聖騎士萊鋼",
+L"圣骑士莱刚",
+L"Saint Knight",
+    }, { // 28 AWSTR_QUEST_BREAK_THROUGH_THE_TOWER_OF_LICARN
+L"衝破萊剛之塔",
+L"冲破莱刚之塔",
+L"Break through",
+    }, { // 29 AWSTR_QUEST_GET_THE_SACRED_RELIC_ANGELS_NAIL
+L"天使之指甲",
+L"天使之指甲",
+L"Angel's Nail",
+    }, { // 30 AWSTR_QUEST_RESEARCH_THE_ANCIENT_RUINS
+L"遠古之遺跡",
+L"远古之遗迹",
+L"Ancient Ruins",
+    }, { // 31 AWSTR_QUEST_GET_AN_ANTIDOTE
+L"取得解毒劑",
+L"取得解毒剂",
+L"Get an antidote",
+    }, { // 32 AWSTR_QUEST_PUNITIVE_EXPEDITION_AGAINST_JURG
+L"討伐賈爾格",
+L"讨伐贾尔格",
+L"Jurg",
+    }, { // 33 AWSTR_QUEST_ERRANDS_FOR_MRS_MORRIS
+L"幫摩裡司夫人",
+L"帮摩里斯夫人",
+L"Mrs. Morris",
+    }, { // 34 AWSTR_QUEST_TAKE_BACK_THE_STOLEN_TEARS_OF_OBERON
+L"歐貝隆之淚",
+L"欧贝隆之泪",
+L"Tears of Oberon",
+    }, { // 35 AWSTR_QUEST_FIND_THE_ANCIENT_SHORT_SWORD
+L"遠古之短刀",
+L"远古之短刀",
+L"Ancient Sword",
+    }, { // 36 AWSTR_QUEST_GET_THE_SACRED_RELIC_ANGELS_MEMORY
+L"天使之記憶",
+L"天使之记忆",
+L"Angel's Memory",
+    }, { // 37 AWSTR_QUEST_DELIVER_THE_SACRED_RELICS_TO_ST_SENA
+L"交給聖女賽娜",
+L"交给圣女塞娜",
+L"Deliver to Sena",
+    }, { // 38 AWSTR_QUEST_GET_THE_BLUE_AND_GREEN_ORBS
+L"藍、綠光球",
+L"蓝、绿光球",
+L"Blue Green Orbs",
+    }, { // 39 AWSTR_QUEST_FIND_MR_MRS_JURGS_REMEMBRANCE
+L"夫妻的紀念物",
+L"夫妻的纪念物",
+L"remembrance",
+    }, { // 40 AWSTR_QUEST_GET_THE_RED_ORB
+L"取得紅光球",
+L"取得红光球",
+L"Red Orb",
+    }, { // 41 AWSTR_QUEST_RECAPTURE_THE_RUINS_OF_EXORCISM
+L"退魔之遺跡",
+L"退魔之遗迹",
+L"Exorcism",
+    }, { // 42 AWSTR_QUEST_HEAD_FOR_GOLIATES_MANSION
+L"哥利亞提之館",
+L"哥利亚提之馆",
+L"Goliate Mansion",
+    }, { // 43 AWSTR_QUEST_BEAT_THE_DEVIL_DIGNOSIS
+L"打倒魔神",
+L"打倒魔神",
+L"Devil Dignosis",
+    }, { // 44 AWSTR_QUEST_A_WISE_MAN_IN_RUINS_OF_THE_WISE
+L"賢者之遺跡",
+L"贤者之遗迹",
+L"A wise man",
+    }, { // 45 AWSTR_QUEST_LET_THE_JURG_PARTY_SURRENDER
+L"餘黨的叛亂",
+L"余党的叛乱",
+L"Party surrender",
+    }, { // 46 AWSTR_QUEST_SUBJECTION_OF_THE_FORT_OF_DEMONS
+L"惡魔之碉堡",
+L"恶魔之碉堡",
+L"Fort of Demons",
+    }, { // 47 AWSTR_QUEST_GO_TO_THE_FOREST_OF_MADNESS
+L"瘋狂之森",
+L"疯狂之森",
+L"Madness",
+    }
+};
 LPCWSTR APP_WSTR_TELEPORT_GATE[APP_WSTR_TELEPORT_GATE_COUNT][AVAILABLE_LANGUAGE_COUNT] = {
-       { // 0 
+       { // 0 AWSTR_TELEPORT_GATE_REMOTE_TOWN
 L"邊境之鎮",
 L"边境之镇",
 L"Remote Town",
-    }, { // 1 
+    }, { // 1 AWSTR_TELEPORT_GATE_WASTELAND_OF_PILLARS
 L"石柱荒地",
 L"石柱荒地",
 L"Wasteland of Pillars",
-    }, { // 2 
+    }, { // 2 AWSTR_TELEPORT_GATE_DUSTY_RUINS_B4F
 L"塵土遺跡 地下4樓",
 L"尘土遗迹 地下4楼",
 L"Dusty Ruins, B4F",
-    }, { // 3 
+    }, { // 3 AWSTR_TELEPORT_GATE_DUSTY_RUINS_B5F
 L"塵土遺跡 地下5樓",
 L"尘土遗迹 地下5楼",
 L"Dusty Ruins, B5F",
-    }, { // 4 
+    }, { // 4 AWSTR_TELEPORT_GATE_COLD_SVALT_TOWN
 L"寒冰暗妖精鎮",
 L"寒冰暗妖精镇",
 L"Cold Svalt Town",
-    }, { // 5 
+    }, { // 5 AWSTR_TELEPORT_GATE_VAPOROUS_FOREST
 L"蒸汽森林",
 L"蒸汽森林",
 L"Vaporous Forest",
-    }, { // 6 
+    }, { // 6 AWSTR_TELEPORT_GATE_HANGED_MENS_FOREST
 L"倒吊男之森",
 L"倒吊男之森",
 L"Hanged Men's Forest",
-    }, { // 7 
+    }, { // 7 AWSTR_TELEPORT_GATE_FOREST_DIVIDED_LIKE_A_CROSS
 L"裂成十字形的樹海",
 L"裂成十字形的树海",
 L"Forest Divided Like a Cross",
-    }, { // 8 
+    }, { // 8 AWSTR_TELEPORT_GATE_THE_RUINS_OF_FIRE_SEA_OF_TREES
 L"樹海燃燒後的遺跡",
 L"树海燃烧后的遗迹",
 L"The Ruins of Fire, Sea of Trees",
-    }, { // 9 
+    }, { // 9 AWSTR_TELEPORT_GATE_COLD_RUINS_B3F
 L"冰冷遺跡 地下3樓",
 L"冰冷遗迹 地下3楼",
 L"Cold Ruins, B3F",
-    }, { // 10 
+    }, { // 10 AWSTR_TELEPORT_GATE_PURGATORY_OF_JUDGEMENTS_B1F
 L"判決煉獄 地下1樓",
 L"判决炼狱 地下1楼",
 L"Purgatory of Judgements, B1F",
-    }, { // 11 
+    }, { // 11 AWSTR_TELEPORT_GATE_IMMORTAL_REMAINS_B2F
 L"不死的遺跡 地下2樓",
 L"不死的遗迹 地下2楼",
 L"Immortal Remains, B2F",
-    }, { // 12 
+    }, { // 12 AWSTR_TELEPORT_GATE_TOWER_OF_ORDEAL
 L"試煉之塔",
 L"试炼之塔",
 L"Tower of Ordeal",
-    }, { // 13 
+    }, { // 13 AWSTR_TELEPORT_GATE_KANFORE_MINING_TOWN
 L"煤礦之鎮 剛佛雷",
 L"煤矿之镇 刚佛雷",
 L"Kanfore, Mining Town",
-    }, { // 14 
+    }, { // 14 AWSTR_TELEPORT_GATE_FOREST_OF_CLAWS
 L"鉤爪之森",
 L"钩爪之森",
 L"Forest of Claws",
-    }, { // 15 
+    }, { // 15 AWSTR_TELEPORT_GATE_CROSS_AGORA
 L"十字礦場",
 L"十字矿场",
 L"Cross Agora",
-    }, { // 16 
+    }, { // 16 AWSTR_TELEPORT_GATE_FOREST_OF_SPRITS
 L"英靈之森",
 L"英灵之森",
 L"Forest of Sprits",
-    }, { // 17 
+    }, { // 17 AWSTR_TELEPORT_GATE_FORT_OF_THIEVES
 L"盜賊的碉堡",
 L"盗贼的碉堡",
 L"Fort of Thieves",
-    }, { // 18 
+    }, { // 18 AWSTR_TELEPORT_GATE_FANANN_VILLAGE_OF_ELVES
 L"精靈之村 法南",
 L"精灵之村 法南",
 L"Fanann, Village of Elves",
-    }, { // 19 
+    }, { // 19 AWSTR_TELEPORT_GATE_MINING_TUNNEL_OF_YUGUNOS
 L"優格諾斯坑道",
 L"优格诺斯坑道",
 L"Mining Tunnel of Yugunos",
-    }, { // 20 
+    }, { // 20 AWSTR_TELEPORT_GATE_DRAGON_DEFENSE_WALLS
 L"抗龍防禦壁之前",
 L"抗龙防御壁之前",
 L"Dragon Defense Walls",
-    }, { // 21 
+    }, { // 21 AWSTR_TELEPORT_GATE_MINING_TUNNEL_OF_YUGUNOS_B3F
 L"優格諾斯坑道 地下3樓",
 L"优格诺斯坑道 地下3楼",
 L"Mining Tunnel of Yugunos, B3F",
-    }, { // 22 
+    }, { // 22 AWSTR_TELEPORT_GATE_POWER_SUPPLY_FACILLITY
 L"封印之電源設施",
 L"封印之电源设施",
 L"Power Supply Facillity",
-    }, { // 23 
+    }, { // 23 AWSTR_TELEPORT_GATE_TOWER_OF_ORDEAL_6F
 L"試煉之塔 6樓",
 L"试炼之塔 6楼",
 L"Tower of Ordeal, 6F",
-    }, { // 24 
+    }, { // 24 AWSTR_TELEPORT_GATE_TOWER_OF_ORDEAL_12F
 L"試煉之塔 12樓",
 L"试炼之塔 12楼",
 L"Tower of Ordeal, 12F",
-    }, { // 25 
+    }, { // 25 AWSTR_TELEPORT_GATE_SOUTH_CAMP_OF_YUGUNOS
 L"優格諾斯南方軍營",
 L"优格诺斯南方军营",
 L"South Camp of Yugunos",
-    }, { // 26 
+    }, { // 26 AWSTR_TELEPORT_GATE_TOWN_OF_ANTALUSIA
 L"安德魯雪鎮",
 L"安德鲁雪镇",
 L"Town of Antalusia",
-    }, { // 27 
+    }, { // 27 AWSTR_TELEPORT_GATE_MESRALD_BURIAL_GROUNDS
 L"梅賽拉爾德古墳",
 L"梅赛拉尔德古坟",
 L"Mesrald Burial Grounds",
-    }, { // 28 
+    }, { // 28 AWSTR_TELEPORT_GATE_PLAIN_OF_DIALOSE
 L"迪雅羅賽平原",
 L"迪雅罗赛平原",
 L"Plain of Dialose",
-    }, { // 29 
+    }, { // 29 AWSTR_TELEPORT_GATE_THE_WILDS_OF_RYUMYAKU
 L"龍脈之荒野",
 L"龙脉之荒野",
 L"The Wilds of Ryumyaku",
-    }, { // 30 
+    }, { // 30 AWSTR_TELEPORT_GATE_TOWN_OF_CALADO
 L"卡拉得鎮",
 L"卡拉得镇",
 L"Town of Calado",
-    }, { // 31 
+    }, { // 31 AWSTR_TELEPORT_GATE_TOWN_OF_LOSMANS
 L"羅斯曼茲鎮",
 L"罗斯曼兹镇",
 L"Town of Losmans",
-    }, { // 32 
+    }, { // 32 AWSTR_TELEPORT_GATE_FOREST_OF_ILBARNA
 L"依爾巴那之森",
 L"依尔巴那之森",
 L"Forest of Ilbarna",
-    }, { // 33 
+    }, { // 33 AWSTR_TELEPORT_GATE_PONSE_VILLAGE_OF_DWARVES
 L"矮人之村 彭賽",
 L"矮人之村 彭赛",
 L"Ponse, Village of Dwarves",
-    }, { // 34 
+    }, { // 34 AWSTR_TELEPORT_GATE_HILL_OF_HEAVEN
 L"天翔之丘",
 L"天翔之丘",
 L"Hill of Heaven",
-    }, { // 35 
+    }, { // 35 AWSTR_TELEPORT_GATE_THE_ROAD_OF_ATONEMENT
 L"贖罪之道",
 L"赎罪之道",
 L"The Road of Atonement",
-    }, { // 36 
+    }, { // 36 AWSTR_TELEPORT_GATE_VALLEY_OF_DYING_PEOPLE
 L"逐漸毀滅者之谷",
 L"逐渐消亡者之谷",
 L"Valley of Dying People",
-    }, { // 37 
+    }, { // 37 AWSTR_TELEPORT_GATE_SENAS_SMALL_SHRINE
 L"聖女賽娜的祠堂",
 L"圣女赛娜之祠堂",
 L"Sena's Small Shrine",
-    }, { // 38 
+    }, { // 38 AWSTR_TELEPORT_GATE_DARK_ELVES_HIDING_PLACE
 L"黑暗天使的基地",
 L"黑暗天使的基地",
 L"Dark Elves Hiding Place",
-    }, { // 39 
+    }, { // 39 AWSTR_TELEPORT_GATE_TOWER_OF_ORDEAL_17F
 L"試煉之塔 17樓",
 L"试炼之塔 17楼",
 L"Tower of Ordeal, 17F",
-    }, { // 40 
+    }, { // 40 AWSTR_TELEPORT_GATE_BEINI_VILLAGE
 L"貝爾尼村",
 L"贝尔尼村",
 L"Beini Village",
-    }, { // 41 
+    }, { // 41 AWSTR_TELEPORT_GATE_ENTO_VILLAGE
 L"安特村",
 L"安特村",
 L"Ento Village",
-    }, { // 42 
+    }, { // 42 AWSTR_TELEPORT_GATE_THE_RUINS_OF_KASHUGAL
 L"卡修格爾遺跡前",
 L"卡修格尔遗迹前",
 L"The Ruins of Kashugal",
-    }, { // 43 
+    }, { // 43 AWSTR_TELEPORT_GATE_LABYRINTH_OF_THE_LAKE
 L"湖之迷宮",
 L"湖之迷宫",
 L"Labyrinth of the Lake",
-    }, { // 44 
+    }, { // 44 AWSTR_TELEPORT_GATE_THE_ANCIENT_INSTITUTE
 L"古代研究所前",
 L"古代研究所前",
 L"The Ancient Institute",
-    }, { // 45 
+    }, { // 45 AWSTR_TELEPORT_GATE_THE_RUINS_OF_EXORCISM
 L"退魔之遺跡前",
 L"退魔之遗迹前",
 L"The Ruins of Exorcism",
-    }, { // 46 
+    }, { // 46 AWSTR_TELEPORT_GATE_GOLIATES_MANSION
 L"哥利亞提之館",
 L"哥利亚提之馆",
 L"Goliate's Mansion",
-    }, { // 47 
+    }, { // 47 AWSTR_TELEPORT_GATE_FOREST_OF_DEATH
 L"終焉之森",
 L"终焉之森",
 L"Forest of Death",
-    }, { // 48 
+    }, { // 48 AWSTR_TELEPORT_GATE_THE_ROAD_OF_THE_UNDERWORLD
 L"冥府之道",
 L"冥府之道",
 L"The Road of The Underworld",
-    }, { // 49 
+    }, { // 49 AWSTR_TELEPORT_GATE_FOREST_OF_MADNESS
 L"瘋狂之森",
 L"疯狂之森",
 L"Forest of Madness",
-    }, { // 50 
+    }, { // 50 AWSTR_TELEPORT_GATE_TOWER_OF_ORDEAL_TOP_FLOOR
 L"試煉之塔 最上階",
 L"试炼之塔 最上阶",
 L"Tower of Ordeal, Top Floor",
@@ -2349,6 +2566,7 @@ extern LPCWSTR APP_WSTR_COMP[APP_WSTR_COMP_COUNT][AVAILABLE_LANGUAGE_COUNT];
 extern LPCWSTR APP_WSTR_TELEPORT_PRESET[APP_WSTR_TELEPORT_PRESET_COUNT][AVAILABLE_LANGUAGE_COUNT];
 extern LPCWSTR APP_WSTR_SCENARIO[APP_WSTR_SCENARIO_COUNT][AVAILABLE_LANGUAGE_COUNT];
 extern LPCWSTR APP_WSTR_MAGIC[APP_WSTR_MAGIC_COUNT][AVAILABLE_LANGUAGE_COUNT];
+extern LPCWSTR APP_WSTR_QUEST[APP_WSTR_QUEST_COUNT][AVAILABLE_LANGUAGE_COUNT];
 extern LPCWSTR APP_WSTR_TELEPORT_GATE[APP_WSTR_TELEPORT_GATE_COUNT][AVAILABLE_LANGUAGE_COUNT];
 
 

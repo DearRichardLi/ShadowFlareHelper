@@ -20,6 +20,7 @@ extern LPCWSTR APP_WSTR_COMP[APP_WSTR_COMP_COUNT][AVAILABLE_LANGUAGE_COUNT];
 extern LPCWSTR APP_WSTR_TELEPORT_PRESET[APP_WSTR_TELEPORT_PRESET_COUNT][AVAILABLE_LANGUAGE_COUNT];
 extern LPCWSTR APP_WSTR_SCENARIO[APP_WSTR_SCENARIO_COUNT][AVAILABLE_LANGUAGE_COUNT];
 extern LPCWSTR APP_WSTR_MAGIC[APP_WSTR_MAGIC_COUNT][AVAILABLE_LANGUAGE_COUNT];
+extern LPCWSTR APP_WSTR_QUEST[APP_WSTR_QUEST_COUNT][AVAILABLE_LANGUAGE_COUNT];
 extern LPCWSTR APP_WSTR_TELEPORT_GATE[APP_WSTR_TELEPORT_GATE_COUNT][AVAILABLE_LANGUAGE_COUNT];
 
 void SetTheme(void){
@@ -625,7 +626,7 @@ void CreateTab1(void){
 
 void CreateTab2(void){
     extern HWND hwndTab;
-    extern HWND hwndButtonOpenWarehouse, hwndButtonOpenGaintWarehouse, 
+    extern HWND hwndButtonOpenWarehouse, hwndButtonOpenGiantWarehouse, 
             hwndButtonOpenCustomOutfit, hwndButtonPauseGame,
             hwndButtonInfinitePower, hwndButtonCompanionRevive,
             hwndButtonExtraLandmine, hwndButtonExtraLandminePower,
@@ -642,7 +643,7 @@ void CreateTab2(void){
             WS_CHILD | WS_VISIBLE,
             20, 30, 170, 20, hwndParent, (HMENU)IDC_BUTTON_OPEN_WAREHOUSE,
             (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
-    hwndButtonOpenGaintWarehouse = CreateWindowExW(0, L"BUTTON", 
+    hwndButtonOpenGiantWarehouse = CreateWindowExW(0, L"BUTTON", 
             APP_WSTR[AWSTR_CTL_B_OPEN_G_WAREHOUSE][Hack_Status.App_Language], 
             WS_CHILD | WS_VISIBLE,
             210, 30, 165, 20, hwndParent, (HMENU)IDC_BUTTON_OPEN_G_WAREHOUSE,
@@ -737,7 +738,7 @@ void CreateTab3(void){
     extern HWND hwndTab;
     extern HWND hwndStaticMagicName1, hwndStaticMagicLV1, hwndStaticMagicEXP1,
             hwndStaticMagicName2, hwndStaticMagicLV2, hwndStaticMagicEXP2,
-            hwndGroupBoxTab1,  hwndGroupBoxTab2,  hwndGroupBoxTab3, hwndGroupBoxTab4,
+            hwndGroupBoxMagicPage1,  hwndGroupBoxMagicPage2,  hwndGroupBoxMagicPage3, hwndGroupBoxMagicPage4,
             hwndButtonMagic1,  hwndEditMagicLV1,  hwndUpDownMagicLV1,  hwndEditMagicEXP1,  hwndUpDownMagicEXP1, 
             hwndButtonMagic2,  hwndEditMagicLV2,  hwndUpDownMagicLV2,  hwndEditMagicEXP2,  hwndUpDownMagicEXP2, 
             hwndButtonMagic3,  hwndEditMagicLV3,  hwndUpDownMagicLV3,  hwndEditMagicEXP3,  hwndUpDownMagicEXP3, 
@@ -792,25 +793,25 @@ void CreateTab3(void){
             335, 30, 45, 20, hwndParent, (HMENU)IDC_STATIC_MAGIC_EXP_2,
             (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
     
-    hwndGroupBoxTab1 = CreateWindowExW(WS_EX_CONTROLPARENT, L"BUTTON", 
-            APP_WSTR[AWSTR_CTL_G_TAB_1][Hack_Status.App_Language], 
+    hwndGroupBoxMagicPage1 = CreateWindowExW(WS_EX_CONTROLPARENT, L"BUTTON", 
+            APP_WSTR[AWSTR_CTL_G_MAGIC_PAGE_1][Hack_Status.App_Language], 
             WS_VISIBLE | WS_CHILD | BS_GROUPBOX,
-            10, 50, 185, 200, hwndParent, (HMENU)IDC_GROUPBOX_TAB_1,
+            10, 50, 185, 200, hwndParent, (HMENU)IDC_GROUPBOX_MAGIC_PAGE_1,
             (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
-    hwndGroupBoxTab2 = CreateWindowExW(WS_EX_CONTROLPARENT, L"BUTTON", 
-            APP_WSTR[AWSTR_CTL_G_TAB_2][Hack_Status.App_Language], 
+    hwndGroupBoxMagicPage2 = CreateWindowExW(WS_EX_CONTROLPARENT, L"BUTTON", 
+            APP_WSTR[AWSTR_CTL_G_MAGIC_PAGE_2][Hack_Status.App_Language], 
             WS_VISIBLE | WS_CHILD | BS_GROUPBOX,
-            200, 50, 185, 200, hwndParent, (HMENU)IDC_GROUPBOX_TAB_2,
+            200, 50, 185, 200, hwndParent, (HMENU)IDC_GROUPBOX_MAGIC_PAGE_2,
             (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
-    hwndGroupBoxTab3 = CreateWindowExW(WS_EX_CONTROLPARENT, L"BUTTON", 
-            APP_WSTR[AWSTR_CTL_G_TAB_3][Hack_Status.App_Language], 
+    hwndGroupBoxMagicPage3 = CreateWindowExW(WS_EX_CONTROLPARENT, L"BUTTON", 
+            APP_WSTR[AWSTR_CTL_G_MAGIC_PAGE_3][Hack_Status.App_Language], 
             WS_VISIBLE | WS_CHILD | BS_GROUPBOX,
-            10, 250, 185, 200, hwndParent, (HMENU)IDC_GROUPBOX_TAB_3,
+            10, 250, 185, 200, hwndParent, (HMENU)IDC_GROUPBOX_MAGIC_PAGE_3,
             (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
-    hwndGroupBoxTab4 = CreateWindowExW(WS_EX_CONTROLPARENT, L"BUTTON", 
-            APP_WSTR[AWSTR_CTL_G_TAB_4][Hack_Status.App_Language], 
+    hwndGroupBoxMagicPage4 = CreateWindowExW(WS_EX_CONTROLPARENT, L"BUTTON", 
+            APP_WSTR[AWSTR_CTL_G_MAGIC_PAGE_4][Hack_Status.App_Language], 
             WS_VISIBLE | WS_CHILD | BS_GROUPBOX,
-            200, 250, 185, 200, hwndParent, (HMENU)IDC_GROUPBOX_TAB_4,
+            200, 250, 185, 200, hwndParent, (HMENU)IDC_GROUPBOX_MAGIC_PAGE_4,
             (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
 
     hwndButtonMagic1 = CreateWindowExW(0, L"BUTTON", 
@@ -1499,446 +1500,470 @@ void CreateTab3(void){
     SendMessageW(hwndUpDownMagicEXP22, UDM_SETBUDDY, (WPARAM)hwndEditMagicEXP22, 0);
     SendMessageW(hwndUpDownMagicEXP22, UDM_SETRANGE, 0, MAKELPARAM(999, 0));
 }
+void CreateTab4(void){
+    extern HWND hwndTab;
+    extern HWND hwndStaticQuestCol1, hwndStaticQuestCol2, hwndStaticQuestCol3, hwndStaticQuestCol4,
+            hwndGroupBoxQuestPage1,  hwndGroupBoxQuestPage2,
+            hwndButtonQuest1,  hwndButtonQuest2,  hwndButtonQuest3,  hwndButtonQuest4,
+            hwndButtonQuest5,  hwndButtonQuest6,  hwndButtonQuest7,  hwndButtonQuest8,
+            hwndButtonQuest9,  hwndButtonQuest10, hwndButtonQuest11, hwndButtonQuest12,
+            hwndButtonQuest13, hwndButtonQuest14, hwndButtonQuest15, hwndButtonQuest16,
+            hwndButtonQuest17, hwndButtonQuest18, hwndButtonQuest19, hwndButtonQuest20,
+            hwndButtonQuest21, hwndButtonQuest22, hwndButtonQuest23, hwndButtonQuest24,
+            hwndButtonQuest25, hwndButtonQuest26, hwndButtonQuest27, hwndButtonQuest28,
+            hwndButtonQuest29, hwndButtonQuest30, hwndButtonQuest31, hwndButtonQuest32,
+            hwndButtonQuest33, hwndButtonQuest34, hwndButtonQuest35, hwndButtonQuest36,
+            hwndButtonQuest37, hwndButtonQuest38, hwndButtonQuest39, hwndButtonQuest40,
+            hwndButtonQuest41, hwndButtonQuest42, hwndButtonQuest43, hwndButtonQuest44,
+            hwndButtonQuest45, hwndButtonQuest46, hwndButtonQuest47, hwndButtonQuest48;
+    HWND hwndParent = GetParent(hwndTab);
+    
+    hwndStaticQuestCol1 = CreateWindowExW(0, L"STATIC", 
+            APP_WSTR[AWSTR_CTL_S_QUEST_COL_1][Hack_Status.App_Language], 
+            WS_VISIBLE | WS_CHILD | ES_CENTER,
+            15, 30, 85, 20, hwndParent, (HMENU)IDC_STATIC_QUEST_COL_1,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndStaticQuestCol2 = CreateWindowExW(0, L"STATIC", 
+            APP_WSTR[AWSTR_CTL_S_QUEST_COL_2][Hack_Status.App_Language], 
+            WS_VISIBLE | WS_CHILD | ES_CENTER,
+            105, 30, 85, 20, hwndParent, (HMENU)IDC_STATIC_QUEST_COL_2,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndStaticQuestCol3 = CreateWindowExW(0, L"STATIC", 
+            APP_WSTR[AWSTR_CTL_S_QUEST_COL_3][Hack_Status.App_Language], 
+            WS_VISIBLE | WS_CHILD | ES_CENTER,
+            205, 30, 85, 20, hwndParent, (HMENU)IDC_STATIC_QUEST_COL_3,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndStaticQuestCol4 = CreateWindowExW(0, L"STATIC", 
+            APP_WSTR[AWSTR_CTL_S_QUEST_COL_4][Hack_Status.App_Language], 
+            WS_VISIBLE | WS_CHILD | ES_CENTER,
+            295, 30, 85, 20, hwndParent, (HMENU)IDC_STATIC_QUEST_COL_4,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+
+    hwndGroupBoxQuestPage1 = CreateWindowExW(WS_EX_CONTROLPARENT, L"BUTTON", 
+            APP_WSTR[AWSTR_CTL_G_QUEST_PAGE_1][Hack_Status.App_Language], 
+            WS_VISIBLE | WS_CHILD | BS_GROUPBOX,
+            10, 50, 185, 400, hwndParent, (HMENU)IDC_GROUPBOX_QUEST_PAGE_1,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndGroupBoxQuestPage2 = CreateWindowExW(WS_EX_CONTROLPARENT, L"BUTTON", 
+            APP_WSTR[AWSTR_CTL_G_QUEST_PAGE_2][Hack_Status.App_Language], 
+            WS_VISIBLE | WS_CHILD | BS_GROUPBOX,
+            200, 50, 185, 400, hwndParent, (HMENU)IDC_GROUPBOX_QUEST_PAGE_2,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+
+    hwndButtonQuest1 = CreateWindowExW(0, L"BUTTON", 
+            APP_WSTR_QUEST[AWSTR_QUEST_DEFEAT_THE_RED_GOBLIN][Hack_Status.App_Language], 
+            WS_CHILD | WS_VISIBLE,
+            15, 70, 85, 20, hwndParent, (HMENU)IDC_BUTTON_QUEST_1,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonQuest2 = CreateWindowExW(0, L"BUTTON", 
+            APP_WSTR_QUEST[AWSTR_QUEST_TAKE_BACK_MALSES_GEM][Hack_Status.App_Language], 
+            WS_CHILD | WS_VISIBLE,
+            15, 100, 85, 20, hwndParent, (HMENU)IDC_BUTTON_QUEST_2,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonQuest3 = CreateWindowExW(0, L"BUTTON", 
+            APP_WSTR_QUEST[AWSTR_QUEST_TAKE_BACK_SYRIAS_SPIRIT_STONE][Hack_Status.App_Language], 
+            WS_CHILD | WS_VISIBLE,
+            15, 130, 85, 20, hwndParent, (HMENU)IDC_BUTTON_QUEST_3,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonQuest4 = CreateWindowExW(0, L"BUTTON", 
+            APP_WSTR_QUEST[AWSTR_QUEST_SWEEP_THE_MONSTERS_IN_THE_DUSTY_RUINS][Hack_Status.App_Language], 
+            WS_CHILD | WS_VISIBLE,
+            15, 160, 85, 20, hwndParent, (HMENU)IDC_BUTTON_QUEST_4,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonQuest5 = CreateWindowExW(0, L"BUTTON", 
+            APP_WSTR_QUEST[AWSTR_QUEST_TAKE_BACK_ROSANNAS_MEMORABLE_RUBY][Hack_Status.App_Language], 
+            WS_CHILD | WS_VISIBLE,
+            15, 190, 85, 20, hwndParent, (HMENU)IDC_BUTTON_QUEST_5,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonQuest6 = CreateWindowExW(0, L"BUTTON", 
+            APP_WSTR_QUEST[AWSTR_QUEST_ERRAND_FOR_GEDO][Hack_Status.App_Language], 
+            WS_CHILD | WS_VISIBLE,
+            15, 220, 85, 20, hwndParent, (HMENU)IDC_BUTTON_QUEST_6,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonQuest7 = CreateWindowExW(0, L"BUTTON", 
+            APP_WSTR_QUEST[AWSTR_QUEST_SWEEP_THE_MONSTERS_IN_THE_COLD_RUINS][Hack_Status.App_Language], 
+            WS_CHILD | WS_VISIBLE,
+            15, 270, 85, 20, hwndParent, (HMENU)IDC_BUTTON_QUEST_7,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonQuest8 = CreateWindowExW(0, L"BUTTON", 
+            APP_WSTR_QUEST[AWSTR_QUEST_SCOUT_THE_PURGATORY_OF_JUDGMENTS][Hack_Status.App_Language], 
+            WS_CHILD | WS_VISIBLE,
+            15, 300, 85, 20, hwndParent, (HMENU)IDC_BUTTON_QUEST_8,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonQuest9 = CreateWindowExW(0, L"BUTTON", 
+            APP_WSTR_QUEST[AWSTR_QUEST_SCOUT_THE_REMAINS_OF_REINCARNATION][Hack_Status.App_Language], 
+            WS_CHILD | WS_VISIBLE,
+            15, 330, 85, 20, hwndParent, (HMENU)IDC_BUTTON_QUEST_9,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonQuest10 = CreateWindowExW(0, L"BUTTON", 
+            APP_WSTR_QUEST[AWSTR_QUEST_SCOUT_THE_CONTINUING_LAND][Hack_Status.App_Language], 
+            WS_CHILD | WS_VISIBLE,
+            15, 360, 85, 20, hwndParent, (HMENU)IDC_BUTTON_QUEST_10,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonQuest11 = CreateWindowExW(0, L"BUTTON", 
+            APP_WSTR_QUEST[AWSTR_QUEST_SCOUT_THE_IMMORTAL_REMAINS][Hack_Status.App_Language], 
+            WS_CHILD | WS_VISIBLE,
+            15, 390, 85, 20, hwndParent, (HMENU)IDC_BUTTON_QUEST_11,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonQuest12 = CreateWindowExW(0, L"BUTTON", 
+            APP_WSTR_QUEST[AWSTR_QUEST_DESTROY_THIEVES_STAYING_SE_OF_KANFORE][Hack_Status.App_Language], 
+            WS_CHILD | WS_VISIBLE,
+            15, 420, 85, 20, hwndParent, (HMENU)IDC_BUTTON_QUEST_12,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+
+    hwndButtonQuest13 = CreateWindowExW(0, L"BUTTON", 
+            APP_WSTR_QUEST[AWSTR_QUEST_HEAD_FOR_THE_MINING_TUNNEL_OF_YUGUNOS][Hack_Status.App_Language], 
+            WS_CHILD | WS_VISIBLE,
+            105, 70, 85, 20, hwndParent, (HMENU)IDC_BUTTON_QUEST_13,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonQuest14 = CreateWindowExW(0, L"BUTTON", 
+            APP_WSTR_QUEST[AWSTR_QUEST_MEET_WITH_THE_WIZARD_KIRUSHUTAT][Hack_Status.App_Language], 
+            WS_CHILD | WS_VISIBLE,
+            105, 100, 85, 20, hwndParent, (HMENU)IDC_BUTTON_QUEST_14,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonQuest15 = CreateWindowExW(0, L"BUTTON", 
+            APP_WSTR_QUEST[AWSTR_QUEST_TAKE_BACK_THE_SEAL_CRYSTAL][Hack_Status.App_Language], 
+            WS_CHILD | WS_VISIBLE,
+            105, 130, 85, 20, hwndParent, (HMENU)IDC_BUTTON_QUEST_15,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonQuest16 = CreateWindowExW(0, L"BUTTON", 
+            APP_WSTR_QUEST[AWSTR_QUEST_RETAKE_THE_SECURITY_CONTROL_FACILITY][Hack_Status.App_Language], 
+            WS_CHILD | WS_VISIBLE,
+            105, 160, 85, 20, hwndParent, (HMENU)IDC_BUTTON_QUEST_16,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonQuest17 = CreateWindowExW(0, L"BUTTON", 
+            APP_WSTR_QUEST[AWSTR_QUEST_RECAPTURE_THE_POWER_SUPPLY_FACILITY][Hack_Status.App_Language], 
+            WS_CHILD | WS_VISIBLE,
+            105, 190, 85, 20, hwndParent, (HMENU)IDC_BUTTON_QUEST_17,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonQuest18 = CreateWindowExW(0, L"BUTTON", 
+            APP_WSTR_QUEST[AWSTR_QUEST_DEFEAT_THE_DRAGONS][Hack_Status.App_Language], 
+            WS_CHILD | WS_VISIBLE,
+            105, 220, 85, 20, hwndParent, (HMENU)IDC_BUTTON_QUEST_18,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonQuest19 = CreateWindowExW(0, L"BUTTON", 
+            APP_WSTR_QUEST[AWSTR_QUEST_KILL_THE_TARANTULAS][Hack_Status.App_Language], 
+            WS_CHILD | WS_VISIBLE,
+            105, 270, 85, 20, hwndParent, (HMENU)IDC_BUTTON_QUEST_19,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonQuest20 = CreateWindowExW(0, L"BUTTON", 
+            APP_WSTR_QUEST[AWSTR_QUEST_SEARCH_DEVALIOS_HIDDEN_WAREHOUSE][Hack_Status.App_Language], 
+            WS_CHILD | WS_VISIBLE,
+            105, 300, 85, 20, hwndParent, (HMENU)IDC_BUTTON_QUEST_20,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonQuest21 = CreateWindowExW(0, L"BUTTON", 
+            APP_WSTR_QUEST[AWSTR_QUEST_SWEEP_VICINITY_OF_S_CAMP_OF_YUGUNOS][Hack_Status.App_Language], 
+            WS_CHILD | WS_VISIBLE,
+            105, 330, 85, 20, hwndParent, (HMENU)IDC_BUTTON_QUEST_21,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonQuest22 = CreateWindowExW(0, L"BUTTON", 
+            APP_WSTR_QUEST[AWSTR_QUEST_GET_THE_SACRED_RELIC_SACRED_WING][Hack_Status.App_Language], 
+            WS_CHILD | WS_VISIBLE,
+            105, 360, 85, 20, hwndParent, (HMENU)IDC_BUTTON_QUEST_22,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonQuest23 = CreateWindowExW(0, L"BUTTON", 
+            APP_WSTR_QUEST[AWSTR_QUEST_GET_THE_SACRED_RELIC_ANGELS_HAIR][Hack_Status.App_Language], 
+            WS_CHILD | WS_VISIBLE,
+            105, 390, 85, 20, hwndParent, (HMENU)IDC_BUTTON_QUEST_23,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonQuest24 = CreateWindowExW(0, L"BUTTON", 
+            APP_WSTR_QUEST[AWSTR_QUEST_DELIVER_THE_BISHOP_BERINIS_REPORT][Hack_Status.App_Language], 
+            WS_CHILD | WS_VISIBLE,
+            105, 420, 85, 20, hwndParent, (HMENU)IDC_BUTTON_QUEST_24,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+
+    hwndButtonQuest25 = CreateWindowExW(0, L"BUTTON", 
+            APP_WSTR_QUEST[AWSTR_QUEST_EXPLORE_THE_REMAINS_OF_HEARTBEAT][Hack_Status.App_Language], 
+            WS_CHILD | WS_VISIBLE,
+            205, 70, 85, 20, hwndParent, (HMENU)IDC_BUTTON_QUEST_25,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonQuest26 = CreateWindowExW(0, L"BUTTON", 
+            APP_WSTR_QUEST[AWSTR_QUEST_EXAMINE_THE_PLUMBING][Hack_Status.App_Language], 
+            WS_CHILD | WS_VISIBLE,
+            205, 100, 85, 20, hwndParent, (HMENU)IDC_BUTTON_QUEST_26,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonQuest27 = CreateWindowExW(0, L"BUTTON", 
+            APP_WSTR_QUEST[AWSTR_QUEST_TRUTH_BEHIND_DEATH_OF_THE_ELF_RANGERS][Hack_Status.App_Language], 
+            WS_CHILD | WS_VISIBLE,
+            205, 130, 85, 20, hwndParent, (HMENU)IDC_BUTTON_QUEST_27,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonQuest28 = CreateWindowExW(0, L"BUTTON", 
+            APP_WSTR_QUEST[AWSTR_QUEST_MEET_WITH_SAINT_KNIGHT_LICARN][Hack_Status.App_Language], 
+            WS_CHILD | WS_VISIBLE,
+            205, 160, 85, 20, hwndParent, (HMENU)IDC_BUTTON_QUEST_28,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonQuest29 = CreateWindowExW(0, L"BUTTON", 
+            APP_WSTR_QUEST[AWSTR_QUEST_BREAK_THROUGH_THE_TOWER_OF_LICARN][Hack_Status.App_Language], 
+            WS_CHILD | WS_VISIBLE,
+            205, 190, 85, 20, hwndParent, (HMENU)IDC_BUTTON_QUEST_29,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonQuest30 = CreateWindowExW(0, L"BUTTON", 
+            APP_WSTR_QUEST[AWSTR_QUEST_GET_THE_SACRED_RELIC_ANGELS_NAIL][Hack_Status.App_Language], 
+            WS_CHILD | WS_VISIBLE,
+            205, 220, 85, 20, hwndParent, (HMENU)IDC_BUTTON_QUEST_30,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonQuest31 = CreateWindowExW(0, L"BUTTON", 
+            APP_WSTR_QUEST[AWSTR_QUEST_RESEARCH_THE_ANCIENT_RUINS][Hack_Status.App_Language], 
+            WS_CHILD | WS_VISIBLE,
+            205, 270, 85, 20, hwndParent, (HMENU)IDC_BUTTON_QUEST_31,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonQuest32 = CreateWindowExW(0, L"BUTTON", 
+            APP_WSTR_QUEST[AWSTR_QUEST_GET_AN_ANTIDOTE][Hack_Status.App_Language], 
+            WS_CHILD | WS_VISIBLE,
+            205, 300, 85, 20, hwndParent, (HMENU)IDC_BUTTON_QUEST_32,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonQuest33 = CreateWindowExW(0, L"BUTTON", 
+            APP_WSTR_QUEST[AWSTR_QUEST_PUNITIVE_EXPEDITION_AGAINST_JURG][Hack_Status.App_Language], 
+            WS_CHILD | WS_VISIBLE,
+            205, 330, 85, 20, hwndParent, (HMENU)IDC_BUTTON_QUEST_33,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonQuest34 = CreateWindowExW(0, L"BUTTON", 
+            APP_WSTR_QUEST[AWSTR_QUEST_ERRANDS_FOR_MRS_MORRIS][Hack_Status.App_Language], 
+            WS_CHILD | WS_VISIBLE,
+            205, 360, 85, 20, hwndParent, (HMENU)IDC_BUTTON_QUEST_34,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonQuest35 = CreateWindowExW(0, L"BUTTON", 
+            APP_WSTR_QUEST[AWSTR_QUEST_TAKE_BACK_THE_STOLEN_TEARS_OF_OBERON][Hack_Status.App_Language], 
+            WS_CHILD | WS_VISIBLE,
+            205, 390, 85, 20, hwndParent, (HMENU)IDC_BUTTON_QUEST_35,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonQuest36 = CreateWindowExW(0, L"BUTTON", 
+            APP_WSTR_QUEST[AWSTR_QUEST_FIND_THE_ANCIENT_SHORT_SWORD][Hack_Status.App_Language], 
+            WS_CHILD | WS_VISIBLE,
+            205, 420, 85, 20, hwndParent, (HMENU)IDC_BUTTON_QUEST_36,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+
+    hwndButtonQuest37 = CreateWindowExW(0, L"BUTTON", 
+            APP_WSTR_QUEST[AWSTR_QUEST_GET_THE_SACRED_RELIC_ANGELS_MEMORY][Hack_Status.App_Language], 
+            WS_CHILD | WS_VISIBLE,
+            295, 70, 85, 20, hwndParent, (HMENU)IDC_BUTTON_QUEST_37,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonQuest38 = CreateWindowExW(0, L"BUTTON", 
+            APP_WSTR_QUEST[AWSTR_QUEST_DELIVER_THE_SACRED_RELICS_TO_ST_SENA][Hack_Status.App_Language], 
+            WS_CHILD | WS_VISIBLE,
+            295, 100, 85, 20, hwndParent, (HMENU)IDC_BUTTON_QUEST_38,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonQuest39 = CreateWindowExW(0, L"BUTTON", 
+            APP_WSTR_QUEST[AWSTR_QUEST_GET_THE_BLUE_AND_GREEN_ORBS][Hack_Status.App_Language], 
+            WS_CHILD | WS_VISIBLE,
+            295, 130, 85, 20, hwndParent, (HMENU)IDC_BUTTON_QUEST_39,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonQuest40 = CreateWindowExW(0, L"BUTTON", 
+            APP_WSTR_QUEST[AWSTR_QUEST_FIND_MR_MRS_JURGS_REMEMBRANCE][Hack_Status.App_Language], 
+            WS_CHILD | WS_VISIBLE,
+            295, 160, 85, 20, hwndParent, (HMENU)IDC_BUTTON_QUEST_40,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonQuest41 = CreateWindowExW(0, L"BUTTON", 
+            APP_WSTR_QUEST[AWSTR_QUEST_GET_THE_RED_ORB][Hack_Status.App_Language], 
+            WS_CHILD | WS_VISIBLE,
+            295, 190, 85, 20, hwndParent, (HMENU)IDC_BUTTON_QUEST_41,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonQuest42 = CreateWindowExW(0, L"BUTTON", 
+            APP_WSTR_QUEST[AWSTR_QUEST_RECAPTURE_THE_RUINS_OF_EXORCISM][Hack_Status.App_Language], 
+            WS_CHILD | WS_VISIBLE,
+            295, 220, 85, 20, hwndParent, (HMENU)IDC_BUTTON_QUEST_42,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonQuest43 = CreateWindowExW(0, L"BUTTON", 
+            APP_WSTR_QUEST[AWSTR_QUEST_HEAD_FOR_GOLIATES_MANSION][Hack_Status.App_Language], 
+            WS_CHILD | WS_VISIBLE,
+            295, 270, 85, 20, hwndParent, (HMENU)IDC_BUTTON_QUEST_43,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonQuest44 = CreateWindowExW(0, L"BUTTON", 
+            APP_WSTR_QUEST[AWSTR_QUEST_BEAT_THE_DEVIL_DIGNOSIS][Hack_Status.App_Language], 
+            WS_CHILD | WS_VISIBLE,
+            295, 300, 85, 20, hwndParent, (HMENU)IDC_BUTTON_QUEST_44,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonQuest45 = CreateWindowExW(0, L"BUTTON", 
+            APP_WSTR_QUEST[AWSTR_QUEST_A_WISE_MAN_IN_RUINS_OF_THE_WISE][Hack_Status.App_Language], 
+            WS_CHILD | WS_VISIBLE,
+            295, 330, 85, 20, hwndParent, (HMENU)IDC_BUTTON_QUEST_45,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonQuest46 = CreateWindowExW(0, L"BUTTON", 
+            APP_WSTR_QUEST[AWSTR_QUEST_LET_THE_JURG_PARTY_SURRENDER][Hack_Status.App_Language], 
+            WS_CHILD | WS_VISIBLE,
+            295, 360, 85, 20, hwndParent, (HMENU)IDC_BUTTON_QUEST_46,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonQuest47 = CreateWindowExW(0, L"BUTTON", 
+            APP_WSTR_QUEST[AWSTR_QUEST_SUBJECTION_OF_THE_FORT_OF_DEMONS][Hack_Status.App_Language], 
+            WS_CHILD | WS_VISIBLE,
+            295, 390, 85, 20, hwndParent, (HMENU)IDC_BUTTON_QUEST_47,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonQuest48 = CreateWindowExW(0, L"BUTTON", 
+            APP_WSTR_QUEST[AWSTR_QUEST_GO_TO_THE_FOREST_OF_MADNESS][Hack_Status.App_Language], 
+            WS_CHILD | WS_VISIBLE,
+            295, 420, 85, 20, hwndParent, (HMENU)IDC_BUTTON_QUEST_48,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+}
+void CreateTab5(void){
+    extern HWND hwndTab;
+    extern HWND hwndButtonOpenGiantWarehouse2, 
+            hwndGroupBoxGiantWarehouse,
+            hwndButtonGiantWarehouse1, hwndButtonGiantWarehouse2,
+            hwndButtonGiantWarehouse3, hwndButtonGiantWarehouse4,
+            hwndButtonGiantWarehouse5, hwndButtonGiantWarehouse6,
+            hwndButtonGiantWarehouse7, hwndButtonGiantWarehouse8,
+            hwndButtonGiantWarehouse9, hwndButtonGiantWarehouse10,
+            hwndStaticGiantWarehouseIndex,
+            hwndEditGiantWarehouseIndex, hwndUpDownGiantWarehouseIndex,
+            hwndEditGiantWarehouseLog;
+    HWND hwndParent = GetParent(hwndTab);
+    hwndButtonOpenGiantWarehouse2 = CreateWindowExW(0, L"BUTTON", 
+            APP_WSTR[AWSTR_CTL_B_OPEN_G_WAREHOUSE][Hack_Status.App_Language], 
+            WS_CHILD | WS_VISIBLE,
+            20, 30, 355, 20, hwndParent, (HMENU)IDC_BUTTON_OPEN_G_WAREHOUSE_2,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    
+    hwndGroupBoxGiantWarehouse = CreateWindowExW(WS_EX_CONTROLPARENT, L"BUTTON", 
+            APP_WSTR[AWSTR_CTL_G_G_WAREHOUSE][Hack_Status.App_Language], 
+            WS_VISIBLE | WS_CHILD | BS_GROUPBOX,
+            10, 50, 375, 50, hwndParent, (HMENU)IDC_GROUPBOX_G_WAREHOUSE,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    
+    hwndButtonGiantWarehouse1 = CreateWindowExW(0, L"BUTTON", 
+            L"1", 
+            WS_CHILD | WS_VISIBLE,
+            30, 70, 25, 20, hwndParent, (HMENU)IDC_BUTTON_G_WAREHOUSE_1,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonGiantWarehouse2 = CreateWindowExW(0, L"BUTTON", 
+            L"2", 
+            WS_CHILD | WS_VISIBLE,
+            65, 70, 25, 20, hwndParent, (HMENU)IDC_BUTTON_G_WAREHOUSE_2,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonGiantWarehouse3 = CreateWindowExW(0, L"BUTTON", 
+            L"3", 
+            WS_CHILD | WS_VISIBLE,
+            100, 70, 25, 20, hwndParent, (HMENU)IDC_BUTTON_G_WAREHOUSE_3,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonGiantWarehouse4 = CreateWindowExW(0, L"BUTTON", 
+            L"4", 
+            WS_CHILD | WS_VISIBLE,
+            135, 70, 25, 20, hwndParent, (HMENU)IDC_BUTTON_G_WAREHOUSE_4,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonGiantWarehouse5 = CreateWindowExW(0, L"BUTTON", 
+            L"5", 
+            WS_CHILD | WS_VISIBLE,
+            170, 70, 25, 20, hwndParent, (HMENU)IDC_BUTTON_G_WAREHOUSE_5,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonGiantWarehouse6 = CreateWindowExW(0, L"BUTTON", 
+            L"6", 
+            WS_CHILD | WS_VISIBLE,
+            205, 70, 25, 20, hwndParent, (HMENU)IDC_BUTTON_G_WAREHOUSE_6,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonGiantWarehouse7 = CreateWindowExW(0, L"BUTTON", 
+            L"7", 
+            WS_CHILD | WS_VISIBLE,
+            240, 70, 25, 20, hwndParent, (HMENU)IDC_BUTTON_G_WAREHOUSE_7,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonGiantWarehouse8 = CreateWindowExW(0, L"BUTTON", 
+            L"8", 
+            WS_CHILD | WS_VISIBLE,
+            275, 70, 25, 20, hwndParent, (HMENU)IDC_BUTTON_G_WAREHOUSE_8,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonGiantWarehouse9 = CreateWindowExW(0, L"BUTTON", 
+            L"9", 
+            WS_CHILD | WS_VISIBLE,
+            310, 70, 25, 20, hwndParent, (HMENU)IDC_BUTTON_G_WAREHOUSE_9,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndButtonGiantWarehouse10 = CreateWindowExW(0, L"BUTTON", 
+            L"10", 
+            WS_CHILD | WS_VISIBLE,
+            345, 70, 25, 20, hwndParent, (HMENU)IDC_BUTTON_G_WAREHOUSE_10,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+
+    hwndStaticGiantWarehouseIndex = CreateWindowExW(0, L"STATIC", 
+            APP_WSTR[AWSTR_CTL_S_G_WAREHOUSE_INDEX][Hack_Status.App_Language], 
+            WS_VISIBLE | WS_CHILD | ES_CENTER,
+            20, 110, 280, 20, hwndParent, (HMENU)IDC_STATIC_G_WAREHOUSE_INDEX,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    hwndEditGiantWarehouseIndex = CreateWindowExW(0, L"EDIT", 
+            L"", 
+            WS_CHILD | WS_BORDER | WS_VISIBLE | ES_CENTER | ES_NUMBER, 
+            300, 110, 75, 20, hwndParent, (HMENU)IDC_EDIT_G_WAREHOUSE_INDEX,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    SendMessageW(hwndEditGiantWarehouseIndex, EM_SETLIMITTEXT, 3, 0);
+    hwndUpDownGiantWarehouseIndex = CreateWindowExW(0, UPDOWN_CLASSW, 
+            NULL,
+            WS_CHILD | WS_VISIBLE | UDS_SETBUDDYINT | UDS_ALIGNRIGHT,
+            0, 0, 0, 0, hwndParent, (HMENU)IDC_UPDOWN_G_WAREHOUSE_INDEX, 
+            NULL, NULL);
+    SendMessageW(hwndUpDownGiantWarehouseIndex, UDM_SETBUDDY, (WPARAM)hwndEditGiantWarehouseIndex, 0);
+    SendMessageW(hwndUpDownGiantWarehouseIndex, UDM_SETRANGE, 0, MAKELPARAM(479, 0));
+
+    hwndEditGiantWarehouseLog = CreateWindowExW(0, L"EDIT", 
+            L"", 
+            WS_CHILD | WS_BORDER | ES_MULTILINE | WS_VSCROLL | WS_VISIBLE | ES_READONLY,
+            15, 140, 370, 160, hwndParent, (HMENU)IDC_EDIT_G_WAREHOUSE_LOG,
+            (HINSTANCE)GetWindowLongPtrW(hwndTab, GWLP_HINSTANCE), NULL);
+    AppendText(hwndEditGiantWarehouseLog, APP_WSTR[AWSTR_APP_HINT_G_WAREHOUSE][Hack_Status.App_Language], TRUE);
+
+}
 // shift index content
 void ShowTabContents(HWND hwndTab, __int32 iPageOld, __int32 iPageNew){
     HWND hwndParent = GetParent(hwndTab);
     switch(iPageOld){
     case 0:
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_OPENSF),               SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_COMBOBOX_GAMEVERSION),        SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_BIND_GAME),            SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_INIT_LOG),               SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_REFRESH),              SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_REFRESH_DELAY),        SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_REFRESH_DELAY),          SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_REFRESH_DELAY),        SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_GAMEMODE),             SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_GAMEMODE),               SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_ONLINEROLE),           SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_ONLINEROLE),             SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_PLAYER_NAME),          SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_PLAYER_NAME),            SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_APPLY_PLAYER_NAME),    SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_LV),                   SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_LV),                     SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_LV),                   SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_SEX),                  SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_COMBOBOX_SEX),                SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_EXP),                  SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_EXP),                    SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_APPLY_EXP),            SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_PROF),                 SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_COMBOBOX_PROF),               SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_PROF_TO_BE),           SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_COMBOBOX_PROF_TO_BE),         SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_COMPANION_LV),         SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_COMPANION_LV),           SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_COMPANION_LV),         SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_COMPANION_ID),         SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_COMBOBOX_COMPANION_ID),       SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_COMPANION_EXP),        SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_COMPANION_EXP),          SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_APPLY_COMPANION_EXP),  SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_CHANGE_LANG),          SW_HIDE);
+        for(__int32 i = IDC_BUTTON_OPENSF; i <= IDC_BUTTON_CHANGE_LANG; i++){
+            ShowWindow(GetDlgItem(hwndParent, i), SW_HIDE);
+        }
         break;
     case 1:
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_HOOK),                 SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_HOOK_STATUS),          SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_HOOK_STATUS),            SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_HOOK_LOG),               SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_MAP_ID),               SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAP_ID),                 SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_X),                    SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_X),                      SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_Y),                    SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_Y),                      SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAP_NAME),               SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_MAP_GATE_ID),          SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAP_GATE_ID),            SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_MOVE_DISTANCE),        SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MOVE_DISTANCE),          SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MOVE_DISTANCE),        SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_MOVE_DELAY),           SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MOVE_DELAY),             SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MOVE_DELAY),           SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_TELEPORT),             SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_COMBOBOX_TELEPORT_PRESET),    SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_TELEPORT_MAP_ID),      SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_COMBOBOX_TELEPORT_MAP_NAME),  SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_TELEPORT_MAP_ID),        SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_GROUPBOX_GATE_OR_XY),         SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_RADIO_GATE),           SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_RADIO_XY),             SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_TELEPORT_GATE_ID),     SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_TELEPORT_GATE_ID),       SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_TELEPORT_GATE_WARN),   SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_TELEPORT_X),           SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_TELEPORT_X),             SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_TELEPORT_Y),           SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_TELEPORT_Y),             SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_TELEPORT),             SW_HIDE);
+        for(__int32 i = IDC_BUTTON_HOOK; i <= IDC_BUTTON_TELEPORT; i++){
+            ShowWindow(GetDlgItem(hwndParent, i), SW_HIDE);
+        }
         break;
     case 2:
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_OPEN_WAREHOUSE),       SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_OPEN_G_WAREHOUSE),     SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_OPEN_CUSTOM_OUTFIT),   SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_PAUSE_GAME),           SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_INFINITE_POWER),       SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_COMPANION_REVIVE),     SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_EXTRA_LANDMINE),       SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_EXTRA_LANDMINE_POWER), SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_BE_RICH),              SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_NO_MONSTER),           SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_LV_TO_30),       SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_CRAZY_SPEED),          SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_GOD_MODE),             SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_EXTEND_ATK_RANGE),     SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_REVIVE_ENEMY),         SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_ASSIST_LOG),             SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_SUICIDE),              SW_HIDE);
+        for(__int32 i = IDC_BUTTON_OPEN_WAREHOUSE; i <= IDC_BUTTON_SUICIDE; i++){
+            ShowWindow(GetDlgItem(hwndParent, i), SW_HIDE);
+        }
         break;
     case 3:
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_MAGIC_NAME_1),         SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_MAGIC_LV_1),           SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_MAGIC_EXP_1),          SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_MAGIC_NAME_2),         SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_MAGIC_LV_2),           SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_MAGIC_EXP_2),          SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_GROUPBOX_TAB_1),              SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_GROUPBOX_TAB_2),              SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_GROUPBOX_TAB_3),              SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_GROUPBOX_TAB_4),              SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_1),              SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_LV_1),             SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_LV_1),           SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_EXP_1),            SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_EXP_1),          SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_2),              SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_LV_2),             SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_LV_2),           SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_EXP_2),            SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_EXP_2),          SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_3),              SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_LV_3),             SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_LV_3),           SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_EXP_3),            SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_EXP_3),          SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_4),              SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_LV_4),             SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_LV_4),           SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_EXP_4),            SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_EXP_4),          SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_5),              SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_LV_5),             SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_LV_5),           SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_EXP_5),            SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_EXP_5),          SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_6),              SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_LV_6),             SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_LV_6),           SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_EXP_6),            SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_EXP_6),          SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_7),              SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_LV_7),             SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_LV_7),           SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_EXP_7),            SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_EXP_7),          SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_8),              SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_LV_8),             SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_LV_8),           SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_EXP_8),            SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_EXP_8),          SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_9),              SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_LV_9),             SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_LV_9),           SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_EXP_9),            SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_EXP_9),          SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_10),             SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_LV_10),            SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_LV_10),          SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_EXP_10),           SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_EXP_10),         SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_11),             SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_LV_11),            SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_LV_11),          SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_EXP_11),           SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_EXP_11),         SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_12),             SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_LV_12),            SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_LV_12),          SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_EXP_12),           SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_EXP_12),         SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_13),             SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_LV_13),            SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_LV_13),          SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_EXP_13),           SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_EXP_13),         SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_14),             SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_LV_14),            SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_LV_14),          SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_EXP_14),           SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_EXP_14),         SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_15),             SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_LV_15),            SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_LV_15),          SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_EXP_15),           SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_EXP_15),         SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_16),             SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_LV_16),            SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_LV_16),          SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_EXP_16),           SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_EXP_16),         SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_17),             SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_LV_17),            SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_LV_17),          SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_EXP_17),           SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_EXP_17),         SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_18),             SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_LV_18),            SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_LV_18),          SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_EXP_18),           SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_EXP_18),         SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_19),             SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_LV_19),            SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_LV_19),          SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_EXP_19),           SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_EXP_19),         SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_20),             SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_LV_20),            SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_LV_20),          SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_EXP_20),           SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_EXP_20),         SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_21),             SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_LV_21),            SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_LV_21),          SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_EXP_21),           SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_EXP_21),         SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_22),             SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_LV_22),            SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_LV_22),          SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_EXP_22),           SW_HIDE);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_EXP_22),         SW_HIDE);
-        
+        for(__int32 i = IDC_STATIC_MAGIC_NAME_1; i <= IDC_UPDOWN_MAGIC_EXP_22; i++){
+            ShowWindow(GetDlgItem(hwndParent, i), SW_HIDE);
+        }
+        break;
+    case 4:
+        for(__int32 i = IDC_STATIC_QUEST_COL_1; i <= IDC_BUTTON_QUEST_48; i++){
+            ShowWindow(GetDlgItem(hwndParent, i), SW_HIDE);
+        }
+        break;
+    case 5:
+        for(__int32 i = IDC_BUTTON_OPEN_G_WAREHOUSE_2; i <= IDC_EDIT_G_WAREHOUSE_LOG; i++){
+            ShowWindow(GetDlgItem(hwndParent, i), SW_HIDE);
+        }
         break;
     default:
         break;
     }
     switch(iPageNew){
     case 0:
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_OPENSF),               SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_COMBOBOX_GAMEVERSION),        SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_BIND_GAME),            SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_INIT_LOG),               SW_SHOW);  
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_REFRESH),              SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_REFRESH_DELAY),        SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_REFRESH_DELAY),          SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_REFRESH_DELAY),        SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_GAMEMODE),             SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_GAMEMODE),               SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_ONLINEROLE),           SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_ONLINEROLE),             SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_PLAYER_NAME),          SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_PLAYER_NAME),            SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_APPLY_PLAYER_NAME),    SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_LV),                   SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_LV),                     SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_LV),                   SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_SEX),                  SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_COMBOBOX_SEX),                SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_EXP),                  SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_EXP),                    SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_APPLY_EXP),            SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_PROF),                 SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_COMBOBOX_PROF),               SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_PROF_TO_BE),           SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_COMBOBOX_PROF_TO_BE),         SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_COMPANION_LV),         SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_COMPANION_LV),           SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_COMPANION_LV),         SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_COMPANION_ID),         SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_COMBOBOX_COMPANION_ID),       SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_COMPANION_EXP),        SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_COMPANION_EXP),          SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_APPLY_COMPANION_EXP),  SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_CHANGE_LANG),          SW_SHOW);
+        for(__int32 i = IDC_BUTTON_OPENSF; i <= IDC_BUTTON_CHANGE_LANG; i++){
+            ShowWindow(GetDlgItem(hwndParent, i), SW_SHOW);
+        }
         break;
     case 1:
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_HOOK),                 SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_HOOK_STATUS),          SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_HOOK_STATUS),            SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_HOOK_LOG),               SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_MAP_ID),               SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAP_ID),                 SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_X),                    SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_X),                      SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_Y),                    SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_Y),                      SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAP_NAME),               SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_MAP_GATE_ID),          SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAP_GATE_ID),            SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_MOVE_DISTANCE),        SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MOVE_DISTANCE),          SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MOVE_DISTANCE),        SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_MOVE_DELAY),           SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MOVE_DELAY),             SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MOVE_DELAY),           SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_TELEPORT),             SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_COMBOBOX_TELEPORT_PRESET),    SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_TELEPORT_MAP_ID),      SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_COMBOBOX_TELEPORT_MAP_NAME),  SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_TELEPORT_MAP_ID),        SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_GROUPBOX_GATE_OR_XY),         SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_RADIO_GATE),           SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_RADIO_XY),             SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_TELEPORT_GATE_ID),     SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_TELEPORT_GATE_ID),       SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_TELEPORT_GATE_WARN),   SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_TELEPORT_X),           SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_TELEPORT_X),             SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_TELEPORT_Y),           SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_TELEPORT_Y),             SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_TELEPORT),             SW_SHOW);
+        for(__int32 i = IDC_BUTTON_HOOK; i <= IDC_BUTTON_TELEPORT; i++){
+            ShowWindow(GetDlgItem(hwndParent, i), SW_SHOW);
+        }
         break;
     case 2:
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_OPEN_WAREHOUSE),       SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_OPEN_G_WAREHOUSE),     SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_OPEN_CUSTOM_OUTFIT),   SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_PAUSE_GAME),           SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_INFINITE_POWER),       SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_COMPANION_REVIVE),     SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_EXTRA_LANDMINE),       SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_EXTRA_LANDMINE_POWER), SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_BE_RICH),              SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_NO_MONSTER),           SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_LV_TO_30),       SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_CRAZY_SPEED),          SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_GOD_MODE),             SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_EXTEND_ATK_RANGE),     SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_REVIVE_ENEMY),         SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_ASSIST_LOG),             SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_SUICIDE),              SW_SHOW);
+        for(__int32 i = IDC_BUTTON_OPEN_WAREHOUSE; i <= IDC_BUTTON_SUICIDE; i++){
+            ShowWindow(GetDlgItem(hwndParent, i), SW_SHOW);
+        }
         break;
     case 3:
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_MAGIC_NAME_1),         SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_MAGIC_LV_1),           SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_MAGIC_EXP_1),          SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_MAGIC_NAME_2),         SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_MAGIC_LV_2),           SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_STATIC_MAGIC_EXP_2),          SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_GROUPBOX_TAB_1),              SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_GROUPBOX_TAB_2),              SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_GROUPBOX_TAB_3),              SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_GROUPBOX_TAB_4),              SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_1),              SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_LV_1),             SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_LV_1),           SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_EXP_1),            SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_EXP_1),          SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_2),              SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_LV_2),             SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_LV_2),           SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_EXP_2),            SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_EXP_2),          SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_3),              SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_LV_3),             SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_LV_3),           SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_EXP_3),            SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_EXP_3),          SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_4),              SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_LV_4),             SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_LV_4),           SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_EXP_4),            SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_EXP_4),          SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_5),              SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_LV_5),             SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_LV_5),           SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_EXP_5),            SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_EXP_5),          SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_6),              SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_LV_6),             SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_LV_6),           SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_EXP_6),            SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_EXP_6),          SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_7),              SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_LV_7),             SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_LV_7),           SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_EXP_7),            SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_EXP_7),          SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_8),              SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_LV_8),             SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_LV_8),           SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_EXP_8),            SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_EXP_8),          SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_9),              SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_LV_9),             SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_LV_9),           SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_EXP_9),            SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_EXP_9),          SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_10),             SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_LV_10),            SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_LV_10),          SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_EXP_10),           SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_EXP_10),         SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_11),             SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_LV_11),            SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_LV_11),          SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_EXP_11),           SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_EXP_11),         SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_12),             SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_LV_12),            SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_LV_12),          SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_EXP_12),           SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_EXP_12),         SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_13),             SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_LV_13),            SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_LV_13),          SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_EXP_13),           SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_EXP_13),         SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_14),             SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_LV_14),            SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_LV_14),          SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_EXP_14),           SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_EXP_14),         SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_15),             SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_LV_15),            SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_LV_15),          SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_EXP_15),           SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_EXP_15),         SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_16),             SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_LV_16),            SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_LV_16),          SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_EXP_16),           SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_EXP_16),         SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_17),             SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_LV_17),            SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_LV_17),          SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_EXP_17),           SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_EXP_17),         SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_18),             SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_LV_18),            SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_LV_18),          SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_EXP_18),           SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_EXP_18),         SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_19),             SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_LV_19),            SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_LV_19),          SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_EXP_19),           SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_EXP_19),         SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_20),             SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_LV_20),            SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_LV_20),          SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_EXP_20),           SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_EXP_20),         SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_21),             SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_LV_21),            SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_LV_21),          SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_EXP_21),           SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_EXP_21),         SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_22),             SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_LV_22),            SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_LV_22),          SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_EDIT_MAGIC_EXP_22),           SW_SHOW);
-        ShowWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MAGIC_EXP_22),         SW_SHOW);
+        for(__int32 i = IDC_STATIC_MAGIC_NAME_1; i <= IDC_UPDOWN_MAGIC_EXP_22; i++){
+            ShowWindow(GetDlgItem(hwndParent, i), SW_SHOW);
+        }
+        break;
+    case 4:
+        for(__int32 i = IDC_STATIC_QUEST_COL_1; i <= IDC_BUTTON_QUEST_48; i++){
+            ShowWindow(GetDlgItem(hwndParent, i), SW_SHOW);
+        }
+        break;
+    case 5:
+        for(__int32 i = IDC_BUTTON_OPEN_G_WAREHOUSE_2; i <= IDC_EDIT_G_WAREHOUSE_LOG; i++){
+            ShowWindow(GetDlgItem(hwndParent, i), SW_SHOW);
+        }
         break;
     default:
         break;
@@ -1948,107 +1973,28 @@ void ShowTabContents(HWND hwndTab, __int32 iPageOld, __int32 iPageNew){
 void UseCustomFont(HWND hwndTab, HFONT hCustomFont){
     HWND hwndParent = GetParent(hwndTab);
     // tab 0, Init
-    SendMessageW(GetDlgItem(hwndParent, IDC_TABCONTROL),                  WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_OPENSF),               WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_COMBOBOX_GAMEVERSION),        WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_BIND_GAME),            WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_EDIT_INIT_LOG),               WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_REFRESH),              WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_STATIC_REFRESH_DELAY),        WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_EDIT_REFRESH_DELAY),          WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_STATIC_GAMEMODE),             WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_EDIT_GAMEMODE),               WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_STATIC_ONLINEROLE),           WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_EDIT_ONLINEROLE),             WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_STATIC_PLAYER_NAME),          WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_EDIT_PLAYER_NAME),            WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_APPLY_PLAYER_NAME),    WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_STATIC_LV),                   WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_EDIT_LV),                     WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_UPDOWN_LV),                   WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_STATIC_SEX),                  WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_COMBOBOX_SEX),                WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_STATIC_EXP),                  WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_EDIT_EXP),                    WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_APPLY_EXP),            WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_STATIC_PROF),                 WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_COMBOBOX_PROF),               WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_STATIC_PROF_TO_BE),           WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_COMBOBOX_PROF_TO_BE),         WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_STATIC_COMPANION_LV),         WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_EDIT_COMPANION_LV),           WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_UPDOWN_COMPANION_LV),         WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_STATIC_COMPANION_ID),         WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_COMBOBOX_COMPANION_ID),       WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_STATIC_COMPANION_EXP),        WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_EDIT_COMPANION_EXP),          WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_APPLY_COMPANION_EXP),  WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_CHANGE_LANG),          WM_SETFONT, (WPARAM)hCustomFont, TRUE);
+    for(__int32 i = IDC_TABCONTROL; i <= IDC_BUTTON_CHANGE_LANG; i++){
+        SendMessageW(GetDlgItem(hwndParent, i), WM_SETFONT, (WPARAM)hCustomFont, TRUE);
+    }
     // tab 1, WallHack
-    SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_HOOK),                 WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_STATIC_HOOK_STATUS),          WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_EDIT_HOOK_STATUS),            WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_EDIT_HOOK_LOG),               WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_STATIC_MAP_ID),               WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_EDIT_MAP_ID),                 WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_STATIC_X),                    WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_EDIT_X),                      WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_STATIC_Y),                    WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_EDIT_Y),                      WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_EDIT_MAP_NAME),               WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_STATIC_MAP_GATE_ID),          WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_EDIT_MAP_GATE_ID),            WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_STATIC_MOVE_DISTANCE),        WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_EDIT_MOVE_DISTANCE),          WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_STATIC_MOVE_DELAY),           WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_EDIT_MOVE_DELAY),             WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_STATIC_TELEPORT),             WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_COMBOBOX_TELEPORT_PRESET),    WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_STATIC_TELEPORT_MAP_ID),      WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_COMBOBOX_TELEPORT_MAP_NAME),  WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_EDIT_TELEPORT_MAP_ID),        WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_GROUPBOX_GATE_OR_XY),         WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_RADIO_GATE),           WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_RADIO_XY),             WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_STATIC_TELEPORT_GATE_ID),     WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_EDIT_TELEPORT_GATE_ID),       WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_STATIC_TELEPORT_GATE_WARN),   WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_STATIC_TELEPORT_X),           WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_EDIT_TELEPORT_X),             WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_STATIC_TELEPORT_Y),           WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_EDIT_TELEPORT_Y),             WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_TELEPORT),             WM_SETFONT, (WPARAM)hCustomFont, TRUE);
+    for(__int32 i = IDC_BUTTON_HOOK; i <= IDC_BUTTON_TELEPORT; i++){
+        SendMessageW(GetDlgItem(hwndParent, i), WM_SETFONT, (WPARAM)hCustomFont, TRUE);
+    }
     // tab 2, Assist
-    SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_OPEN_WAREHOUSE),       WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_OPEN_G_WAREHOUSE),     WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_OPEN_CUSTOM_OUTFIT),   WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_PAUSE_GAME),           WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_INFINITE_POWER),       WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_COMPANION_REVIVE),     WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_EXTRA_LANDMINE),       WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_EXTRA_LANDMINE_POWER), WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_BE_RICH),              WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_NO_MONSTER),           WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_LV_TO_30),       WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_CRAZY_SPEED),          WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_GOD_MODE),             WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_EXTEND_ATK_RANGE),     WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_REVIVE_ENEMY),         WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_EDIT_ASSIST_LOG),             WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_SUICIDE),              WM_SETFONT, (WPARAM)hCustomFont, TRUE);
+    for(__int32 i = IDC_BUTTON_OPEN_WAREHOUSE; i <= IDC_BUTTON_SUICIDE; i++){
+        SendMessageW(GetDlgItem(hwndParent, i), WM_SETFONT, (WPARAM)hCustomFont, TRUE);
+    }
     // tab 3, Magic
-    SendMessageW(GetDlgItem(hwndParent, IDC_STATIC_MAGIC_NAME_1),         WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_STATIC_MAGIC_LV_1),           WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_STATIC_MAGIC_EXP_1),          WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_STATIC_MAGIC_NAME_2),         WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_STATIC_MAGIC_LV_2),           WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_STATIC_MAGIC_EXP_2),          WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_GROUPBOX_TAB_1),              WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_GROUPBOX_TAB_2),              WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_GROUPBOX_TAB_3),              WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    SendMessageW(GetDlgItem(hwndParent, IDC_GROUPBOX_TAB_4),              WM_SETFONT, (WPARAM)hCustomFont, TRUE);
-    for(__int32 i = 0; i < SF_MAGIC_COUNT * 5; i++){
-        SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_1 + i),      WM_SETFONT, (WPARAM)hCustomFont, TRUE);
+    for(__int32 i = IDC_STATIC_MAGIC_NAME_1; i <= IDC_UPDOWN_MAGIC_EXP_22; i++){
+        SendMessageW(GetDlgItem(hwndParent, i), WM_SETFONT, (WPARAM)hCustomFont, TRUE);
+    }
+    // tab 4, Quest
+    for(__int32 i = IDC_STATIC_QUEST_COL_1; i <= IDC_BUTTON_QUEST_48; i++){
+        SendMessageW(GetDlgItem(hwndParent, i), WM_SETFONT, (WPARAM)hCustomFont, TRUE);
+    }
+    // tab 5, G Warehouse
+    for(__int32 i = IDC_BUTTON_OPEN_G_WAREHOUSE_2; i <= IDC_EDIT_G_WAREHOUSE_LOG; i++){
+        SendMessageW(GetDlgItem(hwndParent, i), WM_SETFONT, (WPARAM)hCustomFont, TRUE);
     }
 
 }
@@ -2056,134 +2002,55 @@ void SwitchBindGameControl(HWND hwndTab, BOOL isAble){
         // Disable open game button after binding game.
         // Re-enable after the Hack need to re-bind game.
     HWND hwndParent = GetParent(hwndTab);
+    // tab 0, Init
     EnableWindow(GetDlgItem(hwndParent, IDC_BUTTON_OPENSF),              !isAble);
     EnableWindow(GetDlgItem(hwndParent, IDC_COMBOBOX_GAMEVERSION),       !isAble);
-    // EnableWindow(GetDlgItem(hwndParent, IDC_BUTTON_BIND_GAME),            isAble);
-    // EnableWindow(GetDlgItem(hwndParent, IDC_EDIT_INIT_LOG),               isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_BUTTON_REFRESH),              isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_STATIC_REFRESH_DELAY),        isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_EDIT_REFRESH_DELAY),          isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_UPDOWN_REFRESH_DELAY),        isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_STATIC_GAMEMODE),             isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_EDIT_GAMEMODE),               isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_STATIC_ONLINEROLE),           isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_EDIT_ONLINEROLE),             isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_STATIC_PLAYER_NAME),          isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_EDIT_PLAYER_NAME),            isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_BUTTON_APPLY_PLAYER_NAME),    isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_STATIC_LV),                   isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_EDIT_LV),                     isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_UPDOWN_LV),                   isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_STATIC_SEX),                  isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_COMBOBOX_SEX),                isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_STATIC_EXP),                  isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_EDIT_EXP),                    isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_BUTTON_APPLY_EXP),            isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_STATIC_PROF),                 isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_COMBOBOX_PROF),               isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_STATIC_PROF_TO_BE),           isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_COMBOBOX_PROF_TO_BE),         isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_STATIC_COMPANION_LV),         isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_EDIT_COMPANION_LV),           isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_UPDOWN_COMPANION_LV),         isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_STATIC_COMPANION_ID),         isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_COMBOBOX_COMPANION_ID),       isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_STATIC_COMPANION_EXP),        isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_EDIT_COMPANION_EXP),          isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_BUTTON_APPLY_COMPANION_EXP),  isAble);
-    // EnableWindow(GetDlgItem(hwndParent, IDC_BUTTON_CHANGE_LANG),          isAble);
-    
-    EnableWindow(GetDlgItem(hwndParent, IDC_BUTTON_HOOK),                 isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_STATIC_HOOK_STATUS),          isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_EDIT_HOOK_STATUS),            isAble);
-    // EnableWindow(GetDlgItem(hwndParent, IDC_EDIT_HOOK_LOG),               isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_STATIC_MAP_ID),               isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_EDIT_MAP_ID),                 isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_STATIC_X),                    isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_EDIT_X),                      isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_STATIC_Y),                    isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_EDIT_Y),                      isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_EDIT_MAP_ID),                 isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_STATIC_MAP_GATE_ID),          isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_EDIT_MAP_GATE_ID),            isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_STATIC_MOVE_DISTANCE),        isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_EDIT_MOVE_DISTANCE),          isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MOVE_DISTANCE),        isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_STATIC_MOVE_DELAY),           isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_EDIT_MOVE_DELAY),             isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_UPDOWN_MOVE_DELAY),           isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_STATIC_TELEPORT),             isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_COMBOBOX_TELEPORT_PRESET),    isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_STATIC_TELEPORT_MAP_ID),      isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_COMBOBOX_TELEPORT_MAP_NAME),  isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_EDIT_TELEPORT_MAP_ID),        isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_GROUPBOX_GATE_OR_XY),         isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_BUTTON_RADIO_GATE),           isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_BUTTON_RADIO_XY),             isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_STATIC_TELEPORT_GATE_ID),     isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_EDIT_TELEPORT_GATE_ID),       isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_STATIC_TELEPORT_GATE_WARN),   isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_STATIC_TELEPORT_X),           isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_EDIT_TELEPORT_X),             isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_STATIC_TELEPORT_Y),           isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_EDIT_TELEPORT_Y),             isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_BUTTON_TELEPORT),             isAble);
-    
-    EnableWindow(GetDlgItem(hwndParent, IDC_BUTTON_OPEN_WAREHOUSE),       isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_BUTTON_OPEN_G_WAREHOUSE),     isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_BUTTON_OPEN_CUSTOM_OUTFIT),   isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_BUTTON_PAUSE_GAME),           isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_BUTTON_INFINITE_POWER),       isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_BUTTON_COMPANION_REVIVE),     isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_BUTTON_EXTRA_LANDMINE),       isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_BUTTON_EXTRA_LANDMINE_POWER), isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_BUTTON_BE_RICH),              isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_BUTTON_NO_MONSTER),           isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_LV_TO_30),       isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_BUTTON_CRAZY_SPEED),          isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_BUTTON_GOD_MODE),             isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_BUTTON_EXTEND_ATK_RANGE),     isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_BUTTON_REVIVE_ENEMY),         isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_EDIT_ASSIST_LOG),             isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_BUTTON_SUICIDE),              isAble);
-    
+    for(__int32 i = IDC_BUTTON_REFRESH; i <= IDC_BUTTON_APPLY_COMPANION_EXP; i++){
+        EnableWindow(GetDlgItem(hwndParent, i), isAble);
+    }
+    // tab 1, WallHack
+    for(__int32 i = IDC_BUTTON_HOOK; i <= IDC_EDIT_HOOK_STATUS; i++){
+        EnableWindow(GetDlgItem(hwndParent, i), isAble);
+    }
+    for(__int32 i = IDC_STATIC_MAP_ID; i <= IDC_BUTTON_TELEPORT; i++){
+        EnableWindow(GetDlgItem(hwndParent, i), isAble);
+    }
+    // tab 2, Assist
+    for(__int32 i = IDC_BUTTON_OPEN_WAREHOUSE; i <= IDC_BUTTON_SUICIDE; i++){
+        EnableWindow(GetDlgItem(hwndParent, i), isAble);
+    }
+    // tab 3, Magic
     if(isAble == FALSE){
         for(__int32 i = 0; i < SF_MAGIC_COUNT * 5; i++){
             EnableWindow(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_1 + i),  isAble);
         }
     }
+    // tab 4, Quest
+    for(__int32 i = IDC_BUTTON_QUEST_1; i <= IDC_BUTTON_QUEST_48; i++){
+        EnableWindow(GetDlgItem(hwndParent, i), isAble);
+    }
+    // tab 5, G Warehouse
+    for(__int32 i = IDC_BUTTON_OPEN_G_WAREHOUSE_2; i <= IDC_EDIT_G_WAREHOUSE_LOG; i++){
+        EnableWindow(GetDlgItem(hwndParent, i), isAble);
+    }
+
 }
 void SwitchRefreshControl(HWND hwndTab, BOOL isAble){
         // When Refresh thread is on, disable EDIT Controls
     HWND hwndParent = GetParent(hwndTab);
-    EnableWindow(GetDlgItem(hwndParent, IDC_EDIT_REFRESH_DELAY),         !isAble);
-//     EnableWindow(GetDlgItem(hwndParent, IDC_UPDOWN_REFRESH_DELAY),       !isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_EDIT_PLAYER_NAME),           !isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_BUTTON_APPLY_PLAYER_NAME),   !isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_EDIT_LV),                    !isAble);
-//     EnableWindow(GetDlgItem(hwndParent, IDC_UPDOWN_LV),                  !isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_COMBOBOX_SEX),               !isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_EDIT_EXP),                   !isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_BUTTON_APPLY_EXP),           !isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_COMBOBOX_PROF),              !isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_COMBOBOX_PROF_TO_BE),        !isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_EDIT_COMPANION_LV),          !isAble);
-//     EnableWindow(GetDlgItem(hwndParent, IDC_UPDOWN_COMPANION_LV),        !isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_COMBOBOX_COMPANION_ID),      !isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_EDIT_COMPANION_EXP),         !isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_BUTTON_APPLY_COMPANION_EXP), !isAble);
+    for(__int32 i = IDC_EDIT_REFRESH_DELAY; i <= IDC_BUTTON_APPLY_COMPANION_EXP; i++){
+        EnableWindow(GetDlgItem(hwndParent, i), !isAble);
+    }
 }
 void SwitchTeleportModeControl(HWND hwndTab, BOOL isAble){
         // When change teleport mode, switch control disables.
     HWND hwndParent = GetParent(hwndTab);
-    EnableWindow(GetDlgItem(hwndParent, IDC_STATIC_TELEPORT_GATE_ID),    !isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_EDIT_TELEPORT_GATE_ID),      !isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_STATIC_TELEPORT_GATE_WARN),  !isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_STATIC_TELEPORT_X),           isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_EDIT_TELEPORT_X),             isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_STATIC_TELEPORT_Y),           isAble);
-    EnableWindow(GetDlgItem(hwndParent, IDC_EDIT_TELEPORT_Y),             isAble);
-    
+    for(__int32 i = IDC_STATIC_TELEPORT_GATE_ID; i <= IDC_STATIC_TELEPORT_GATE_WARN; i++){
+        EnableWindow(GetDlgItem(hwndParent, i), !isAble);
+    }
+    for(__int32 i = IDC_STATIC_TELEPORT_X; i <= IDC_EDIT_TELEPORT_Y; i++){
+        EnableWindow(GetDlgItem(hwndParent, i), isAble);
+    }    
 }
 
 void ChangeLanguage(void){
@@ -2220,26 +2087,10 @@ void ChangeLanguage(void){
     TCITEMW tie;
     tie.mask = TCIF_TEXT;
     tie.iImage = -1;
-    tie.pszText = (LPWSTR)APP_WSTR[AWSTR_TAB_INIT][Hack_Status.App_Language];
-    SendMessageW(hwndTab, TCM_SETITEMW, 0, (LPARAM)&tie);
-    tie.pszText = (LPWSTR)APP_WSTR[AWSTR_TAB_WALLHACK][Hack_Status.App_Language];
-    SendMessageW(hwndTab, TCM_SETITEMW, 1, (LPARAM)&tie);
-    tie.pszText = (LPWSTR)APP_WSTR[AWSTR_TAB_ASSIST][Hack_Status.App_Language];
-    SendMessageW(hwndTab, TCM_SETITEMW, 2, (LPARAM)&tie);
-    tie.pszText = (LPWSTR)APP_WSTR[AWSTR_TAB_MAGIC][Hack_Status.App_Language];
-    SendMessageW(hwndTab, TCM_SETITEMW, 3, (LPARAM)&tie);
-    tie.pszText = (LPWSTR)APP_WSTR[AWSTR_TAB_QUEST][Hack_Status.App_Language];
-    SendMessageW(hwndTab, TCM_SETITEMW, 4, (LPARAM)&tie);
-    tie.pszText = (LPWSTR)APP_WSTR[AWSTR_TAB_G_WAREHOUSE][Hack_Status.App_Language];
-    SendMessageW(hwndTab, TCM_SETITEMW, 5, (LPARAM)&tie);
-    tie.pszText = (LPWSTR)APP_WSTR[AWSTR_TAB_TELEPORT_GATE][Hack_Status.App_Language];
-    SendMessageW(hwndTab, TCM_SETITEMW, 6, (LPARAM)&tie);
-    tie.pszText = (LPWSTR)APP_WSTR[AWSTR_TAB_STATUS_1][Hack_Status.App_Language];
-    SendMessageW(hwndTab, TCM_SETITEMW, 7, (LPARAM)&tie);
-    tie.pszText = (LPWSTR)APP_WSTR[AWSTR_TAB_STATUS_2][Hack_Status.App_Language];
-    SendMessageW(hwndTab, TCM_SETITEMW, 8, (LPARAM)&tie);
-    tie.pszText = (LPWSTR)APP_WSTR[AWSTR_TAB_STATUS_3][Hack_Status.App_Language];
-    SendMessageW(hwndTab, TCM_SETITEMW, 9, (LPARAM)&tie);
+    for(__int32 i = 0; i <= 9; i++){
+        tie.pszText = (LPWSTR)APP_WSTR[AWSTR_TAB_INIT + i][Hack_Status.App_Language];
+        SendMessageW(hwndTab, TCM_SETITEMW, i, (LPARAM)&tie);
+    }
 
     HWND hwndParent = GetParent(hwndTab);
 
@@ -2450,48 +2301,11 @@ void ChangeLanguage(void){
             (LPARAM)APP_WSTR[AWSTR_CTL_B_TELEPORT][Hack_Status.App_Language]);
     
         // tab 2, Assist
-    SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_OPEN_WAREHOUSE), WM_SETTEXT, 
-            (WPARAM)wcslen(APP_WSTR[AWSTR_CTL_B_OPEN_WAREHOUSE][Hack_Status.App_Language]), 
-            (LPARAM)APP_WSTR[AWSTR_CTL_B_OPEN_WAREHOUSE][Hack_Status.App_Language]);
-    SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_OPEN_G_WAREHOUSE), WM_SETTEXT, 
-            (WPARAM)wcslen(APP_WSTR[AWSTR_CTL_B_OPEN_G_WAREHOUSE][Hack_Status.App_Language]), 
-            (LPARAM)APP_WSTR[AWSTR_CTL_B_OPEN_G_WAREHOUSE][Hack_Status.App_Language]);
-    SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_PAUSE_GAME), WM_SETTEXT, 
-            (WPARAM)wcslen(APP_WSTR[AWSTR_CTL_B_PAUSE_GAME][Hack_Status.App_Language]), 
-            (LPARAM)APP_WSTR[AWSTR_CTL_B_PAUSE_GAME][Hack_Status.App_Language]);
-    SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_OPEN_CUSTOM_OUTFIT), WM_SETTEXT, 
-            (WPARAM)wcslen(APP_WSTR[AWSTR_CTL_B_OPEN_CUSTOM_OUTFIT][Hack_Status.App_Language]), 
-            (LPARAM)APP_WSTR[AWSTR_CTL_B_OPEN_CUSTOM_OUTFIT][Hack_Status.App_Language]);
-    SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_INFINITE_POWER), WM_SETTEXT, 
-            (WPARAM)wcslen(APP_WSTR[AWSTR_CTL_B_INFINITE_POWER][Hack_Status.App_Language]), 
-            (LPARAM)APP_WSTR[AWSTR_CTL_B_INFINITE_POWER][Hack_Status.App_Language]);
-    SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_COMPANION_REVIVE), WM_SETTEXT, 
-            (WPARAM)wcslen(APP_WSTR[AWSTR_CTL_B_COMP_REVIVE][Hack_Status.App_Language]), 
-            (LPARAM)APP_WSTR[AWSTR_CTL_B_COMP_REVIVE][Hack_Status.App_Language]);
-    SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_EXTRA_LANDMINE), WM_SETTEXT, 
-            (WPARAM)wcslen(APP_WSTR[AWSTR_CTL_B_EX_LANDMINE][Hack_Status.App_Language]), 
-            (LPARAM)APP_WSTR[AWSTR_CTL_B_EX_LANDMINE][Hack_Status.App_Language]);
-    SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_EXTRA_LANDMINE_POWER), WM_SETTEXT, 
-            (WPARAM)wcslen(APP_WSTR[AWSTR_CTL_B_EX_LANDMINE_POWER][Hack_Status.App_Language]), 
-            (LPARAM)APP_WSTR[AWSTR_CTL_B_EX_LANDMINE_POWER][Hack_Status.App_Language]);
-    SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_BE_RICH), WM_SETTEXT, 
-            (WPARAM)wcslen(APP_WSTR[AWSTR_CTL_B_BE_RICH][Hack_Status.App_Language]), 
-            (LPARAM)APP_WSTR[AWSTR_CTL_B_BE_RICH][Hack_Status.App_Language]);
-    SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_NO_MONSTER), WM_SETTEXT, 
-            (WPARAM)wcslen(APP_WSTR[AWSTR_CTL_B_NO_MONSTER][Hack_Status.App_Language]), 
-            (LPARAM)APP_WSTR[AWSTR_CTL_B_NO_MONSTER][Hack_Status.App_Language]);
-    SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_LV_TO_30), WM_SETTEXT, 
-            (WPARAM)wcslen(APP_WSTR[AWSTR_CTL_B_MAGIC_TO_30][Hack_Status.App_Language]), 
-            (LPARAM)APP_WSTR[AWSTR_CTL_B_MAGIC_TO_30][Hack_Status.App_Language]);
-    SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_CRAZY_SPEED), WM_SETTEXT, 
-            (WPARAM)wcslen(APP_WSTR[AWSTR_CTL_B_CRAZY_SPEED][Hack_Status.App_Language]), 
-            (LPARAM)APP_WSTR[AWSTR_CTL_B_CRAZY_SPEED][Hack_Status.App_Language]);
-    SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_GOD_MODE), WM_SETTEXT, 
-            (WPARAM)wcslen(APP_WSTR[AWSTR_CTL_B_GOD_MODE][Hack_Status.App_Language]), 
-            (LPARAM)APP_WSTR[AWSTR_CTL_B_GOD_MODE][Hack_Status.App_Language]);
-    SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_EXTEND_ATK_RANGE), WM_SETTEXT, 
-            (WPARAM)wcslen(APP_WSTR[AWSTR_CTL_B_EXTEND_ATK_RANGE][Hack_Status.App_Language]), 
-            (LPARAM)APP_WSTR[AWSTR_CTL_B_EXTEND_ATK_RANGE][Hack_Status.App_Language]);
+    for(__int32 i = 0; i <= 0xD; i++){
+        SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_OPEN_WAREHOUSE + i), WM_SETTEXT, 
+                (WPARAM)wcslen(APP_WSTR[AWSTR_CTL_B_OPEN_WAREHOUSE + i][Hack_Status.App_Language]), 
+                (LPARAM)APP_WSTR[AWSTR_CTL_B_OPEN_WAREHOUSE + i][Hack_Status.App_Language]);
+    }
     AppendText(GetDlgItem(hwndParent, IDC_EDIT_ASSIST_LOG), 
             APP_WSTR[AWSTR_APP_HINT_ASSIST][Hack_Status.App_Language], TRUE);
     SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_REVIVE_ENEMY), WM_SETTEXT, 
@@ -2508,22 +2322,44 @@ void ChangeLanguage(void){
     SendMessageW(GetDlgItem(hwndParent, IDC_STATIC_MAGIC_NAME_2), WM_SETTEXT, 
             (WPARAM)wcslen(APP_WSTR[AWSTR_CTL_S_MAGIC_NAME][Hack_Status.App_Language]), 
             (LPARAM)APP_WSTR[AWSTR_CTL_S_MAGIC_NAME][Hack_Status.App_Language]);
-    SendMessageW(GetDlgItem(hwndParent, IDC_GROUPBOX_TAB_1), WM_SETTEXT, 
-            (WPARAM)wcslen(APP_WSTR[AWSTR_CTL_G_TAB_1][Hack_Status.App_Language]), 
-            (LPARAM)APP_WSTR[AWSTR_CTL_G_TAB_1][Hack_Status.App_Language]);
-    SendMessageW(GetDlgItem(hwndParent, IDC_GROUPBOX_TAB_2), WM_SETTEXT, 
-            (WPARAM)wcslen(APP_WSTR[AWSTR_CTL_G_TAB_2][Hack_Status.App_Language]), 
-            (LPARAM)APP_WSTR[AWSTR_CTL_G_TAB_2][Hack_Status.App_Language]);
-    SendMessageW(GetDlgItem(hwndParent, IDC_GROUPBOX_TAB_3), WM_SETTEXT, 
-            (WPARAM)wcslen(APP_WSTR[AWSTR_CTL_G_TAB_3][Hack_Status.App_Language]), 
-            (LPARAM)APP_WSTR[AWSTR_CTL_G_TAB_3][Hack_Status.App_Language]);
-    SendMessageW(GetDlgItem(hwndParent, IDC_GROUPBOX_TAB_4), WM_SETTEXT, 
-            (WPARAM)wcslen(APP_WSTR[AWSTR_CTL_G_TAB_4][Hack_Status.App_Language]), 
-            (LPARAM)APP_WSTR[AWSTR_CTL_G_TAB_4][Hack_Status.App_Language]);
+    SendMessageW(GetDlgItem(hwndParent, IDC_GROUPBOX_MAGIC_PAGE_1), WM_SETTEXT, 
+            (WPARAM)wcslen(APP_WSTR[AWSTR_CTL_G_MAGIC_PAGE_1][Hack_Status.App_Language]), 
+            (LPARAM)APP_WSTR[AWSTR_CTL_G_MAGIC_PAGE_1][Hack_Status.App_Language]);
+    SendMessageW(GetDlgItem(hwndParent, IDC_GROUPBOX_MAGIC_PAGE_2), WM_SETTEXT, 
+            (WPARAM)wcslen(APP_WSTR[AWSTR_CTL_G_MAGIC_PAGE_2][Hack_Status.App_Language]), 
+            (LPARAM)APP_WSTR[AWSTR_CTL_G_MAGIC_PAGE_2][Hack_Status.App_Language]);
+    SendMessageW(GetDlgItem(hwndParent, IDC_GROUPBOX_MAGIC_PAGE_3), WM_SETTEXT, 
+            (WPARAM)wcslen(APP_WSTR[AWSTR_CTL_G_MAGIC_PAGE_3][Hack_Status.App_Language]), 
+            (LPARAM)APP_WSTR[AWSTR_CTL_G_MAGIC_PAGE_3][Hack_Status.App_Language]);
+    SendMessageW(GetDlgItem(hwndParent, IDC_GROUPBOX_MAGIC_PAGE_4), WM_SETTEXT, 
+            (WPARAM)wcslen(APP_WSTR[AWSTR_CTL_G_MAGIC_PAGE_4][Hack_Status.App_Language]), 
+            (LPARAM)APP_WSTR[AWSTR_CTL_G_MAGIC_PAGE_4][Hack_Status.App_Language]);
     for(__int32 i = 0; i < SF_MAGIC_COUNT; i++){
         SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_MAGIC_1 + i * 5), WM_SETTEXT, 
                 (WPARAM)wcslen(APP_WSTR_MAGIC[AWSTR_MAGIC_TRANSPORT + i][Hack_Status.App_Language]), 
                 (LPARAM)APP_WSTR_MAGIC[AWSTR_MAGIC_TRANSPORT + i][Hack_Status.App_Language]);
     }
-
+        // tab 4, Quest
+    for(__int32 i = IDC_STATIC_QUEST_COL_1; i <= IDC_GROUPBOX_QUEST_PAGE_2; i++){
+        SendMessageW(GetDlgItem(hwndParent, i), WM_SETTEXT, 
+                (WPARAM)wcslen(APP_WSTR[AWSTR_CTL_S_QUEST_COL_1 + i - IDC_STATIC_QUEST_COL_1][Hack_Status.App_Language]), 
+                (LPARAM)APP_WSTR[AWSTR_CTL_S_QUEST_COL_1 + i - IDC_STATIC_QUEST_COL_1][Hack_Status.App_Language]);
+    }
+    for(__int32 i = IDC_BUTTON_QUEST_1; i <= IDC_BUTTON_QUEST_48; i++){
+        SendMessageW(GetDlgItem(hwndParent, i), WM_SETTEXT, 
+                (WPARAM)wcslen(APP_WSTR_QUEST[AWSTR_QUEST_DEFEAT_THE_RED_GOBLIN + i - IDC_BUTTON_QUEST_1][Hack_Status.App_Language]), 
+                (LPARAM)APP_WSTR_QUEST[AWSTR_QUEST_DEFEAT_THE_RED_GOBLIN + i - IDC_BUTTON_QUEST_1][Hack_Status.App_Language]);
+    }
+        // tab 5, G Warehouse
+    SendMessageW(GetDlgItem(hwndParent, IDC_BUTTON_OPEN_G_WAREHOUSE_2), WM_SETTEXT, 
+            (WPARAM)wcslen(APP_WSTR[AWSTR_CTL_B_OPEN_G_WAREHOUSE][Hack_Status.App_Language]), 
+            (LPARAM)APP_WSTR[AWSTR_CTL_B_OPEN_G_WAREHOUSE][Hack_Status.App_Language]);
+    SendMessageW(GetDlgItem(hwndParent, IDC_GROUPBOX_G_WAREHOUSE), WM_SETTEXT, 
+            (WPARAM)wcslen(APP_WSTR[AWSTR_CTL_G_G_WAREHOUSE][Hack_Status.App_Language]), 
+            (LPARAM)APP_WSTR[AWSTR_CTL_G_G_WAREHOUSE][Hack_Status.App_Language]);
+    SendMessageW(GetDlgItem(hwndParent, IDC_STATIC_G_WAREHOUSE_INDEX), WM_SETTEXT, 
+            (WPARAM)wcslen(APP_WSTR[AWSTR_CTL_S_G_WAREHOUSE_INDEX][Hack_Status.App_Language]), 
+            (LPARAM)APP_WSTR[AWSTR_CTL_S_G_WAREHOUSE_INDEX][Hack_Status.App_Language]);
+    AppendText(GetDlgItem(hwndParent, IDC_EDIT_G_WAREHOUSE_LOG), 
+            APP_WSTR[AWSTR_APP_HINT_G_WAREHOUSE][Hack_Status.App_Language], TRUE);
 }
